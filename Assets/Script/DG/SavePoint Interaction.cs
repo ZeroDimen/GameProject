@@ -1,16 +1,14 @@
-using UnityEngine.SceneManagement;
 using UnityEngine;
 
-public class DoorInteraction : MonoBehaviour
+public class SavePointInteraction : MonoBehaviour
 {
     public GameObject obj;
-
+    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && obj.activeSelf)
         {
-            SceneManager.LoadScene("Village", LoadSceneMode.Additive);
-            SceneManager.UnloadSceneAsync("Village_Chief_House");
+            GameObject.Find("Game Manager").GetComponent<Data_Manager>().SaveData(Data_Manager.instance.NowPlayer.Data_Num, "Village");
         }
     }
 

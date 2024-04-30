@@ -5,7 +5,25 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/CamScene.unity
+    guid: 144a978d5c89cd047b909606407b47a5
+  - enabled: 1
+    path: Assets/Scenes/CutScene_1.unity
+    guid: 1781d670e18e76f41bca5a8f46c881ca
+  - enabled: 1
+    path: Assets/Scenes/CutScene_2.unity
+    guid: d2c5cd6f477a5cd4ea027c6ae3f68ca1
+  - enabled: 1
+    path: Assets/Scenes/Village_Chief_House.unity
+    guid: 29597ff5280288e49a228ff25ea91f2b
+  - enabled: 1
+    path: Assets/Scenes/Village.unity
+    guid: 18ca4e86f3311df438c238be3e8ef275
+  - enabled: 1
+    path: Assets/Scenes/Player_House.unity
+    guid: 693e655cbea88544c92366933d4e8c2f
   m_configObjects: {}
