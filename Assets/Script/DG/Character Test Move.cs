@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class CharacterTestMove : MonoBehaviour
@@ -37,6 +33,11 @@ public class CharacterTestMove : MonoBehaviour
         Flip();
     }
 
+    public void Gravity(short i = 0)
+    {
+        rigid.gravityScale = i;
+    }
+
     void Move()
     {
         rigid.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, rigid.velocity.y);
@@ -64,9 +65,9 @@ public class CharacterTestMove : MonoBehaviour
         if (jumpBufferCount >= 0 && hangCounter >= 0f) 
         {
             rigid.velocity = new Vector2(rigid.velocity.x, jumpForce);
-            isGrounded = false;
+            isGrounded = true;
             jumpBufferCount = 0;
-            isJump = true;
+            isJump = false;
             Debug.Log("press jump");
         }
 
@@ -94,24 +95,24 @@ public class CharacterTestMove : MonoBehaviour
         }
     }
     
-    private void OnCollisionStay2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Platform"))
-        {
-            isGrounded = true;
-            if (isJump)
-            {
-                //rigid.gravityScale *= 2;
-                isJump = false;
-            }
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D other)
-    {
-        if (other.gameObject.CompareTag("Platform"))
-        {
-            isGrounded = false;
-        }
-    }
+    // private void OnCollisionStay2D(Collision2D other)
+    // {
+    //     if (other.gameObject.CompareTag("Platform"))
+    //     {
+    //         isGrounded = true;
+    //         if (isJump)
+    //         {
+    //             //rigid.gravityScale *= 2;
+    //             isJump = false;
+    //         }
+    //     }
+    // }
+    //
+    // private void OnCollisionExit2D(Collision2D other)
+    // {
+    //     if (other.gameObject.CompareTag("Platform"))
+    //     {
+    //         isGrounded = false;
+    //     }
+    // }
 }

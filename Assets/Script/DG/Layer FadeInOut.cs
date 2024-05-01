@@ -21,8 +21,8 @@ public class LayerFadeInOut : MonoBehaviour
     {
         float elapsedTime = 0.0f;
         float currentAlpha = 1.0f;
-        float targetAlpha = 0.0f;
-        float fadeTimer = 0.0f;
+        // float targetAlpha = 0.0f;
+        // float fadeTimer = 0.0f;
 
         while (elapsedTime < fadeDuration)
         {
@@ -51,8 +51,8 @@ public class LayerFadeInOut : MonoBehaviour
     {
         float elapsedTime = 0.0f;
         float currentAlpha = 1.0f;
-        float targetAlpha = 0.0f;
-        float fadeTimer = 0.0f;
+        // float targetAlpha = 0.0f;
+        // float fadeTimer = 0.0f;
 
         while (elapsedTime < fadeDuration)
         {

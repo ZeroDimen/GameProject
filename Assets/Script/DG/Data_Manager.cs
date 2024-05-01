@@ -9,6 +9,7 @@ public class PlayerData
     public uint Money = 10;
     public string Time = "None";
     public int Data_Num = 0;
+    public Vector3 pos = new Vector3(0, 0, 0);
 }
 public class Data_Manager : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class Data_Manager : MonoBehaviour
 
     public PlayerData NowPlayer = new PlayerData();
     public GameObject Scene_Manager;
-    
+    private GameObject Player;
     public string path;
 
     private void Awake()
@@ -35,6 +36,12 @@ public class Data_Manager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
         path = Application.persistentDataPath + "/";
     }
+
+    private void Start()
+    {
+        Player = GameObject.Find("Player");
+    }
+
     #region Button
     public void Btn1_Data()
     {
@@ -57,7 +64,7 @@ public class Data_Manager : MonoBehaviour
             NowPlayer.Location = $"{Location}";
         }
         NowPlayer.Time = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
-        
+        NowPlayer.pos = Player.transform.position; 
         
         string Data = JsonUtility.ToJson(NowPlayer);
         
