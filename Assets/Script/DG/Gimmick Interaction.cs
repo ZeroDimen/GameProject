@@ -35,10 +35,10 @@ public class GimmickInteraction : MonoBehaviour
     IEnumerator MoveObjectDown()
     {
         Vector3 startPosition = Wall.transform.position;
-        Vector3 endPosition = new Vector3(startPosition.x, startPosition.y - 15f, startPosition.z);
+        Vector3 endPosition = new Vector3(startPosition.x, startPosition.y - 7f, startPosition.z);
 
         float elapsedTime = -2f;
-        float duration = 3.5f;
+        float duration = 1.5f;
 
         while (elapsedTime < duration + 2f)
         {

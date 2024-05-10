@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using UnityEngine;
 
+
 public class PlayerData
 { 
     //name, level, money, etc..
@@ -19,7 +20,7 @@ public class Data_Manager : MonoBehaviour
     public GameObject Scene_Manager;
     private GameObject Player;
     public string path;
-
+    
     private void Awake()
     {
         #region Singleton
