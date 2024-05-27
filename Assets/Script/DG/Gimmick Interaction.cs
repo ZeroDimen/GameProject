@@ -25,8 +25,12 @@ public class GimmickInteraction : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && obj.activeSelf)
         {
-            B_1.Follow = Player_ob.transform;
-            Blend.SetActive(true);
+            if (B_1 != null && Blend != null)
+            {
+                B_1.Follow = Player_ob.transform;
+                Blend.SetActive(true);
+            }
+            
             StartCoroutine(MoveObjectDown());
             
         }
@@ -35,7 +39,7 @@ public class GimmickInteraction : MonoBehaviour
     IEnumerator MoveObjectDown()
     {
         Vector3 startPosition = Wall.transform.position;
-        Vector3 endPosition = new Vector3(startPosition.x, startPosition.y - 7f, startPosition.z);
+        Vector3 endPosition = new Vector3(startPosition.x, startPosition.y + 7f, startPosition.z);
 
         float elapsedTime = -2f;
         float duration = 1.5f;
@@ -50,7 +54,11 @@ public class GimmickInteraction : MonoBehaviour
             yield return null;
         }
         Wall.transform.position = endPosition;
-        Blend.SetActive(false);
+        
+        if (B_1 != null && Blend != null)
+        {
+            Blend.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

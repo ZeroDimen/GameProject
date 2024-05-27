@@ -16,7 +16,7 @@ public class FallingPlatforms : MonoBehaviour
         
         if (col.gameObject.name.Equals("Player"))
         {
-            StartCoroutine(FallingPlat());
+            // StartCoroutine(FallingPlat());
         }
     }
 

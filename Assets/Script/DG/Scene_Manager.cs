@@ -17,7 +17,6 @@ public class Scene_Manager : MonoBehaviour
             SceneManager.UnloadSceneAsync("StartScene");
             SceneManager.LoadScene("Village_Chief_House", LoadSceneMode.Additive);
             Player.SetActive(true);
-            GameObject.Find("Player").GetComponent<PlayerMoveinFixedUpdate>().Gravity(5);
         }
         else if (Location != null)
         {
@@ -25,7 +24,6 @@ public class Scene_Manager : MonoBehaviour
             SceneManager.LoadScene($"{Location}", LoadSceneMode.Additive);
             Player.transform.position = Data_Manager.instance.NowPlayer.pos;
             Player.SetActive(true);
-            GameObject.Find("Player").GetComponent<PlayerMoveinFixedUpdate>().Gravity(5);
         }
         else
         {

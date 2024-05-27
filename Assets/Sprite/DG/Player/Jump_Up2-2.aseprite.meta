@@ -1,0 +1,544 @@
+fileFormatVersion: 2
+guid: efd97964b44077748b86f1fc0a734f67
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Jump_Up2-2_Clip
+    second: {fileID: 7400000, guid: 72b29804bca6e584b85c849003ba82d9, type: 2}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 50
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 638523456719623112
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Jump_Up2-2_Frame_0
+    originalName: 
+    pivot: {x: 0.57377046, y: -0.067307696}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 241
+      y: 120
+      width: 61
+      height: 104
+    spriteID: ec672792cd2688a4086a3d39699e9ea3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 241, y: 120}
+  - name: Jump_Up2-2_Frame_1
+    originalName: 
+    pivot: {x: 0.5272727, y: -0.067307696}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 436
+      y: 120
+      width: 55
+      height: 104
+    spriteID: b8e756f7ded09d34b9ecfdfd76093255
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 436, y: 120}
+  - name: Jump_Up2-2_Frame_2
+    originalName: 
+    pivot: {x: 0.53571427, y: -0.027777776}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 310
+      y: 120
+      width: 56
+      height: 108
+    spriteID: 7e8c2986226b447408991f69ea0c4b0d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 310, y: 120}
+  - name: Jump_Up2-2_Frame_3
+    originalName: 
+    pivot: {x: 0.5185185, y: -0.027777776}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 374
+      y: 120
+      width: 54
+      height: 108
+    spriteID: 68e6c226625f5104fb4ac1fbfb0bfba5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 374, y: 120}
+  - name: Jump_Up2-2_Frame_4
+    originalName: 
+    pivot: {x: 0.55932206, y: -0.027777776}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 174
+      y: 120
+      width: 59
+      height: 108
+    spriteID: d6168694cc8147240960c0bcf3c23944
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 174, y: 120}
+  - name: Jump_Up2-2_Frame_5
+    originalName: 
+    pivot: {x: 0.5873016, y: -0.027777776}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 444
+      y: 4
+      width: 63
+      height: 108
+    spriteID: b3a8981f1bdcf4848aca5e24f66ead1e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 444, y: 4}
+  - name: Jump_Up2-2_Frame_6
+    originalName: 
+    pivot: {x: 0.6315789, y: -0.027777776}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 90
+      y: 120
+      width: 76
+      height: 108
+    spriteID: 4443f503a5173ea4891bed36da90e306
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 90, y: 120}
+  - name: Jump_Up2-2_Frame_7
+    originalName: 
+    pivot: {x: 0.675, y: -0.027777776}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 93
+      y: 4
+      width: 80
+      height: 108
+    spriteID: f6caec94f502dfe42b350400c4924fce
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 93, y: 4}
+  - name: Jump_Up2-2_Frame_8
+    originalName: 
+    pivot: {x: 0.67901236, y: -0.027777776}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 81
+      height: 108
+    spriteID: fb9ff8863daba694b89ce778f5b72a3c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Jump_Up2-2_Frame_9
+    originalName: 
+    pivot: {x: 0.675, y: -0.027777776}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 181
+      y: 4
+      width: 80
+      height: 108
+    spriteID: 291f63538de62874298fa29c3c96d3d1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 181, y: 4}
+  - name: Jump_Up2-2_Frame_10
+    originalName: 
+    pivot: {x: 0.675, y: -0.027777776}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 269
+      y: 4
+      width: 80
+      height: 108
+    spriteID: fecffc555f97085428922d21e304cf42
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 269, y: 4}
+  - name: Jump_Up2-2_Frame_11
+    originalName: 
+    pivot: {x: 0.6708861, y: -0.027777776}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 357
+      y: 4
+      width: 79
+      height: 108
+    spriteID: aef04c215682a46498b81ad9721d46da
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 357, y: 4}
+  - name: Jump_Up2-2_Frame_12
+    originalName: 
+    pivot: {x: 0.6666666, y: -0.027777776}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 120
+      width: 78
+      height: 108
+    spriteID: 170f15c1de670ce4bb9e327bc4e97875
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 120}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 684703541
+    name: Jump_Up2-2
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Jump_Up2-2_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 40
+        y: 7
+        width: 61
+        height: 104
+      spriteId: ec672792cd2688a4086a3d39699e9ea3
+    - name: Jump_Up2-2_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 46
+        y: 7
+        width: 55
+        height: 104
+      spriteId: b8e756f7ded09d34b9ecfdfd76093255
+    - name: Jump_Up2-2_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 45
+        y: 3
+        width: 56
+        height: 108
+      spriteId: 7e8c2986226b447408991f69ea0c4b0d
+    - name: Jump_Up2-2_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 47
+        y: 3
+        width: 54
+        height: 108
+      spriteId: 68e6c226625f5104fb4ac1fbfb0bfba5
+    - name: Jump_Up2-2_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 42
+        y: 3
+        width: 59
+        height: 108
+      spriteId: d6168694cc8147240960c0bcf3c23944
+    - name: Jump_Up2-2_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 38
+        y: 3
+        width: 63
+        height: 108
+      spriteId: b3a8981f1bdcf4848aca5e24f66ead1e
+    - name: Jump_Up2-2_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 27
+        y: 3
+        width: 76
+        height: 108
+      spriteId: 4443f503a5173ea4891bed36da90e306
+    - name: Jump_Up2-2_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 21
+        y: 3
+        width: 80
+        height: 108
+      spriteId: f6caec94f502dfe42b350400c4924fce
+    - name: Jump_Up2-2_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 20
+        y: 3
+        width: 81
+        height: 108
+      spriteId: fb9ff8863daba694b89ce778f5b72a3c
+    - name: Jump_Up2-2_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 21
+        y: 3
+        width: 80
+        height: 108
+      spriteId: 291f63538de62874298fa29c3c96d3d1
+    - name: Jump_Up2-2_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 21
+        y: 3
+        width: 80
+        height: 108
+      spriteId: fecffc555f97085428922d21e304cf42
+    - name: Jump_Up2-2_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 22
+        y: 3
+        width: 79
+        height: 108
+      spriteId: aef04c215682a46498b81ad9721d46da
+    - name: Jump_Up2-2_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 23
+        y: 3
+        width: 78
+        height: 108
+      spriteId: 170f15c1de670ce4bb9e327bc4e97875
+    linkedCells: []
+    parentIndex: -1
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: WebGL
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 150, y: 150}
