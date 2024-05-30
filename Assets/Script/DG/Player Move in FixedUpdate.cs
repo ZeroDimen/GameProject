@@ -135,11 +135,12 @@ public class PlayerMoveinFixedUpdate : MonoBehaviour
 
     private void Landing_Platform()
     {
+        Debug.DrawRay(rigid.position,Vector3.down,new Color(0,1,0));
         var rayHit = Physics2D.Raycast(rigid.position, Vector2.down, 1f,
             LayerMask.GetMask("Platform"));
         if (rayHit.collider != null)
         {
-            if (rayHit.distance < 0.15f)
+            if (rayHit.distance < 0.5f)
             {
                 isGrounded = true;
             }
