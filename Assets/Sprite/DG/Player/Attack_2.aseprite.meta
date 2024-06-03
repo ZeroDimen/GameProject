@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 24f20c48d73c32144ade0905502374db
+guid: 31c4f8b9a2649804c974185c610afeb7
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:AnimationClip
       assembly: UnityEngine.AnimationModule
-      name: Jump_Down1_Clip
-    second: {fileID: 7400000, guid: d346dc972c3739449a0645dc82b2d91d, type: 2}
+      name: Attack_2_Clip
+    second: {fileID: 7400000, guid: 8ea73b7d81cf0d544bb11fb9f9bb767c, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -40,7 +40,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 30
+    spritePixelsToUnits: 50
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -102,7 +102,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638520793282909297
+  platformSettingsDirtyTick: 638529791688033143
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -126,18 +126,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Jump_Down1_Frame_0
+  - name: Attack_2_Frame_0
     originalName: 
-    pivot: {x: 0.7254902, y: -0.2708333}
+    pivot: {x: 1.2857143, y: -0.06666667}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 50
-      y: 4
-      width: 51
-      height: 48
-    spriteID: 0cc94b5781879664284899b3e1e1c150
+      x: 414
+      y: 113
+      width: 35
+      height: 105
+    spriteID: 2e62eb682907c0f42ae294d859cb7786
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -145,19 +145,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 50, y: 4}
-  - name: Jump_Down1_Frame_1
+    uvTransform: {x: 414, y: 113}
+  - name: Attack_2_Frame_1
     originalName: 
-    pivot: {x: 0.71428573, y: -0.2708333}
+    pivot: {x: 1.0961539, y: -0.06862745}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 109
-      y: 4
-      width: 49
-      height: 48
-    spriteID: ad15cf665d36c9c48b25063d9fba455a
+      x: 294
+      y: 113
+      width: 52
+      height: 102
+    spriteID: 4ae0d188db457f943b5e13ffa7b41cdd
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -165,19 +165,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 109, y: 4}
-  - name: Jump_Down1_Frame_2
+    uvTransform: {x: 294, y: 113}
+  - name: Attack_2_Frame_2
     originalName: 
-    pivot: {x: 0.6956522, y: -0.2708333}
+    pivot: {x: 1.015625, y: -0.06930693}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 166
-      y: 4
-      width: 46
-      height: 48
-    spriteID: 4192990cbb1bc824e903c9bb886bf0b6
+      x: 222
+      y: 113
+      width: 64
+      height: 101
+    spriteID: dc7bc4882d42a464c9155e396d02bcbe
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -185,19 +185,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 166, y: 4}
-  - name: Jump_Down1_Frame_3
+    uvTransform: {x: 222, y: 113}
+  - name: Attack_2_Frame_3
     originalName: 
-    pivot: {x: 0.6744186, y: -0.23214285}
+    pivot: {x: 1.0140846, y: -0.06930693}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 50
-      y: 60
-      width: 43
-      height: 56
-    spriteID: b10512df3736dbf4a9977e14b0fd6373
+      x: 143
+      y: 113
+      width: 71
+      height: 101
+    spriteID: 78a302773a8d2f74c8c550ec3708584f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -205,79 +205,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 50, y: 60}
-  - name: Jump_Down1_Frame_4
+    uvTransform: {x: 143, y: 113}
+  - name: Attack_2_Frame_4
     originalName: 
-    pivot: {x: 0.65, y: -0.22807017}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 147
-      y: 60
-      width: 40
-      height: 57
-    spriteID: 9288a34b28ac3b849b6851ff64c553d6
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 147, y: 60}
-  - name: Jump_Down1_Frame_5
-    originalName: 
-    pivot: {x: 0.64102566, y: -0.22807017}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 195
-      y: 60
-      width: 39
-      height: 57
-    spriteID: f3ef9b7300d86494f9bba1c5efa28d79
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 195, y: 60}
-  - name: Jump_Down1_Frame_6
-    originalName: 
-    pivot: {x: 0.65789473, y: -0.14754097}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 101
-      y: 60
-      width: 38
-      height: 61
-    spriteID: d96f224eb7692a240b8bd005beb9216d
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 101, y: 60}
-  - name: Jump_Down1_Frame_7
-    originalName: 
-    pivot: {x: 0.65789473, y: -0.07692308}
+    pivot: {x: 0.48322153, y: -0.06930693}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 38
-      height: 65
-    spriteID: cb4197ce4136d3a47a7d5c0d47d4c947
+      width: 149
+      height: 101
+    spriteID: 394cf5cef4e89a247bbfc825063613ff
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -286,79 +226,167 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
+  - name: Attack_2_Frame_5
+    originalName: 
+    pivot: {x: 0.49655175, y: -0.06930693}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 161
+      y: 4
+      width: 145
+      height: 101
+    spriteID: 4caa8731ee7793347a7a9a7e2e3e2f7f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 161, y: 4}
+  - name: Attack_2_Frame_6
+    originalName: 
+    pivot: {x: 0.51063836, y: -0.06930693}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 314
+      y: 4
+      width: 141
+      height: 101
+    spriteID: 8351b187a6bbfcd408971120ffc0af55
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 314, y: 4}
+  - name: Attack_2_Frame_7
+    originalName: 
+    pivot: {x: 0.4961832, y: -0.06930693}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 113
+      width: 131
+      height: 101
+    spriteID: 9c87b4655e88709428dda7f2398cfbe2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 113}
+  - name: Attack_2_Frame_8
+    originalName: 
+    pivot: {x: 1.0961539, y: -0.06862745}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 354
+      y: 113
+      width: 52
+      height: 102
+    spriteID: 5c53944a13206a8448a5fcfce8e5cce6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 354, y: 113}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1078988270
-    name: Jump_Down1
+    guid: -1015916251
+    name: Attack_2
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Jump_Down1_Frame_0
+    - name: Attack_2_Frame_0
       frameIndex: 0
       cellRect:
-        x: 3
-        y: 13
-        width: 51
-        height: 48
-      spriteId: 0cc94b5781879664284899b3e1e1c150
-    - name: Jump_Down1_Frame_1
+        x: 55
+        y: 7
+        width: 35
+        height: 105
+      spriteId: 2e62eb682907c0f42ae294d859cb7786
+    - name: Attack_2_Frame_1
       frameIndex: 1
       cellRect:
-        x: 5
-        y: 13
-        width: 49
-        height: 48
-      spriteId: ad15cf665d36c9c48b25063d9fba455a
-    - name: Jump_Down1_Frame_2
+        x: 43
+        y: 7
+        width: 52
+        height: 102
+      spriteId: 4ae0d188db457f943b5e13ffa7b41cdd
+    - name: Attack_2_Frame_2
       frameIndex: 2
       cellRect:
-        x: 8
-        y: 13
-        width: 46
-        height: 48
-      spriteId: 4192990cbb1bc824e903c9bb886bf0b6
-    - name: Jump_Down1_Frame_3
+        x: 35
+        y: 7
+        width: 64
+        height: 101
+      spriteId: dc7bc4882d42a464c9155e396d02bcbe
+    - name: Attack_2_Frame_3
       frameIndex: 3
       cellRect:
-        x: 11
-        y: 13
-        width: 43
-        height: 56
-      spriteId: b10512df3736dbf4a9977e14b0fd6373
-    - name: Jump_Down1_Frame_4
+        x: 28
+        y: 7
+        width: 71
+        height: 101
+      spriteId: 78a302773a8d2f74c8c550ec3708584f
+    - name: Attack_2_Frame_4
       frameIndex: 4
       cellRect:
-        x: 14
-        y: 13
-        width: 40
-        height: 57
-      spriteId: 9288a34b28ac3b849b6851ff64c553d6
-    - name: Jump_Down1_Frame_5
+        x: 28
+        y: 7
+        width: 149
+        height: 101
+      spriteId: 394cf5cef4e89a247bbfc825063613ff
+    - name: Attack_2_Frame_5
       frameIndex: 5
       cellRect:
-        x: 15
-        y: 13
-        width: 39
-        height: 57
-      spriteId: f3ef9b7300d86494f9bba1c5efa28d79
-    - name: Jump_Down1_Frame_6
+        x: 28
+        y: 7
+        width: 145
+        height: 101
+      spriteId: 4caa8731ee7793347a7a9a7e2e3e2f7f
+    - name: Attack_2_Frame_6
       frameIndex: 6
       cellRect:
-        x: 15
-        y: 9
-        width: 38
-        height: 61
-      spriteId: d96f224eb7692a240b8bd005beb9216d
-    - name: Jump_Down1_Frame_7
+        x: 28
+        y: 7
+        width: 141
+        height: 101
+      spriteId: 8351b187a6bbfcd408971120ffc0af55
+    - name: Attack_2_Frame_7
       frameIndex: 7
       cellRect:
-        x: 15
-        y: 5
-        width: 38
-        height: 65
-      spriteId: cb4197ce4136d3a47a7d5c0d47d4c947
+        x: 35
+        y: 7
+        width: 131
+        height: 101
+      spriteId: 9c87b4655e88709428dda7f2398cfbe2
+    - name: Attack_2_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 43
+        y: 7
+        width: 52
+        height: 102
+      spriteId: 5c53944a13206a8448a5fcfce8e5cce6
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -401,4 +429,4 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 80, y: 80}
+  canvasSize: {x: 200, y: 150}

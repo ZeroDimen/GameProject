@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 5281144224859c4419e4774c09d567c6
+guid: 6822fc2e2c82c554d9f8295386ad93ed
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:AnimationClip
       assembly: UnityEngine.AnimationModule
-      name: Jump_Up1_Clip
-    second: {fileID: 7400000, guid: 08bf67e97fab5ce44973ee1b106a7ff9, type: 2}
+      name: Slide_wall_2_Clip
+    second: {fileID: 7400000, guid: 8bb2cab5d32c8ab48b22f586e9457145, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -40,7 +40,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 30
+    spritePixelsToUnits: 50
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -102,7 +102,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638520793350028831
+  platformSettingsDirtyTick: 638529788831545321
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -126,18 +126,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Jump_Up1_Frame_0
+  - name: Slide_wall_2_Frame_0
     originalName: 
-    pivot: {x: 0.675, y: -0.0877193}
+    pivot: {x: 0.4057971, y: -0.23076925}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 179
-      y: 65
-      width: 40
-      height: 57
-    spriteID: d04ea75fd21c5304090eb7f715f7a2e9
+      x: 80
+      y: 131
+      width: 69
+      height: 117
+    spriteID: 51fc973e93b08a840a94026064077d37
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -145,19 +145,119 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 179, y: 65}
-  - name: Jump_Up1_Frame_1
+    uvTransform: {x: 80, y: 131}
+  - name: Slide_wall_2_Frame_1
     originalName: 
-    pivot: {x: 0.7291666, y: -0.16981132}
+    pivot: {x: 0.4057971, y: -0.27192983}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 80
+      y: 256
+      width: 69
+      height: 114
+    spriteID: 042c2d9e246f49b49983e121cd227148
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 80, y: 256}
+  - name: Slide_wall_2_Frame_2
+    originalName: 
+    pivot: {x: 0.36363634, y: -0.3243243}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 381
+      width: 66
+      height: 111
+    spriteID: d20fbf140866eef41bcb3a4b5ee40eb4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 381}
+  - name: Slide_wall_2_Frame_3
+    originalName: 
+    pivot: {x: 0.37878785, y: -0.31858405}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 260
+      width: 66
+      height: 113
+    spriteID: 7b19b79905aec0546aa084f863cfb6a5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 260}
+  - name: Slide_wall_2_Frame_4
+    originalName: 
+    pivot: {x: 0.37878785, y: -0.29565218}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 80
+      y: 378
+      width: 66
+      height: 115
+    spriteID: ab2e980320d45e74d98674269bb69f8d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 80, y: 378}
+  - name: Slide_wall_2_Frame_5
+    originalName: 
+    pivot: {x: 0.39130434, y: -0.25210086}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 80
+      y: 4
+      width: 69
+      height: 119
+    spriteID: d8a4eb3771ac2ab409ceddcdde3cc39d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 80, y: 4}
+  - name: Slide_wall_2_Frame_6
+    originalName: 
+    pivot: {x: 0.39705884, y: -0.21487604}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 48
-      height: 53
-    spriteID: bddbfe11ca1f288499319f6aaa1bf934
+      width: 68
+      height: 121
+    spriteID: 471699ecdbb13c74c940e3ba3f1c01c0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -166,98 +266,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: Jump_Up1_Frame_2
+  - name: Slide_wall_2_Frame_7
     originalName: 
-    pivot: {x: 0.71428573, y: -0.2708333}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 122
-      y: 65
-      width: 49
-      height: 48
-    spriteID: 157d39a7597a5b6448f2a7ce6bdf4ef2
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 122, y: 65}
-  - name: Jump_Up1_Frame_3
-    originalName: 
-    pivot: {x: 0.7254902, y: -0.2708333}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 60
-      y: 4
-      width: 51
-      height: 48
-    spriteID: fb20eca6b8dd5954a9de8247645d77d4
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 60, y: 4}
-  - name: Jump_Up1_Frame_4
-    originalName: 
-    pivot: {x: 0.7254902, y: -0.2708333}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 119
-      y: 4
-      width: 51
-      height: 48
-    spriteID: 2959f5d57761abc46894f36a349bb554
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 119, y: 4}
-  - name: Jump_Up1_Frame_5
-    originalName: 
-    pivot: {x: 0.7254902, y: -0.2708333}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 178
-      y: 4
-      width: 51
-      height: 48
-    spriteID: 6642a925aa7a64146aee53ea9c9d6543
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 178, y: 4}
-  - name: Jump_Up1_Frame_6
-    originalName: 
-    pivot: {x: 0.7254902, y: -0.2708333}
+    pivot: {x: 0.39705884, y: -0.21008405}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 4
-      y: 65
-      width: 51
-      height: 48
-    spriteID: 953e9f8a027b568439e53beee9d46e95
+      y: 133
+      width: 68
+      height: 119
+    spriteID: 417c4209cb888154dae276f7f085ef23
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -265,100 +285,80 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 65}
-  - name: Jump_Up1_Frame_7
-    originalName: 
-    pivot: {x: 0.7254902, y: -0.2708333}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 63
-      y: 65
-      width: 51
-      height: 48
-    spriteID: 8110dc5e246dd50498441b35376ce668
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 63, y: 65}
+    uvTransform: {x: 4, y: 133}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -247386643
-    name: Jump_Up1
+    guid: 980570739
+    name: Slide_wall_2
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Jump_Up1_Frame_0
+    - name: Slide_wall_2_Frame_0
       frameIndex: 0
       cellRect:
-        x: 13
-        y: 5
-        width: 40
-        height: 57
-      spriteId: d04ea75fd21c5304090eb7f715f7a2e9
-    - name: Jump_Up1_Frame_1
+        x: 47
+        y: 27
+        width: 69
+        height: 117
+      spriteId: 51fc973e93b08a840a94026064077d37
+    - name: Slide_wall_2_Frame_1
       frameIndex: 1
       cellRect:
-        x: 5
-        y: 9
-        width: 48
-        height: 53
-      spriteId: bddbfe11ca1f288499319f6aaa1bf934
-    - name: Jump_Up1_Frame_2
+        x: 47
+        y: 31
+        width: 69
+        height: 114
+      spriteId: 042c2d9e246f49b49983e121cd227148
+    - name: Slide_wall_2_Frame_2
       frameIndex: 2
       cellRect:
-        x: 5
-        y: 13
-        width: 49
-        height: 48
-      spriteId: 157d39a7597a5b6448f2a7ce6bdf4ef2
-    - name: Jump_Up1_Frame_3
+        x: 51
+        y: 36
+        width: 66
+        height: 111
+      spriteId: d20fbf140866eef41bcb3a4b5ee40eb4
+    - name: Slide_wall_2_Frame_3
       frameIndex: 3
       cellRect:
-        x: 3
-        y: 13
-        width: 51
-        height: 48
-      spriteId: fb20eca6b8dd5954a9de8247645d77d4
-    - name: Jump_Up1_Frame_4
+        x: 50
+        y: 36
+        width: 66
+        height: 113
+      spriteId: 7b19b79905aec0546aa084f863cfb6a5
+    - name: Slide_wall_2_Frame_4
       frameIndex: 4
       cellRect:
-        x: 3
-        y: 13
-        width: 51
-        height: 48
-      spriteId: 2959f5d57761abc46894f36a349bb554
-    - name: Jump_Up1_Frame_5
+        x: 50
+        y: 34
+        width: 66
+        height: 115
+      spriteId: ab2e980320d45e74d98674269bb69f8d
+    - name: Slide_wall_2_Frame_5
       frameIndex: 5
       cellRect:
-        x: 3
-        y: 13
-        width: 51
-        height: 48
-      spriteId: 6642a925aa7a64146aee53ea9c9d6543
-    - name: Jump_Up1_Frame_6
+        x: 48
+        y: 30
+        width: 69
+        height: 119
+      spriteId: d8a4eb3771ac2ab409ceddcdde3cc39d
+    - name: Slide_wall_2_Frame_6
       frameIndex: 6
       cellRect:
-        x: 3
-        y: 13
-        width: 51
-        height: 48
-      spriteId: 953e9f8a027b568439e53beee9d46e95
-    - name: Jump_Up1_Frame_7
+        x: 48
+        y: 26
+        width: 68
+        height: 121
+      spriteId: 471699ecdbb13c74c940e3ba3f1c01c0
+    - name: Slide_wall_2_Frame_7
       frameIndex: 7
       cellRect:
-        x: 3
-        y: 13
-        width: 51
-        height: 48
-      spriteId: 8110dc5e246dd50498441b35376ce668
+        x: 48
+        y: 25
+        width: 68
+        height: 119
+      spriteId: 417c4209cb888154dae276f7f085ef23
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -401,4 +401,4 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 80, y: 80}
+  canvasSize: {x: 150, y: 150}

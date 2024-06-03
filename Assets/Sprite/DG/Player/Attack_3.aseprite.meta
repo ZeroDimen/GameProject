@@ -1,13 +1,8 @@
 fileFormatVersion: 2
-guid: 7fb7747cf889756419fcc6420a5a562c
+guid: 1d7e47d8599271b4fb039d9ac9854f93
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:AnimationClip
-      assembly: UnityEngine.AnimationModule
-      name: Slide_Wall_Clip
-    second: {fileID: 7400000, guid: ccdf372c1086ac14b80d0a0e1068285a, type: 2}
+  externalObjects: {}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -40,7 +35,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 30
+    spritePixelsToUnits: 50
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -102,7 +97,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638520793431102720
+  platformSettingsDirtyTick: 638529787768783052
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -126,18 +121,18 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Slide_Wall_Frame_0
+  - name: Attack_3_Frame_0
     originalName: 
-    pivot: {x: 0.7037037, y: -0.06849315}
+    pivot: {x: 0.65714294, y: -0.057142857}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 4
-      y: 163
-      width: 27
-      height: 73
-    spriteID: 9df23ad04a3bc7f4f9e32c94f2aa70e2
+      x: 105
+      y: 115
+      width: 35
+      height: 105
+    spriteID: 09bb7471ea008bc44ae61a6358cc62ac
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -145,59 +140,79 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 4, y: 163}
-  - name: Slide_Wall_Frame_1
+    uvTransform: {x: 105, y: 115}
+  - name: Attack_3_Frame_1
     originalName: 
-    pivot: {x: 0.7037037, y: -0.08333334}
+    pivot: {x: 0.65714294, y: -0.057142857}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 40
+      x: 148
+      y: 115
+      width: 35
+      height: 105
+    spriteID: cc39ede4669d34f4b9434244156f993d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 148, y: 115}
+  - name: Attack_3_Frame_2
+    originalName: 
+    pivot: {x: 0.625, y: -0.058252424}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 57
+      y: 115
+      width: 40
+      height: 103
+    spriteID: e55c8f0dfd7c6b742b4a724e70f23306
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 57, y: 115}
+  - name: Attack_3_Frame_3
+    originalName: 
+    pivot: {x: 0.59999996, y: -0.058252424}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 115
+      width: 45
+      height: 103
+    spriteID: fa5e7d8add06f6a4e98cb658ef100a4e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 115}
+  - name: Attack_3_Frame_4
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.058252424}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
       y: 4
-      width: 27
-      height: 72
-    spriteID: de77ba2b38ba3b64490970768aa34c58
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 40, y: 4}
-  - name: Slide_Wall_Frame_2
-    originalName: 
-    pivot: {x: 0.71428573, y: -0.11267606}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 84
-      width: 28
-      height: 71
-    spriteID: ad32636e86f160943854e336a4676c6e
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 84}
-  - name: Slide_Wall_Frame_3
-    originalName: 
-    pivot: {x: 0.71428573, y: -0.11111112}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 4
-      width: 28
-      height: 72
-    spriteID: 878c13a76108ae246add920530f9422f
+      width: 54
+      height: 103
+    spriteID: 18d9e712304edc64099f24ce1fe89aad
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -206,58 +221,18 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: Slide_Wall_Frame_4
+  - name: Attack_3_Frame_5
     originalName: 
-    pivot: {x: 0.7037037, y: -0.13043478}
+    pivot: {x: 0.49999997, y: -0.058252424}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 40
-      y: 84
-      width: 27
-      height: 69
-    spriteID: 53d3114862f9a2244b4dee55abc86115
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 40, y: 84}
-  - name: Slide_Wall_Frame_5
-    originalName: 
-    pivot: {x: 0.7037037, y: -0.1641791}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 40
-      y: 161
-      width: 27
-      height: 67
-    spriteID: a894608f8baffb84b98584d057396d35
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 40, y: 161}
-  - name: Slide_Wall_Frame_6
-    originalName: 
-    pivot: {x: 0.7037037, y: -0.18181819}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 75
+      x: 66
       y: 4
-      width: 27
-      height: 66
-    spriteID: d6935cab495ad2c4eb03026391d4c6da
+      width: 54
+      height: 103
+    spriteID: 24254ffd8336f3f418602fced89be7f9
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -265,19 +240,19 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 75, y: 4}
-  - name: Slide_Wall_Frame_7
+    uvTransform: {x: 66, y: 4}
+  - name: Attack_3_Frame_6
     originalName: 
-    pivot: {x: 0.7037037, y: -0.18181819}
+    pivot: {x: 0.49999997, y: -0.058252424}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 75
-      y: 78
-      width: 27
-      height: 66
-    spriteID: 843a5f83e8173b043ae6e8a265e98ddb
+      x: 128
+      y: 4
+      width: 54
+      height: 103
+    spriteID: b65a1b64fb66dc24aad2fb47c50d0e5e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -285,80 +260,100 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 75, y: 78}
+    uvTransform: {x: 128, y: 4}
+  - name: Attack_3_Frame_7
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.058252424}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 190
+      y: 4
+      width: 54
+      height: 103
+    spriteID: ded076dbcd93b28439f73a6b112ca4c8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 190, y: 4}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: -757959988
-    name: Slide_Wall
+    guid: 19017092
+    name: Attack_3
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Slide_Wall_Frame_0
+    - name: Attack_3_Frame_0
       frameIndex: 0
       cellRect:
-        x: 21
-        y: 5
-        width: 27
-        height: 73
-      spriteId: 9df23ad04a3bc7f4f9e32c94f2aa70e2
-    - name: Slide_Wall_Frame_1
+        x: 77
+        y: 6
+        width: 35
+        height: 105
+      spriteId: 09bb7471ea008bc44ae61a6358cc62ac
+    - name: Attack_3_Frame_1
       frameIndex: 1
       cellRect:
-        x: 21
+        x: 77
         y: 6
-        width: 27
-        height: 72
-      spriteId: de77ba2b38ba3b64490970768aa34c58
-    - name: Slide_Wall_Frame_2
+        width: 35
+        height: 105
+      spriteId: cc39ede4669d34f4b9434244156f993d
+    - name: Attack_3_Frame_2
       frameIndex: 2
       cellRect:
-        x: 20
-        y: 8
-        width: 28
-        height: 71
-      spriteId: ad32636e86f160943854e336a4676c6e
-    - name: Slide_Wall_Frame_3
+        x: 75
+        y: 6
+        width: 40
+        height: 103
+      spriteId: e55c8f0dfd7c6b742b4a724e70f23306
+    - name: Attack_3_Frame_3
       frameIndex: 3
       cellRect:
-        x: 20
-        y: 8
-        width: 28
-        height: 72
-      spriteId: 878c13a76108ae246add920530f9422f
-    - name: Slide_Wall_Frame_4
+        x: 73
+        y: 6
+        width: 45
+        height: 103
+      spriteId: fa5e7d8add06f6a4e98cb658ef100a4e
+    - name: Attack_3_Frame_4
       frameIndex: 4
       cellRect:
-        x: 21
-        y: 9
-        width: 27
-        height: 69
-      spriteId: 53d3114862f9a2244b4dee55abc86115
-    - name: Slide_Wall_Frame_5
+        x: 73
+        y: 6
+        width: 54
+        height: 103
+      spriteId: 18d9e712304edc64099f24ce1fe89aad
+    - name: Attack_3_Frame_5
       frameIndex: 5
       cellRect:
-        x: 21
-        y: 11
-        width: 27
-        height: 67
-      spriteId: a894608f8baffb84b98584d057396d35
-    - name: Slide_Wall_Frame_6
+        x: 73
+        y: 6
+        width: 54
+        height: 103
+      spriteId: 24254ffd8336f3f418602fced89be7f9
+    - name: Attack_3_Frame_6
       frameIndex: 6
       cellRect:
-        x: 21
-        y: 12
-        width: 27
-        height: 66
-      spriteId: d6935cab495ad2c4eb03026391d4c6da
-    - name: Slide_Wall_Frame_7
+        x: 73
+        y: 6
+        width: 54
+        height: 103
+      spriteId: b65a1b64fb66dc24aad2fb47c50d0e5e
+    - name: Attack_3_Frame_7
       frameIndex: 7
       cellRect:
-        x: 21
-        y: 12
-        width: 27
-        height: 66
-      spriteId: 843a5f83e8173b043ae6e8a265e98ddb
+        x: 73
+        y: 6
+        width: 54
+        height: 103
+      spriteId: ded076dbcd93b28439f73a6b112ca4c8
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -401,4 +396,4 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 80, y: 80}
+  canvasSize: {x: 200, y: 150}

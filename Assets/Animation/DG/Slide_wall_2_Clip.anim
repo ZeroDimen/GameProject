@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Stop_Slide_Clip
+  m_Name: Slide_wall_2_Clip
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,23 +21,23 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: -1466313164750010364, guid: 69ab2915cbc4994458b46b3a32c52526, type: 3}
+      value: {fileID: 4118180556994553661, guid: 6822fc2e2c82c554d9f8295386ad93ed, type: 3}
     - time: 0.1
-      value: {fileID: 2405129963488526144, guid: 69ab2915cbc4994458b46b3a32c52526, type: 3}
+      value: {fileID: 909348116976173859, guid: 6822fc2e2c82c554d9f8295386ad93ed, type: 3}
     - time: 0.2
-      value: {fileID: -7949930446862779176, guid: 69ab2915cbc4994458b46b3a32c52526, type: 3}
+      value: {fileID: 2337804258635604615, guid: 6822fc2e2c82c554d9f8295386ad93ed, type: 3}
     - time: 0.3
-      value: {fileID: 1809495138770707489, guid: 69ab2915cbc4994458b46b3a32c52526, type: 3}
+      value: {fileID: -2404776755411336935, guid: 6822fc2e2c82c554d9f8295386ad93ed, type: 3}
     - time: 0.4
-      value: {fileID: -6091102460503218793, guid: 69ab2915cbc4994458b46b3a32c52526, type: 3}
+      value: {fileID: 1331636133009463666, guid: 6822fc2e2c82c554d9f8295386ad93ed, type: 3}
     - time: 0.5
-      value: {fileID: -2222305560168451589, guid: 69ab2915cbc4994458b46b3a32c52526, type: 3}
+      value: {fileID: -7343472951661996508, guid: 6822fc2e2c82c554d9f8295386ad93ed, type: 3}
     - time: 0.6
-      value: {fileID: -2368073986480679922, guid: 69ab2915cbc4994458b46b3a32c52526, type: 3}
+      value: {fileID: 3903981028617949702, guid: 6822fc2e2c82c554d9f8295386ad93ed, type: 3}
     - time: 0.7
-      value: {fileID: -8133089874173919670, guid: 69ab2915cbc4994458b46b3a32c52526, type: 3}
+      value: {fileID: 6594766340685937961, guid: 6822fc2e2c82c554d9f8295386ad93ed, type: 3}
     - time: 0.8
-      value: {fileID: -8133089874173919670, guid: 69ab2915cbc4994458b46b3a32c52526, type: 3}
+      value: {fileID: 6594766340685937961, guid: 6822fc2e2c82c554d9f8295386ad93ed, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
