@@ -20,7 +20,8 @@ public class PlayerMoveinFixedUpdate : MonoBehaviour
     public bool isSliding;
     
     public SpriteRenderer sprite;
-  
+    public GameObject Attack_Obj;
+    
     void Start()
     {
         hangTime = .1f;
@@ -39,6 +40,7 @@ public class PlayerMoveinFixedUpdate : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J))
         {
             ani.SetTrigger("IsAttack");
+            Attack_Obj.SetActive(true);
         }
         ani.SetBool("IsJump", !isGrounded);
         ani.SetBool("IsSliding", isSliding);
@@ -107,11 +109,14 @@ public class PlayerMoveinFixedUpdate : MonoBehaviour
     {
         if (Input.GetAxisRaw("Horizontal") > 0)
         {
-            sprite.flipX = false;
+            // sprite.flipX = false;
+            transform.localScale = new Vector3(1, 1, 1);
+
         }
         else if (Input.GetAxisRaw("Horizontal") < 0)
         {
-            sprite.flipX = true;
+            // sprite.flipX = true;
+            transform.localScale = new Vector3(-1, 1, 1);
         }
     }
     

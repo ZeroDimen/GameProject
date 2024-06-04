@@ -2,7 +2,12 @@ fileFormatVersion: 2
 guid: 2d2222f4e2159a3448a2ef5fa6c11347
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Attack_3_Effect_Clip
+    second: {fileID: 7400000, guid: f82d1ed9bea007f4891c6699d49bca24, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -97,7 +102,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638529787812187194
+  platformSettingsDirtyTick: 638530341648081336
   textureAssetName: 
   singleSpriteImportData:
   - name: 

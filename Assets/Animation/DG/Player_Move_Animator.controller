@@ -763,8 +763,8 @@ AnimatorStateMachine:
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: 420, y: 20, z: 0}
-  m_EntryPosition: {x: 310, y: 150, z: 0}
+  m_AnyStatePosition: {x: 330, y: -150, z: 0}
+  m_EntryPosition: {x: 310, y: 120, z: 0}
   m_ExitPosition: {x: 310, y: 230, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -3368215744287247805}
@@ -968,7 +968,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Player_Attack
-  m_Speed: 1
+  m_Speed: 4
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 5466500267504676625}
@@ -984,7 +984,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8ea73b7d81cf0d544bb11fb9f9bb767c, type: 2}
+  m_Motion: {fileID: 7400000, guid: ecbf2df4cc776e544b0a7057a1cad750, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

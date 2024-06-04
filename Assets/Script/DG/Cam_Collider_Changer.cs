@@ -12,7 +12,5 @@ public class CamCollideChanger : MonoBehaviour
         
         a = GameObject.Find("Virtual Camera").GetComponent<CinemachineConfiner2D>();
         a.m_BoundingShape2D = newCollider;
-        
-        Debug.Log("실행");
     }
 }
