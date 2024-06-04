@@ -5,6 +5,7 @@ public class PlayerMoveinFixedUpdate : MonoBehaviour
     private Rigidbody2D rigid;
     private Animator ani;
 
+    public float attackSpeed = 2.5f;
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
     public int jumpCount; //not use now but player can double jump it'll be use
@@ -18,16 +19,17 @@ public class PlayerMoveinFixedUpdate : MonoBehaviour
     
     public bool isGrounded; // != IsJump
     public bool isSliding;
+
+    private bool CanAttack;
     
-    public SpriteRenderer sprite;
     public GameObject Attack_Obj;
     
     void Start()
     {
+        CanAttack = true;
         hangTime = .1f;
         jumpInputUp = false;
         rigid = GetComponent<Rigidbody2D>();
-        sprite = GetComponent<SpriteRenderer>();
         ani = GetComponent<Animator>();
     }
 
@@ -37,11 +39,15 @@ public class PlayerMoveinFixedUpdate : MonoBehaviour
         ArrowInput();
         Jump();
         Flip();
-        if (Input.GetKeyDown(KeyCode.J))
+        if (Input.GetMouseButtonDown(0) && CanAttack)
         {
-            ani.SetTrigger("IsAttack");
+            CanAttack = false;
             Attack_Obj.SetActive(true);
+            Attack_Obj.GetComponent<Attack_Test>().Attack_Ani();
+            ani.SetTrigger("IsAttack");
+            Attack_Speed_Change(attackSpeed);
         }
+        
         ani.SetBool("IsJump", !isGrounded);
         ani.SetBool("IsSliding", isSliding);
         ani.SetFloat("Jump_V", rigid.velocity.y);
@@ -64,8 +70,17 @@ public class PlayerMoveinFixedUpdate : MonoBehaviour
 
         Landing_Platform();
     }
-    
 
+    private void Attack_Speed_Change(float Speed)
+    {
+        ani.SetFloat("AttackSpeed", Speed);
+        Attack_Obj.GetComponent<Attack_Test>().Attack_Effact_Speed_Change(Speed);
+    }
+
+    public void Attack_Ani_End()
+    {
+        CanAttack = true;
+    }
     private void ArrowInput()
     {
         arrowInput = Input.GetAxisRaw("Horizontal");

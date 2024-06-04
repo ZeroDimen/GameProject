@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Attack_Test : MonoBehaviour
@@ -9,19 +8,20 @@ public class Attack_Test : MonoBehaviour
     {
         ani = GetComponent<Animator>();
     }
-
-    private void LateUpdate()
-    {
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            //ani.SetTrigger("IsAttack");
-            ani.Play("Attack_Sample");
-        }
-    }
-
+    
     public void Ani_Off()
     {
         gameObject.SetActive(false);
+    }
+
+    public void Attack_Ani()
+    {
+        ani.Play("Attack_Sample");
+    }
+
+    public void Attack_Effact_Speed_Change(float Speed)
+    {
+        ani.SetFloat("AttackEffactSpeed", Speed);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
