@@ -1,0 +1,532 @@
+fileFormatVersion: 2
+guid: ee990699ea741c946a6ec1a8baf4d662
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Spider_Walk_Clip
+    second: {fileID: 7400000, guid: c98d89a02f472d442ada7f1edd09ae85, type: 2}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 30
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 638531410175667628
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Spider_Walk_Frame_1
+    originalName: 
+    pivot: {x: 0.5625, y: -0.37096775}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 99
+      y: 430
+      width: 80
+      height: 62
+    spriteID: 180c3e6aaf0fb9546b441d98a77efb09
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 99, y: 430}
+  - name: Spider_Walk_Frame_2
+    originalName: 
+    pivot: {x: 0.49450552, y: -0.34920633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 99
+      y: 4
+      width: 91
+      height: 63
+    spriteID: 326d13cef410c4e4bb3dc24d9433bc73
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 99, y: 4}
+  - name: Spider_Walk_Frame_3
+    originalName: 
+    pivot: {x: 0.5625, y: -0.34920633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 99
+      y: 146
+      width: 80
+      height: 63
+    spriteID: b58aaf551f0394d4dbf8655cb0007170
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 99, y: 146}
+  - name: Spider_Walk_Frame_4
+    originalName: 
+    pivot: {x: 0.6164384, y: -0.34920633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 149
+      width: 73
+      height: 63
+    spriteID: 8df45786e74e7c74dbf47563b9bf7ed2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 149}
+  - name: Spider_Walk_Frame_5
+    originalName: 
+    pivot: {x: 0.6164384, y: -0.34920633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 220
+      width: 73
+      height: 63
+    spriteID: 18c2ee658ade3424e888a229d3335eb9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 220}
+  - name: Spider_Walk_Frame_6
+    originalName: 
+    pivot: {x: 0.6329114, y: -0.34920633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 99
+      y: 288
+      width: 79
+      height: 63
+    spriteID: b12ac9e961319b34db2f66695611a824
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 99, y: 288}
+  - name: Spider_Walk_Frame_7
+    originalName: 
+    pivot: {x: 0.5625, y: -0.37096775}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 79
+      width: 80
+      height: 62
+    spriteID: b3949be46dd14f74d89c8482f152664f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 79}
+  - name: Spider_Walk_Frame_8
+    originalName: 
+    pivot: {x: 0.49450552, y: -0.34920633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 99
+      y: 75
+      width: 91
+      height: 63
+    spriteID: 7ce7a821ecf399245908f48d580df3c7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 99, y: 75}
+  - name: Spider_Walk_Frame_9
+    originalName: 
+    pivot: {x: 0.5625, y: -0.34920633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 99
+      y: 217
+      width: 80
+      height: 63
+    spriteID: 7e5a38fcbfcab134a9ef0e80acf1e8a4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 99, y: 217}
+  - name: Spider_Walk_Frame_10
+    originalName: 
+    pivot: {x: 0.6164384, y: -0.34920633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 291
+      width: 73
+      height: 63
+    spriteID: 834af1f8936977f4f9ef3b0d6251e8fa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 291}
+  - name: Spider_Walk_Frame_11
+    originalName: 
+    pivot: {x: 0.6164384, y: -0.34920633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 362
+      width: 73
+      height: 63
+    spriteID: a27e52e4721ab824cbcb9d41dca2ca42
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 362}
+  - name: Spider_Walk_Frame_12
+    originalName: 
+    pivot: {x: 0.6329114, y: -0.34920633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 99
+      y: 359
+      width: 79
+      height: 63
+    spriteID: 58fab5d387d31b644b2d568f180868a4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 99, y: 359}
+  - name: Spider_Walk_Frame_0
+    originalName: 
+    pivot: {x: 0.5862069, y: -0.3432836}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 87
+      height: 67
+    spriteID: 84e2ca878fcbb7f4d9ef7b2b555fa4e3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 1888320827
+    name: Spider_Walk
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Spider_Walk_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 30
+        y: 23
+        width: 80
+        height: 62
+      spriteId: 180c3e6aaf0fb9546b441d98a77efb09
+    - name: Spider_Walk_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 30
+        y: 22
+        width: 91
+        height: 63
+      spriteId: 326d13cef410c4e4bb3dc24d9433bc73
+    - name: Spider_Walk_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 30
+        y: 22
+        width: 80
+        height: 63
+      spriteId: b58aaf551f0394d4dbf8655cb0007170
+    - name: Spider_Walk_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 30
+        y: 22
+        width: 73
+        height: 63
+      spriteId: 8df45786e74e7c74dbf47563b9bf7ed2
+    - name: Spider_Walk_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 30
+        y: 22
+        width: 73
+        height: 63
+      spriteId: 18c2ee658ade3424e888a229d3335eb9
+    - name: Spider_Walk_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 25
+        y: 22
+        width: 79
+        height: 63
+      spriteId: b12ac9e961319b34db2f66695611a824
+    - name: Spider_Walk_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 30
+        y: 23
+        width: 80
+        height: 62
+      spriteId: b3949be46dd14f74d89c8482f152664f
+    - name: Spider_Walk_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 30
+        y: 22
+        width: 91
+        height: 63
+      spriteId: 7ce7a821ecf399245908f48d580df3c7
+    - name: Spider_Walk_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 30
+        y: 22
+        width: 80
+        height: 63
+      spriteId: 7e5a38fcbfcab134a9ef0e80acf1e8a4
+    - name: Spider_Walk_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 30
+        y: 22
+        width: 73
+        height: 63
+      spriteId: 834af1f8936977f4f9ef3b0d6251e8fa
+    - name: Spider_Walk_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 30
+        y: 22
+        width: 73
+        height: 63
+      spriteId: a27e52e4721ab824cbcb9d41dca2ca42
+    - name: Spider_Walk_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 25
+        y: 22
+        width: 79
+        height: 63
+      spriteId: 58fab5d387d31b644b2d568f180868a4
+    - name: Spider_Walk_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 24
+        y: 23
+        width: 87
+        height: 67
+      spriteId: 84e2ca878fcbb7f4d9ef7b2b555fa4e3
+    linkedCells: []
+    parentIndex: -1
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 150, y: 150}

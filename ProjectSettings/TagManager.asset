@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Platform
+  - WildBoar
+  - Weapon
   layers:
   - Default
   - TransparentFX
@@ -12,13 +14,13 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Col
+  - Player
   - Platform
-  - 
-  - 
-  - 
-  - 
+  - WildBoar
+  - Goblin
+  - SeamlessLine
+  - Spider
   - 
   - 
   - 
