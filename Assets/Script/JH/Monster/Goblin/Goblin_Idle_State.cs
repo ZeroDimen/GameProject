@@ -6,9 +6,10 @@ public class Goblin_Idle_State : IMonsterState
     RaycastHit2D hitRight;
     RaycastHit2D hitLeft;
     RaycastHit2D hitDown;
+    Vector3 firstPos;
+
     float targetPos;
     float random;
-    float moveSpeed;
     float lastTime;
     float timeInterval;
     bool isStop;
@@ -18,7 +19,7 @@ public class Goblin_Idle_State : IMonsterState
     public override void StateEnter()
     {
         targetPos = _monster.transform.position.x;
-        moveSpeed = _monster.GetComponent<Goblin>().monsterInfo.moveSpeed;
+        firstPos = _monster.GetComponent<Goblin>().firstPos;
         isStop = false;
         modify = false;
         timeInterval = 3;
@@ -36,7 +37,12 @@ public class Goblin_Idle_State : IMonsterState
         if (hitLeft.collider != null && !modify)
             Set_Random(4, 10);
         if (hitDown.collider == null && !modify)
-            Set_Random(4, 10);
+        {
+            if (firstPos.x - _monster.transform.position.x > 0)
+                Set_Random(4, 10);
+            else
+                Set_Random(-10, -4);
+        }
         if (Mathf.Abs(_monster.transform.position.x - targetPos) <= 0.5f)
             Set_Random(-10, 11);
 
@@ -46,11 +52,17 @@ public class Goblin_Idle_State : IMonsterState
             {
                 isStop = false;
                 modify = false;
-                _monster.transform.position += new Vector3(targetPos - _monster.transform.position.x, 0, 0).normalized * moveSpeed;
+                _monster.transform.position += new Vector3(targetPos - _monster.transform.position.x, 0, 0).normalized * Time.deltaTime * _monster.GetComponent<Goblin>().monsterInfo.moveSpeed;
             }
         }
         else
-            _monster.transform.position += new Vector3(targetPos - _monster.transform.position.x, 0, 0).normalized * moveSpeed;
+            _monster.transform.position += new Vector3(targetPos - _monster.transform.position.x, 0, 0).normalized * Time.deltaTime * _monster.GetComponent<Goblin>().monsterInfo.moveSpeed;
+
+        if (targetPos - _monster.transform.position.x > 0)
+            _monster.transform.localScale = new Vector3(1, 1, 1);
+        else
+            _monster.transform.localScale = new Vector3(-1, 1, 1);
+
     }
     public override void StateExit()
     {

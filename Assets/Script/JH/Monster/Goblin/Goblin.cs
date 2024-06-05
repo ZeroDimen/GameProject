@@ -25,6 +25,7 @@ public class Goblin : Monster
     RaycastHit2D hitRight_Chase;
     RaycastHit2D hitLeft_Chase;
     RaycastHit2D hitDown_Chase;
+    public Vector3 firstPos;
     int layerMask;
     int layerMask_Chase;
 
@@ -33,6 +34,7 @@ public class Goblin : Monster
         hp = monsterInfo.hp;
         layerMask = 1 << LayerMask.NameToLayer("SeamlessLine") | 1 << LayerMask.NameToLayer("Goblin");
         layerMask_Chase = 1 << LayerMask.NameToLayer("Platform");
+        firstPos = transform.position;
     }
     private void Start()
     {
@@ -77,8 +79,8 @@ public class Goblin : Monster
                     hitLeft_Chase = Physics2D.Raycast(transform.position, Vector2.left, 2, layerMask_Chase);
                     hitDown_Chase = Physics2D.Raycast(transform.position, Vector2.down, 2, layerMask_Chase);
 
-                    if (hitRight_Chase.collider != null || hitLeft_Chase.collider != null || hitDown_Chase.collider == null)
-                        ChangeState(State.Idle);
+                    // if (hitRight_Chase.collider != null || hitLeft_Chase.collider != null)
+                    //     ChangeState(State.Idle);
                     if (Vector3.Distance(playerPos.position, transform.position) >= monsterInfo.fieldOfView)
                         ChangeState(State.Idle);
                     if (Vector3.Distance(playerPos.position, transform.position) <= monsterInfo.attackRange)
@@ -136,14 +138,11 @@ public class Goblin : Monster
     {
         if (_curState == State.Idle && other.gameObject.layer == LayerMask.NameToLayer("Goblin"))
             ChangeState(State.Greet);
-        if (other.CompareTag("Player"))
-            StartCoroutine(Blink(other.gameObject, 1));
         if (other.CompareTag("Weapon"))
         {
             hp--;
             if (hp <= 0)
                 Destroy(gameObject);
-            Debug.Log(hp);
         }
     }
 }

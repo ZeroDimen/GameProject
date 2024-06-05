@@ -128,7 +128,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: Spider_Standing_1_Frame_1
     originalName: 
-    pivot: {x: 0.51918983, y: 0.5191888}
+    pivot: {x: 0.5862069, y: -0.3382353}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:

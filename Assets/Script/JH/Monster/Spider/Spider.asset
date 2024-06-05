@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 0
   hp: 8
-  moveSpeed: 0.2
+  moveSpeed: 13
   fieldOfView: 8
   attackRange: 3
   monsterDistance: 1

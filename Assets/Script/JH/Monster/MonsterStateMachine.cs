@@ -13,6 +13,23 @@ public abstract class IMonsterState
     public abstract void StateEnter();
     public abstract void StateUpdate();
     public abstract void StateExit();
+    public int Player_Position(Transform player, Transform monster)
+    {
+        if (player.position.x - monster.position.x > 0)
+            return 1;
+        else if (player.position.x - monster.position.x < 0)
+            return -1;
+        return 0;
+    }
+    public bool canChase(Vector3 playerPos, Vector3 monsterPos, Vector3 firstPos)
+    {
+        if (playerPos.x - monsterPos.x > 0 && firstPos.x - monsterPos.x > 0)
+            return true;
+        else if (playerPos.x - monsterPos.x < 0 && firstPos.x - monsterPos.x < 0)
+            return true;
+
+        return false;
+    }
 }
 public class MonsterStateMachine
 {

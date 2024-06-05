@@ -19,6 +19,7 @@ public class Spider : Monster
     Spider_Chase_State spider_Chase_State;
     Spider_Attack_State spider_Attack_State;
     Spider_Damaged_State spider_Damaged_State;
+    Spider_Death_State spider_Death_State;
     Transform playerPos;
     [SerializeField]
     private State _curState;
@@ -27,10 +28,11 @@ public class Spider : Monster
     RaycastHit2D hitLeft;
     RaycastHit2D hitRight_Chase;
     RaycastHit2D hitLeft_Chase;
-    RaycastHit2D hitDown_Chase;
+    public Vector3 firstPos;
     int layerMask;
     int layerMask_Chase;
     float animeTime;
+    public bool isdead = false;
 
     private void Awake()
     {
@@ -38,6 +40,7 @@ public class Spider : Monster
         hp = monsterInfo.hp;
         layerMask = 1 << LayerMask.NameToLayer("SeamlessLine") | 1 << LayerMask.NameToLayer("Spider");
         layerMask_Chase = 1 << LayerMask.NameToLayer("Platform");
+        firstPos = transform.position;
     }
     private void Start()
     {
@@ -45,7 +48,7 @@ public class Spider : Monster
         _curState = State.Idle;
         _monsterStateMachine = new MonsterStateMachine(spider_Idle_State);
         spider_Idle_State.StateEnter();
-        StartCoroutine(Goblin_State());
+        StartCoroutine(Spider_State());
     }
     private void OnDrawGizmos()
     {
@@ -56,10 +59,10 @@ public class Spider : Monster
         }
         else if (_curState == State.Chase)
         {
-            Gizmos.DrawWireSphere(transform.position, monsterInfo.fieldOfView);
+            Gizmos.DrawWireSphere(transform.position + Vector3.up * 2, monsterInfo.fieldOfView);
         }
     }
-    IEnumerator Goblin_State()
+    IEnumerator Spider_State()
     {
         while (true)
         {
@@ -69,7 +72,7 @@ public class Spider : Monster
                 case State.Idle:
                     hitRight = Physics2D.Raycast(transform.position + Vector3.up * 2, Vector2.right, monsterInfo.fieldOfView, ~layerMask);
                     hitLeft = Physics2D.Raycast(transform.position + Vector3.up * 2, Vector2.left, monsterInfo.fieldOfView, ~layerMask);
-                    if (hitRight.collider != null) Debug.Log(hitRight.collider.name);
+
                     if (hitRight.collider != null && hitRight.transform.gameObject.layer == LayerMask.NameToLayer("Player"))
                         ChangeState(State.Chase);
 
@@ -78,12 +81,11 @@ public class Spider : Monster
 
                     break;
                 case State.Chase:
-                    hitRight_Chase = Physics2D.Raycast(transform.position + Vector3.up * 2, Vector2.right, 2, layerMask_Chase);
-                    hitLeft_Chase = Physics2D.Raycast(transform.position + Vector3.up * 2, Vector2.left, 2, layerMask_Chase);
-                    hitDown_Chase = Physics2D.Raycast(transform.position + Vector3.up * 2, Vector2.down, 2, layerMask_Chase);
+                    hitRight_Chase = Physics2D.Raycast(transform.position + new Vector3(1, 2, 0), Vector3.right, 2, layerMask_Chase);
+                    hitLeft_Chase = Physics2D.Raycast(transform.position + new Vector3(-1, 2, 0), Vector2.left, 2, layerMask_Chase);
 
-                    if (hitRight_Chase.collider != null || hitLeft_Chase.collider != null || hitDown_Chase.collider == null)
-                        ChangeState(State.Idle);
+                    // if (hitRight_Chase.collider != null || hitLeft_Chase.collider != null)
+                    //     ChangeState(State.Idle);
                     if (Vector3.Distance(playerPos.position, transform.position) >= monsterInfo.fieldOfView)
                         ChangeState(State.Idle);
                     if (Vector3.Distance(playerPos.position, transform.position) <= monsterInfo.attackRange)
@@ -99,17 +101,22 @@ public class Spider : Monster
                     spider_Idle_State.StateEnter();
                     break;
                 case State.Damaged:
-                    animeTime = anime.GetCurrentAnimatorStateInfo(0).normalizedTime;
-                    if (animeTime == 0 || animeTime >= 1f)
+                    if (anime.GetCurrentAnimatorStateInfo(0).IsName("Damage") == true)
                     {
-                        if (Vector3.Distance(playerPos.position, transform.position) >= monsterInfo.attackRange)
-                            ChangeState(State.Chase);
-                        else
-                            ChangeState(State.Attack);
+                        animeTime = anime.GetCurrentAnimatorStateInfo(0).normalizedTime;
+                        if (animeTime >= 1f)
+                        {
+                            if (hp <= 0)
+                                ChangeState(Spider.State.Death);
+                            else if (Vector3.Distance(playerPos.position, transform.position) >= monsterInfo.attackRange)
+                                ChangeState(State.Chase);
+                            else
+                                ChangeState(State.Attack);
+                        }
                     }
                     break;
                 case State.Death:
-                    if (hp <= 0)
+                    if (isdead)
                         Destroy(gameObject);
                     break;
             }
@@ -124,6 +131,7 @@ public class Spider : Monster
         spider_Chase_State = new Spider_Chase_State(gameObject);
         spider_Attack_State = new Spider_Attack_State(gameObject);
         spider_Damaged_State = new Spider_Damaged_State(gameObject);
+        spider_Death_State = new Spider_Death_State(gameObject);
     }
     public void ChangeState(State nextState)
     {
@@ -142,15 +150,19 @@ public class Spider : Monster
             case State.Damaged:
                 _monsterStateMachine.ChangeState(spider_Damaged_State);
                 break;
+            case State.Death:
+                _monsterStateMachine.ChangeState(spider_Death_State);
+                break;
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (_curState == State.Idle && other.gameObject.layer == LayerMask.NameToLayer("Goblin"))
+        if (_curState == State.Idle && other.gameObject.layer == LayerMask.NameToLayer("Spider"))
             ChangeState(State.Greet);
-        if (other.CompareTag("Player"))
-            StartCoroutine(Blink(other.gameObject, 1));
-        if (other.CompareTag("Weapon"))
+        if (other.CompareTag("Weapon") && _curState != State.Death)
+        {
+            hp--;
             ChangeState(State.Damaged);
+        }
     }
 }

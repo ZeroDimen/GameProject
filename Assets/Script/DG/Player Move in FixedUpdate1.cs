@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerMoveinFixedUpdate1 : MonoBehaviour
@@ -31,6 +32,7 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
         jumpInputUp = false;
         rigid = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
+        Application.targetFrameRate = 60;
     }
 
     // Update is called once per frame
@@ -56,17 +58,7 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
     private void FixedUpdate()
     {
         rigid.velocity = new Vector2(arrowInput * moveSpeed, rigid.velocity.y);
-        if (jumpBufferCount >= 0 && hangCounter >= 0f && isGrounded)
-        {
-            rigid.AddForce(new Vector2(0, jumpForce));
-            jumpBufferCount = 0;
-        }
 
-        if (jumpInputUp) //jump velocity / 2
-        {
-            rigid.velocity = new Vector2(rigid.velocity.x, rigid.velocity.y * .5f);
-            jumpInputUp = false;
-        }
 
         Landing_Platform();
     }
@@ -118,6 +110,17 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
         {
             jumpInputUp = true;
         }
+        if (jumpBufferCount >= 0 && hangCounter >= 0f && isGrounded)
+        {
+            rigid.AddForce(new Vector2(0, jumpForce));
+            jumpBufferCount = 0;
+        }
+
+        if (jumpInputUp) //jump velocity / 2
+        {
+            rigid.velocity = new Vector2(rigid.velocity.x, rigid.velocity.y * .5f);
+            jumpInputUp = false;
+        }
     }
 
     void Flip() //just flip sprite
@@ -134,7 +137,21 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
             transform.localScale = new Vector3(-1, 1, 1);
         }
     }
-
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Monster"))
+            StartCoroutine(Blink(gameObject, 2));
+    }
+    IEnumerator Blink(GameObject obj, int n = 4)
+    {
+        for (int i = 0; i < n; i++)
+        {
+            obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+            yield return new WaitForSeconds(0.2f);
+            obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
     private void OnCollisionStay2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Platform"))
@@ -152,7 +169,6 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
             }
         }
     }
-
     private void Landing_Platform()
     {
         Debug.DrawRay(rigid.position, Vector3.down, new Color(0, 1, 0));

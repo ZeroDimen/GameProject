@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class WildBoar : Monster
 {
-    public MonsterInfo monsterInfo;
     private enum State
     {
         Idle,
@@ -11,9 +10,9 @@ public class WildBoar : Monster
         Damaged,
         Death
     }
+    public MonsterInfo monsterInfo;
     IdleState idleState;
     WildBoarChaseState wildBoarChaseState;
-    Transform playerPos;
     RaycastHit2D hitRight;
     RaycastHit2D hitLeft;
     [SerializeField]
@@ -22,12 +21,13 @@ public class WildBoar : Monster
     int layerMask;
     public bool isStun;
 
+
     private void Awake()
     {
         isStun = false;
-        // Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"),
-        //     LayerMask.NameToLayer("WildBoar"));
         hp = monsterInfo.hp;
+        // SeamlessLine과 WildBoar 레이어를 무시
+        // 지금 보니 Platform과 Player만 인식 되도록 해도 되었을듯
         layerMask = (1 << LayerMask.NameToLayer("SeamlessLine")) | (1 << LayerMask.NameToLayer("WildBoar"));
     }
     private void Start()
@@ -39,8 +39,6 @@ public class WildBoar : Monster
     }
     private void OnDrawGizmos()
     {
-        // Gizmos.color = Color.white;
-        // Gizmos.DrawWireSphere(transform.position, monsterInfo.fieldOfView);
         Gizmos.DrawRay(transform.position, Vector2.right * 15);
         Gizmos.DrawRay(transform.position, Vector2.left * 15);
     }
@@ -49,39 +47,27 @@ public class WildBoar : Monster
     {
         while (true)
         {
-            playerPos = GameObject.Find("Player").transform;
             switch (_curState)
             {
                 case State.Idle:
-                    //가로로 15 이내에 플레이어가 있는지 체크
-                    // hitRight = Physics2D.Raycast(transform.position, Vector2.right, 15f, 1 << LayerMask.NameToLayer("Player"));
-                    // hitLeft = Physics2D.Raycast(transform.position, Vector2.left, 15f, 1 << LayerMask.NameToLayer("Player"));
+                    //가로로 15 이내에 충돌체가 있는지 체크
                     hitRight = Physics2D.Raycast(transform.position, Vector2.right, 15f, ~layerMask);
                     hitLeft = Physics2D.Raycast(transform.position, Vector2.left, 15f, ~layerMask);
 
-                    // if (hitRight.collider != null || hitLeft.collider != null)
-                    // {
-                    //     Debug.Log(hitRight.transform.name);
-                    //     if (hitRight.transform.CompareTag("Player") || hitLeft.transform.CompareTag("Player"))
-                    //     {
-                    //         ChangeState(State.Chase);
-                    //         yield return StartCoroutine(Blink_Color(gameObject, Color.red, 1));
-                    //     }
-                    // }
-                    // else
-                    // {
-                    //     Debug.Log("Empty");
-                    // }
+                    // 오른쪽 충돌체 체크
                     if (hitRight.collider != null)
                     {
+                        // 충돌체가 플레이어인지 체크
                         if (hitRight.transform.CompareTag("Player"))
                         {
                             ChangeState(State.Chase);
                             yield return StartCoroutine(Blink_Color(gameObject, Color.red, 1));
                         }
                     }
+                    // 왼쪽 충돌체 체크
                     if (hitLeft.collider != null)
                     {
+                        // 충돌체가 플레이어인지 체크
                         if (hitLeft.transform.CompareTag("Player"))
                         {
                             ChangeState(State.Chase);
@@ -90,6 +76,7 @@ public class WildBoar : Monster
                     }
                     break;
                 case State.Chase:
+                    // 벽에 부딪혀서 스턴 상태인지 체크
                     if (isStun)
                     {
                         yield return StartCoroutine(Blink(gameObject, 3));
@@ -137,10 +124,6 @@ public class WildBoar : Monster
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
-        {
-            StartCoroutine(Blink(other.gameObject));
-        }
         if (other.CompareTag("Weapon"))
         {
             hp--;

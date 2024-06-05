@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
-    public float hp;
+    public int hp;
     protected IEnumerator Blink(GameObject obj, int n = 4)
     {
         for (int i = 0; i < n; i++)
