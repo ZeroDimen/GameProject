@@ -10,6 +10,7 @@ public class Spider_Damaged_State : IMonsterState
     {
         anime = _monster.GetComponent<Animator>();
         anime.SetBool("isDamaged", true);
+        anime.Play("Damage");
     }
     public override void StateUpdate()
     {

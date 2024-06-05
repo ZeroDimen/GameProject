@@ -10,6 +10,7 @@ public class Spider_Death_State : IMonsterState
     public override void StateEnter()
     {
         anime = _monster.GetComponent<Animator>();
+        anime.Play("Death");
     }
     public override void StateUpdate()
     {

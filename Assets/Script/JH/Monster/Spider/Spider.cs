@@ -101,19 +101,25 @@ public class Spider : Monster
                     spider_Idle_State.StateEnter();
                     break;
                 case State.Damaged:
-                    if (anime.GetCurrentAnimatorStateInfo(0).IsName("Damage") == true)
-                    {
-                        animeTime = anime.GetCurrentAnimatorStateInfo(0).normalizedTime;
-                        if (animeTime >= 1f)
-                        {
-                            if (hp <= 0)
-                                ChangeState(Spider.State.Death);
-                            else if (Vector3.Distance(playerPos.position, transform.position) >= monsterInfo.attackRange)
-                                ChangeState(State.Chase);
-                            else
-                                ChangeState(State.Attack);
-                        }
-                    }
+                    // if (anime.GetCurrentAnimatorStateInfo(0).IsName("Damage") == true)
+                    // {
+                    //     animeTime = anime.GetCurrentAnimatorStateInfo(0).normalizedTime;
+                    //     if (animeTime >= 1f)
+                    //     {
+                    //         if (hp <= 0)
+                    //             ChangeState(Spider.State.Death);
+                    //         else if (Vector3.Distance(playerPos.position, transform.position) >= monsterInfo.attackRange)
+                    //             ChangeState(State.Chase);
+                    //         else
+                    //             ChangeState(State.Attack);
+                    //     }
+                    // }
+                    if (hp <= 0)
+                        ChangeState(Spider.State.Death);
+                    else if (Vector3.Distance(playerPos.position, transform.position) >= monsterInfo.attackRange)
+                        ChangeState(State.Chase);
+                    else
+                        ChangeState(State.Attack);
                     break;
                 case State.Death:
                     if (isdead)
