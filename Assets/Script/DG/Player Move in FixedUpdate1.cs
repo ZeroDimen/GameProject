@@ -20,13 +20,15 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
 
     public bool isGrounded; // != IsJump
     public bool isSliding;
-
+    private bool isHeading;
+    
     private bool CanAttack;
 
     public GameObject Attack_Obj;
 
     void Start()
     {
+        isHeading = false;
         CanAttack = true;
         hangTime = .1f;
         jumpInputUp = false;
@@ -46,13 +48,13 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
             CanAttack = false;
             Attack_Obj.SetActive(true);
             Attack_Obj.GetComponent<Attack_Test>().Attack_Ani();
-            ani.SetTrigger("IsAttack");
             Attack_Speed_Change(attackSpeed);
         }
 
         ani.SetBool("IsJump", !isGrounded);
         ani.SetBool("IsSliding", isSliding);
         ani.SetFloat("Jump_V", rigid.velocity.y);
+        ani.SetBool("IsAttack", !CanAttack);
     }
 
     private void FixedUpdate()
@@ -61,6 +63,7 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
 
 
         Landing_Platform();
+        Heading_Platform();
     }
 
     private void Attack_Speed_Change(float Speed)
@@ -158,25 +161,38 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
         {
             if (!isGrounded)
             {
-                if (rigid.velocity.y < 0 && arrowInput != 0)
+                if (rigid.velocity.y < 0 && arrowInput != 0 && !isHeading)
                 {
                     isSliding = true;
+                    CanAttack = false;
                 }
             }
             else
             {
                 isSliding = false;
+                CanAttack = true;
             }
         }
     }
     private void Landing_Platform()
     {
-        Debug.DrawRay(rigid.position, Vector3.down, new Color(0, 1, 0));
-        var rayHit = Physics2D.Raycast(rigid.position, Vector2.down, 1f,
+        Vector3 leftPostion =
+            new Vector3(transform.position.x - 0.2f, transform.position.y, transform.position.z);
+        Vector3 rightPostion =
+            new Vector3(transform.position.x + 0.2f, transform.position.y, transform.position.z);
+
+        // Debug.DrawRay(leftPostion, Vector3.down, new Color(0, 1, 0));
+        // Debug.DrawRay(rightPostion, Vector3.down, new Color(0, 1, 0));
+        
+        var leftrayHit = Physics2D.Raycast(leftPostion, Vector2.down, 1f,
             LayerMask.GetMask("Platform"));
-        if (rayHit.collider != null)
+        
+        var rightrayHit = Physics2D.Raycast(rightPostion, Vector2.down, 1f,
+            LayerMask.GetMask("Platform"));
+        
+        if (leftrayHit.collider != null || rightrayHit.collider != null)
         {
-            if (rayHit.distance < 0.5f)
+            if (leftrayHit.distance < 0.5f || rightrayHit.distance < 0.5f)
             {
                 isGrounded = true;
             }
@@ -185,6 +201,35 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
         {
             isGrounded = false;
             isSliding = false;
+        }
+    }
+
+    private void Heading_Platform()
+    {
+        Vector3 leftPostion =
+            new Vector3(transform.position.x - 0.2f, transform.position.y+2f, transform.position.z);
+        Vector3 rightPostion =
+            new Vector3(transform.position.x + 0.2f, transform.position.y+2f, transform.position.z);
+        
+        // Debug.DrawRay(leftPostion, Vector3.up, new Color(0, 1, 0));
+        // Debug.DrawRay(rightPostion, Vector3.up, new Color(0, 1, 0));
+        
+        var leftrayHit = Physics2D.Raycast(leftPostion, Vector2.up, 1f,
+            LayerMask.GetMask("Platform"));
+        
+        var rightrayHit = Physics2D.Raycast(rightPostion, Vector2.up, 1f,
+            LayerMask.GetMask("Platform"));
+
+        if (leftrayHit.collider != null || rightrayHit.collider != null)
+        {
+            if (leftrayHit.distance < 0.3f || rightrayHit.distance < 0.3f)
+            {
+                isHeading = true;
+            }
+        }
+        else
+        {
+            isHeading = false;
         }
     }
 

@@ -4,7 +4,7 @@ public class Attack_Test : MonoBehaviour
 {
     private Animator ani;
 
-    private void Start()
+    private void Awake()
     {
         ani = GetComponent<Animator>();
     }
@@ -26,6 +26,5 @@ public class Attack_Test : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.gameObject.name);
     }
 }
