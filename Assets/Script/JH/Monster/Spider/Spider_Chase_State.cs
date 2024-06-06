@@ -35,6 +35,8 @@ public class Spider_Chase_State : IMonsterState
         hitRightPlatform = Physics2D.Raycast(_monster.transform.position + new Vector3(2, 2, 0), Vector2.right, 0.5f, 1 << LayerMask.NameToLayer("Platform"));
         hitLeftPlatform = Physics2D.Raycast(_monster.transform.position + new Vector3(-2, 2, 0), Vector2.left, 0.5f, 1 << LayerMask.NameToLayer("Platform"));
 
+        anime.SetBool("isMove", false);
+
         if ((hitRightPlatform.collider == null && hitLeftPlatform.collider == null) || canChase(playerPos.position, _monster.transform.position, firstPos))
         {
             if (hitDown.collider != null || canChase(playerPos.position, _monster.transform.position, firstPos))
@@ -44,6 +46,8 @@ public class Spider_Chase_State : IMonsterState
 
                 if (Player_Position(playerPos, _monster.transform) < 0 && hitLeft.collider == null)
                     _monster.transform.position += Vector3.left * Time.deltaTime * _monster.GetComponent<Spider>().monsterInfo.moveSpeed;
+
+                anime.SetBool("isMove", true);
             }
         }
 

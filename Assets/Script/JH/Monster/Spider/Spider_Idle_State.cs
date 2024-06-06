@@ -52,21 +52,24 @@ public class Spider_Idle_State : IMonsterState
 
         if (isStop)
         {
+            anime.SetBool("isMove", false);
             if (Time.time - lastTime >= timeInterval)
             {
                 isStop = false;
                 modify = false;
                 _monster.transform.position += new Vector3(targetPos - _monster.transform.position.x, 0, 0).normalized * moveSpeed * Time.deltaTime;
+                anime.SetBool("isMove", true);
             }
         }
         else
+        {
             _monster.transform.position += new Vector3(targetPos - _monster.transform.position.x, 0, 0).normalized * moveSpeed * Time.deltaTime;
-
+            anime.SetBool("isMove", true);
+        }
         if (targetPos - _monster.transform.position.x > 0)
             _monster.transform.localScale = new Vector3(1, 1, 1);
         else
             _monster.transform.localScale = new Vector3(-1, 1, 1);
-
     }
     public override void StateExit()
     {
