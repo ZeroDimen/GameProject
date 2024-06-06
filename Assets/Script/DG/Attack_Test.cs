@@ -4,11 +4,11 @@ public class Attack_Test : MonoBehaviour
 {
     private Animator ani;
 
-    private void Awake()
+    private void Start()
     {
         ani = GetComponent<Animator>();
     }
-
+    
     public void Ani_Off()
     {
         gameObject.SetActive(false);

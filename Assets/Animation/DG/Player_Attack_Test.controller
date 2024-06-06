@@ -69,7 +69,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: bab3e8332b2b71b478e2936d1a2a5ac0, type: 2}
+  m_Motion: {fileID: 7400000, guid: f82d1ed9bea007f4891c6699d49bca24, type: 2}
   m_Tag: 
   m_SpeedParameter: AttackEffactSpeed
   m_MirrorParameter: 
@@ -81,7 +81,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player_Attack_Test 1
+  m_Name: Player_Attack_Test
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: IsAttack
@@ -89,13 +89,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: AttackEffactSpeed
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -151,7 +151,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 68d7cc75ec8122542ac492b107927ed0, type: 2}
+  m_Motion: {fileID: 7400000, guid: 1da2b4c256ad5314f8446a79e9586183, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
