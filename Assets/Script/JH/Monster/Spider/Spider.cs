@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 
 public class Spider : Monster
 {
@@ -26,20 +27,19 @@ public class Spider : Monster
     private MonsterStateMachine _monsterStateMachine;
     RaycastHit2D hitRight;
     RaycastHit2D hitLeft;
-    RaycastHit2D hitRight_Chase;
-    RaycastHit2D hitLeft_Chase;
+    Rigidbody2D rigid;
     public Vector3 firstPos;
     int layerMask;
-    int layerMask_Chase;
-    float animeTime;
     public bool isdead = false;
+    bool isFall;
 
     private void Awake()
     {
+        isFall = false;
+        rigid = GetComponent<Rigidbody2D>();
         anime = GetComponent<Animator>();
         hp = monsterInfo.hp;
-        layerMask = 1 << LayerMask.NameToLayer("SeamlessLine") | 1 << LayerMask.NameToLayer("Spider");
-        layerMask_Chase = 1 << LayerMask.NameToLayer("Platform");
+        layerMask = 1 << LayerMask.NameToLayer("SeamlessLine") | 1 << LayerMask.NameToLayer("Spider") | 1 << LayerMask.NameToLayer("MonsterAttack");
         firstPos = transform.position;
     }
     private void Start()
@@ -49,6 +49,10 @@ public class Spider : Monster
         _monsterStateMachine = new MonsterStateMachine(spider_Idle_State);
         spider_Idle_State.StateEnter();
         StartCoroutine(Spider_State());
+    }
+    private void Update()
+    {
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Spider"), true);
     }
     private void OnDrawGizmos()
     {
@@ -81,11 +85,6 @@ public class Spider : Monster
 
                     break;
                 case State.Chase:
-                    hitRight_Chase = Physics2D.Raycast(transform.position + new Vector3(1, 2, 0), Vector3.right, 2, layerMask_Chase);
-                    hitLeft_Chase = Physics2D.Raycast(transform.position + new Vector3(-1, 2, 0), Vector2.left, 2, layerMask_Chase);
-
-                    // if (hitRight_Chase.collider != null || hitLeft_Chase.collider != null)
-                    //     ChangeState(State.Idle);
                     if (Vector3.Distance(playerPos.position, transform.position) >= monsterInfo.fieldOfView)
                         ChangeState(State.Idle);
                     if (Vector3.Distance(playerPos.position, transform.position) <= monsterInfo.attackRange)
@@ -101,25 +100,19 @@ public class Spider : Monster
                     spider_Idle_State.StateEnter();
                     break;
                 case State.Damaged:
-                    // if (anime.GetCurrentAnimatorStateInfo(0).IsName("Damage") == true)
-                    // {
-                    //     animeTime = anime.GetCurrentAnimatorStateInfo(0).normalizedTime;
-                    //     if (animeTime >= 1f)
-                    //     {
-                    //         if (hp <= 0)
-                    //             ChangeState(Spider.State.Death);
-                    //         else if (Vector3.Distance(playerPos.position, transform.position) >= monsterInfo.attackRange)
-                    //             ChangeState(State.Chase);
-                    //         else
-                    //             ChangeState(State.Attack);
-                    //     }
-                    // }
-                    if (hp <= 0)
-                        ChangeState(Spider.State.Death);
-                    else if (Vector3.Distance(playerPos.position, transform.position) >= monsterInfo.attackRange)
-                        ChangeState(State.Chase);
-                    else
-                        ChangeState(State.Attack);
+                    if (anime.GetCurrentAnimatorStateInfo(0).IsName("Damage") && anime.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f)
+                    {
+                        if (hp <= 0)
+                            ChangeState(State.Death);
+                        else if (Vector3.Distance(playerPos.position, transform.position) <= monsterInfo.attackRange)
+                            ChangeState(State.Attack);
+                        else if (Vector3.Distance(playerPos.position, transform.position) <= monsterInfo.fieldOfView)
+                            ChangeState(State.Chase);
+                        else
+                            ChangeState(State.Idle);
+
+                        yield return new WaitForSeconds(0.5f);
+                    }
                     break;
                 case State.Death:
                     if (isdead)
@@ -167,8 +160,22 @@ public class Spider : Monster
             ChangeState(State.Greet);
         if (other.CompareTag("Weapon") && _curState != State.Death)
         {
+            Functions.Hit_Knock_Back(other.gameObject, gameObject, 14f);
+            Invoke("Velocity_Zero", 0.2f);
             hp--;
             ChangeState(State.Damaged);
         }
+    }
+    void Velocity_Zero()
+    {
+        rigid.velocity = Vector3.zero;
+    }
+    void Animation_Event()
+    {
+        GameObject obj = transform.GetChild(0).gameObject;
+        if (obj.activeSelf == true)
+            obj.SetActive(false);
+        else
+            obj.SetActive(true);
     }
 }

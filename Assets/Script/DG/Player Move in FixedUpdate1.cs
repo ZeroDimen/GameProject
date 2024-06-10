@@ -21,6 +21,10 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
     public bool isGrounded; // != IsJump
     public bool isSliding;
     private bool isHeading;
+    private bool isDamaged;
+    private bool isCoroutineRunning;
+    private bool flag;
+
     private bool isRight;
     
     private bool CanAttack;
@@ -33,9 +37,12 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
         CanFilp = true;
         isRight = true;
         isHeading = false;
+        isDamaged = false;
         CanAttack = true;
+        isCoroutineRunning = false;
         hangTime = .1f;
         jumpInputUp = false;
+        flag = false;
         rigid = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
         Application.targetFrameRate = 60;
@@ -47,6 +54,7 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
         ArrowInput();
         Jump();
         Flip();
+        IsDamaged();
         if (Input.GetMouseButtonDown(0) && CanAttack)
         {
             CanFilp = false;
@@ -64,6 +72,10 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!flag)
+            rigid.velocity = new Vector2(arrowInput * moveSpeed, rigid.velocity.y);
+        else
+            rigid.velocity = new Vector2(rigid.velocity.x, rigid.velocity.y);
 
         PlayerMove();
         Landing_Platform();
@@ -170,20 +182,43 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
             }
         }
     }
+    void IsDamaged()
+    {
+        if (isDamaged && !isCoroutineRunning)
+            StartCoroutine(Blink(gameObject, 2));
+    }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Monster"))
-            StartCoroutine(Blink(gameObject, 2));
+            isDamaged = true;
+        if (other.CompareTag("MonterAttack"))
+        {
+            flag = true;
+            Functions.Hit_Knock_Back(other.gameObject, gameObject);
+            isDamaged = true;
+            Invoke("Flag", 0.1f);
+        }
+    }
+    void Flag()
+    {
+        flag = false;
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Monster"))
+            isDamaged = false;
     }
     IEnumerator Blink(GameObject obj, int n = 4)
     {
         for (int i = 0; i < n; i++)
         {
-            obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+            isCoroutineRunning = true;
+            obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
             yield return new WaitForSeconds(0.2f);
-            obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+            obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
             yield return new WaitForSeconds(0.2f);
         }
+        isCoroutineRunning = false;
     }
     private void OnCollisionStay2D(Collision2D other)
     {
@@ -213,13 +248,13 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
 
         // Debug.DrawRay(leftPostion, Vector3.down, new Color(0, 1, 0));
         // Debug.DrawRay(rightPostion, Vector3.down, new Color(0, 1, 0));
-        
+
         var leftrayHit = Physics2D.Raycast(leftPostion, Vector2.down, 1f,
             LayerMask.GetMask("Platform"));
-        
+
         var rightrayHit = Physics2D.Raycast(rightPostion, Vector2.down, 1f,
             LayerMask.GetMask("Platform"));
-        
+
         if (leftrayHit.collider != null || rightrayHit.collider != null)
         {
             if (leftrayHit.distance < 0.5f || rightrayHit.distance < 0.5f)
@@ -237,16 +272,16 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
     private void Heading_Platform()
     {
         Vector3 leftPostion =
-            new Vector3(transform.position.x - 0.2f, transform.position.y+2f, transform.position.z);
+            new Vector3(transform.position.x - 0.2f, transform.position.y + 2f, transform.position.z);
         Vector3 rightPostion =
-            new Vector3(transform.position.x + 0.2f, transform.position.y+2f, transform.position.z);
-        
+            new Vector3(transform.position.x + 0.2f, transform.position.y + 2f, transform.position.z);
+
         // Debug.DrawRay(leftPostion, Vector3.up, new Color(0, 1, 0));
         // Debug.DrawRay(rightPostion, Vector3.up, new Color(0, 1, 0));
-        
+
         var leftrayHit = Physics2D.Raycast(leftPostion, Vector2.up, 1f,
             LayerMask.GetMask("Platform"));
-        
+
         var rightrayHit = Physics2D.Raycast(rightPostion, Vector2.up, 1f,
             LayerMask.GetMask("Platform"));
 

@@ -9,8 +9,7 @@ public class Spider_Damaged_State : IMonsterState
     public override void StateEnter()
     {
         anime = _monster.GetComponent<Animator>();
-        anime.SetBool("isDamaged", true);
-        anime.Play("Damage");
+        anime.SetBool("isDamage", true);
     }
     public override void StateUpdate()
     {
@@ -18,14 +17,6 @@ public class Spider_Damaged_State : IMonsterState
     }
     public override void StateExit()
     {
-        anime.SetBool("isDamaged", false);
-        if (_monster.GetComponent<Spider>().hp <= 0)
-            anime.SetBool("isDeath", true);
-        else if (Vector3.Distance(GameObject.Find("Player").transform.position, _monster.transform.position) <=
-        _monster.GetComponent<Spider>().monsterInfo.attackRange)
-            anime.SetBool("isAttack", true);
-        else
-            anime.SetBool("isChase", true);
-
+        anime.SetBool("isDamage", false);
     }
 }

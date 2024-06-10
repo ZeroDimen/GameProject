@@ -5,22 +5,30 @@ using UnityEngine;
 public class Spider_Attack_State : IMonsterState
 {
     Animator anime;
-    int _hp;
+    AnimatorStateInfo stateInfo;
     public Spider_Attack_State(GameObject monster) : base(monster) { }
     public override void StateEnter()
     {
-        _hp = _monster.GetComponent<Spider>().hp;
         anime = _monster.GetComponent<Animator>();
         anime.SetBool("isAttack", true);
     }
     public override void StateUpdate()
     {
+        stateInfo = anime.GetCurrentAnimatorStateInfo(0);
 
+        if (stateInfo.normalizedTime >= 1.0f && stateInfo.IsName("Attack"))
+        {
+            anime.SetBool("isAttack", false);
+            anime.SetBool("isIdle", true);
+        }
+        if (stateInfo.normalizedTime > 0.5f && stateInfo.IsName("Idle"))
+        {
+            anime.SetBool("isAttack", true);
+            anime.SetBool("isIdle", false);
+        }
     }
     public override void StateExit()
     {
         anime.SetBool("isAttack", false);
-        if (_monster.GetComponent<Spider>().hp != _hp)
-            anime.SetBool("isDamaged", true);
     }
 }
