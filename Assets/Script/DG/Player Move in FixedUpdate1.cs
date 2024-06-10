@@ -21,13 +21,17 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
     public bool isGrounded; // != IsJump
     public bool isSliding;
     private bool isHeading;
+    private bool isRight;
     
     private bool CanAttack;
+    private bool CanFilp;
 
     public GameObject Attack_Obj;
 
     void Start()
     {
+        CanFilp = true;
+        isRight = true;
         isHeading = false;
         CanAttack = true;
         hangTime = .1f;
@@ -45,6 +49,7 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
         Flip();
         if (Input.GetMouseButtonDown(0) && CanAttack)
         {
+            CanFilp = false;
             CanAttack = false;
             Attack_Obj.SetActive(true);
             Attack_Obj.GetComponent<Attack_Test>().Attack_Ani();
@@ -59,9 +64,8 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rigid.velocity = new Vector2(arrowInput * moveSpeed, rigid.velocity.y);
 
-
+        PlayerMove();
         Landing_Platform();
         Heading_Platform();
     }
@@ -75,6 +79,7 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
     public void Attack_Ani_End()
     {
         CanAttack = true;
+        CanFilp = true;
     }
     private void ArrowInput()
     {
@@ -90,6 +95,28 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
 
     }
 
+    private void PlayerMove()
+    {
+        Debug.Log(CanFilp);
+        if (CanFilp == false && isRight)
+        {
+            if (arrowInput == -1)
+            {
+                arrowInput = 0;
+                Debug.Log(arrowInput);
+            }
+        }
+        else if (CanFilp == false && !isRight)
+        {
+            if (arrowInput == 1)
+            {
+                arrowInput = 0;
+            }
+        }
+
+        rigid.velocity = new Vector2(arrowInput * moveSpeed, rigid.velocity.y);
+    }
+    
     void Jump()
     {
         if (isGrounded)
@@ -128,16 +155,19 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
 
     void Flip() //just flip sprite
     {
-        if (Input.GetAxisRaw("Horizontal") > 0)
+        if (CanFilp)
         {
-            // sprite.flipX = false;
-            transform.localScale = new Vector3(1, 1, 1);
+            if (Input.GetAxisRaw("Horizontal") > 0)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+                isRight = true;
 
-        }
-        else if (Input.GetAxisRaw("Horizontal") < 0)
-        {
-            // sprite.flipX = true;
-            transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else if (Input.GetAxisRaw("Horizontal") < 0)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+                isRight = false;
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D other)
