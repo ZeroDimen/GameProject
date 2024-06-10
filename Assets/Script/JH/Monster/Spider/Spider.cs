@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SocialPlatforms;
 
 public class Spider : Monster
 {
@@ -31,11 +29,9 @@ public class Spider : Monster
     public Vector3 firstPos;
     int layerMask;
     public bool isdead = false;
-    bool isFall;
 
     private void Awake()
     {
-        isFall = false;
         rigid = GetComponent<Rigidbody2D>();
         anime = GetComponent<Animator>();
         hp = monsterInfo.hp;
@@ -49,10 +45,6 @@ public class Spider : Monster
         _monsterStateMachine = new MonsterStateMachine(spider_Idle_State);
         spider_Idle_State.StateEnter();
         StartCoroutine(Spider_State());
-    }
-    private void Update()
-    {
-        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Spider"), true);
     }
     private void OnDrawGizmos()
     {

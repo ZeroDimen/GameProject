@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class PlayerMoveinFixedUpdate1 : MonoBehaviour
 {
+    RaycastHit2D rightHit;
+    RaycastHit2D leftHit;
     private Rigidbody2D rigid;
     private Animator ani;
 
@@ -26,7 +28,7 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
     private bool flag;
 
     private bool isRight;
-    
+
     private bool CanAttack;
     private bool CanFilp;
 
@@ -54,6 +56,7 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
         ArrowInput();
         Jump();
         Flip();
+        Collision_Check();
         IsDamaged();
         if (Input.GetMouseButtonDown(0) && CanAttack)
         {
@@ -72,11 +75,6 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!flag)
-            rigid.velocity = new Vector2(arrowInput * moveSpeed, rigid.velocity.y);
-        else
-            rigid.velocity = new Vector2(rigid.velocity.x, rigid.velocity.y);
-
         PlayerMove();
         Landing_Platform();
         Heading_Platform();
@@ -109,13 +107,11 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
 
     private void PlayerMove()
     {
-        Debug.Log(CanFilp);
         if (CanFilp == false && isRight)
         {
             if (arrowInput == -1)
             {
                 arrowInput = 0;
-                Debug.Log(arrowInput);
             }
         }
         else if (CanFilp == false && !isRight)
@@ -126,9 +122,12 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
             }
         }
 
-        rigid.velocity = new Vector2(arrowInput * moveSpeed, rigid.velocity.y);
+        if (!flag)
+            rigid.velocity = new Vector2(arrowInput * moveSpeed, rigid.velocity.y);
+        else
+            rigid.velocity = new Vector2(rigid.velocity.x, rigid.velocity.y);
     }
-    
+
     void Jump()
     {
         if (isGrounded)
@@ -186,6 +185,16 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
     {
         if (isDamaged && !isCoroutineRunning)
             StartCoroutine(Blink(gameObject, 2));
+    }
+    void Collision_Check()
+    {
+        rightHit = Physics2D.Raycast(transform.position + Vector3.up, Vector3.right, 0.5f);
+        leftHit = Physics2D.Raycast(transform.position + Vector3.up, Vector3.left, 0.5f);
+
+        if (rightHit.collider != null && rightHit.collider.CompareTag("Monster"))
+            isDamaged = true;
+        if (leftHit.collider != null && leftHit.collider.CompareTag("Monster"))
+            isDamaged = true;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
