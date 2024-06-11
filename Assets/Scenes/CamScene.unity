@@ -536,7 +536,7 @@ Transform:
   m_GameObject: {fileID: 714595381}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -60.94, y: 21.5, z: -22}
+  m_LocalPosition: {x: -141.4, y: 20.1, z: -22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -572,11 +572,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 490699665591751955, guid: e8d92a46954b42f4d878f30cb73ccf36, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -60.94
+      value: -141.4
       objectReference: {fileID: 0}
     - target: {fileID: 490699665591751955, guid: e8d92a46954b42f4d878f30cb73ccf36, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.5
+      value: 14.1
       objectReference: {fileID: 0}
     - target: {fileID: 490699665591751955, guid: e8d92a46954b42f4d878f30cb73ccf36, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1008,7 +1008,7 @@ Transform:
   m_GameObject: {fileID: 1527948725}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -60.94, y: 21.5, z: -22}
+  m_LocalPosition: {x: -141.4, y: 20.1, z: -22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1362,6 +1362,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackAniSpeed: 2.5
   attackKeySpeed: 1
+  playerGrav: 5
+  playerSlidingGrav: 0
   moveSpeed: 10
   jumpForce: 1200
   jumpCount: 0

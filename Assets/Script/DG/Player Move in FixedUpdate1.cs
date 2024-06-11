@@ -8,6 +8,8 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
 
     public float attackAniSpeed = 2.5f;
     public float attackKeySpeed = 0.5f;
+    public float playerGrav = 5f;
+    public float playerSlidingGrav = 0f;
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
     public int jumpCount; //not use now but player can double jump it'll be use
@@ -47,6 +49,7 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         ani = GetComponent<Animator>();
         Application.targetFrameRate = 60;
+        rigid.gravityScale = playerGrav;
     }
 
     // Update is called once per frame
@@ -220,11 +223,13 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
                 if (rigid.velocity.y < 0 && arrowInput != 0 && !isHeading)
                 {
                     isSliding = true;
+                    rigid.gravityScale = playerSlidingGrav;
                 }
             }
             else
             {
                 isSliding = false;
+                rigid.gravityScale = playerGrav;
             }
             
         }
@@ -256,6 +261,7 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
         {
             isGrounded = false;
             isSliding = false;
+            rigid.gravityScale = playerGrav;
         }
     }
 
@@ -293,6 +299,7 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
         if (other.gameObject.CompareTag("Platform"))
         {
             isSliding = false;
+            rigid.gravityScale = playerGrav;
         }
     }
 }
