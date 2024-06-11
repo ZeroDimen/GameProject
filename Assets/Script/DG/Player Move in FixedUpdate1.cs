@@ -6,7 +6,8 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
     private Rigidbody2D rigid;
     private Animator ani;
 
-    public float attackSpeed = 2.5f;
+    public float attackAniSpeed = 2.5f;
+    public float attackKeySpeed = 0.5f;
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
     public int jumpCount; //not use now but player can double jump it'll be use
@@ -55,19 +56,19 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
         Jump();
         Flip();
         IsDamaged();
-        if (Input.GetMouseButtonDown(0) && CanAttack)
+        if (Input.GetMouseButtonDown(0) && CanAttack && !isSliding)
         {
             CanFilp = false;
-            CanAttack = false;
+            // CanAttack = false;
+            StartCoroutine(Disable_Attack(attackKeySpeed));
             Attack_Obj.SetActive(true);
             Attack_Obj.GetComponent<Attack_Test>().Attack_Ani();
-            Attack_Speed_Change(attackSpeed);
+            Attack_Speed_Change(attackAniSpeed);
         }
 
         ani.SetBool("IsJump", !isGrounded);
         ani.SetBool("IsSliding", isSliding);
         ani.SetFloat("Jump_V", rigid.velocity.y);
-        ani.SetBool("IsAttack", !CanAttack);
     }
 
     private void FixedUpdate()
@@ -90,9 +91,9 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
 
     public void Attack_Ani_End()
     {
-        CanAttack = true;
         CanFilp = true;
     }
+    
     private void ArrowInput()
     {
         arrowInput = Input.GetAxisRaw("Horizontal");
@@ -107,25 +108,15 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
 
     }
 
+    private IEnumerator Disable_Attack(float seconds)
+    {
+        CanAttack = false;
+        ani.SetTrigger("IsAttack");
+        yield return new WaitForSeconds(seconds);
+        CanAttack = true;
+    }
     private void PlayerMove()
     {
-        Debug.Log(CanFilp);
-        if (CanFilp == false && isRight)
-        {
-            if (arrowInput == -1)
-            {
-                arrowInput = 0;
-                Debug.Log(arrowInput);
-            }
-        }
-        else if (CanFilp == false && !isRight)
-        {
-            if (arrowInput == 1)
-            {
-                arrowInput = 0;
-            }
-        }
-
         rigid.velocity = new Vector2(arrowInput * moveSpeed, rigid.velocity.y);
     }
     
@@ -229,14 +220,13 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
                 if (rigid.velocity.y < 0 && arrowInput != 0 && !isHeading)
                 {
                     isSliding = true;
-                    CanAttack = false;
                 }
             }
             else
             {
                 isSliding = false;
-                CanAttack = true;
             }
+            
         }
     }
     private void Landing_Platform()
