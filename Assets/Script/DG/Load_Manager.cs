@@ -8,7 +8,7 @@ public class Load_Manager : MonoBehaviour
    public TMP_Text[] Text_Location;
    public TMP_Text[] Text_Time;
    
-   public void Start()
+   public void LoadDataFromDatabase()
    {
       for (int i = 0; i < 3; i++)
       {

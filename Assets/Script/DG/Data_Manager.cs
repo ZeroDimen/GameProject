@@ -3,15 +3,7 @@ using System.IO;
 using UnityEngine;
 
 
-public class PlayerData
-{ 
-    //name, level, money, etc..
-    public string Location = "No Data";
-    public uint Money = 10;
-    public string Time = "None";
-    public int Data_Num = 0;
-    public Vector3 pos = new Vector3(0, 0, 0);
-}
+
 public class Data_Manager : MonoBehaviour
 {
     public static Data_Manager instance;

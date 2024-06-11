@@ -1,15 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    private static UIManager instance = null;
+    public static UIManager instance = null;
     public GameObject EscapeMenu;
     public GameObject LoginPanel;
     public GameObject SlotMenu;
-    
+    public TMP_Text Idtext;
+    public TMP_Text Pwtext;
+
     private void Awake()
     {
         if (instance == null)
@@ -28,6 +31,16 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        
+        //그거 뭐야 이스케이프 키 눌렀을때 반응
+    }
+
+    public void LoginButton()
+    {
+        GameManager.instance.id = Idtext.text;
+        GameManager.instance.pw = Pwtext.text;
+        SlotMenu.SetActive(true);
+        //서버에서 불러오기?
+        LoginPanel.SetActive(false);
+        //this.gameObject.SetActive(false);
     }
 }

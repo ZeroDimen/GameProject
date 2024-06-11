@@ -207,8 +207,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Data_Manager, Assembly-CSharp
+      - m_Target: {fileID: 397141903}
+        m_TargetAssemblyTypeName: SaveData, Assembly-CSharp
         m_MethodName: Btn1_Data
         m_Mode: 1
         m_Arguments:
@@ -756,7 +756,7 @@ GameObject:
   - component: {fileID: 389823687}
   - component: {fileID: 389823686}
   m_Layer: 5
-  m_Name: Data_Window (1)
+  m_Name: SlotMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -852,8 +852,9 @@ GameObject:
   m_Component:
   - component: {fileID: 397141902}
   - component: {fileID: 397141901}
+  - component: {fileID: 397141903}
   m_Layer: 0
-  m_Name: Database
+  m_Name: DataManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -886,6 +887,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &397141903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397141900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d169cab7fe3a847a4ba03d2cc5bb4aeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  path: 
+  Player: {fileID: 0}
+  Text_Location:
+  - {fileID: 215625983}
+  - {fileID: 801418933}
+  - {fileID: 1572161515}
+  Text_Time:
+  - {fileID: 1705385499}
+  - {fileID: 502177657}
+  - {fileID: 1125003989}
 --- !u!1 &407651414
 GameObject:
   m_ObjectHideFlags: 0
@@ -1328,25 +1351,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1098141555}
-        m_TargetAssemblyTypeName: Login, Assembly-CSharp
+      - m_Target: {fileID: 1494982305}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: LoginButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
-      - m_Target: {fileID: 407651414}
-        m_TargetAssemblyTypeName: Login, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2205,52 +2216,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding: {x: -8, y: -5, z: -8, w: -5}
   m_Softness: {x: 0, y: 0}
---- !u!1 &1098141554
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1098141556}
-  - component: {fileID: 1098141555}
-  m_Layer: 0
-  m_Name: Login
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1098141555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1098141554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20993b0ab4cf34307bb0d17c57d57374, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Idtext: {fileID: 1315584765}
-  Pwtext: {fileID: 1620749211}
---- !u!4 &1098141556
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1098141554}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1119862508
 GameObject:
   m_ObjectHideFlags: 0
@@ -2434,7 +2399,7 @@ GameObject:
   - component: {fileID: 1315584766}
   - component: {fileID: 1315584765}
   m_Layer: 0
-  m_Name: Text
+  m_Name: ID_TEXT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2677,6 +2642,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1331102640}
   m_CullTransparentMesh: 1
+--- !u!1 &1348982056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1348982058}
+  - component: {fileID: 1348982057}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1348982057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348982056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 070a0d259821e4b53848f2bf11a05d0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 
+  pw: 
+  playerNumber: 0
+--- !u!4 &1348982058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348982056}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1480146605
 GameObject:
   m_ObjectHideFlags: 0
@@ -2761,8 +2773,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Data_Manager, Assembly-CSharp
+      - m_Target: {fileID: 397141903}
+        m_TargetAssemblyTypeName: SaveData, Assembly-CSharp
         m_MethodName: Btn2_Data
         m_Mode: 1
         m_Arguments:
@@ -2858,6 +2870,8 @@ MonoBehaviour:
   EscapeMenu: {fileID: 1897578906}
   LoginPanel: {fileID: 1025870115}
   SlotMenu: {fileID: 389823684}
+  Idtext: {fileID: 1315584765}
+  Pwtext: {fileID: 1620749211}
 --- !u!1 &1501581040
 GameObject:
   m_ObjectHideFlags: 0
@@ -3231,7 +3245,7 @@ GameObject:
   - component: {fileID: 1620749212}
   - component: {fileID: 1620749211}
   m_Layer: 0
-  m_Name: Text
+  m_Name: PW_TEXT
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3481,8 +3495,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Data_Manager, Assembly-CSharp
+      - m_Target: {fileID: 397141903}
+        m_TargetAssemblyTypeName: SaveData, Assembly-CSharp
         m_MethodName: Btn3_Data
         m_Mode: 1
         m_Arguments:
@@ -4256,5 +4270,5 @@ SceneRoots:
   - {fileID: 439457759}
   - {fileID: 1647629601}
   - {fileID: 1494982304}
-  - {fileID: 1098141556}
+  - {fileID: 1348982058}
   - {fileID: 407651415}
