@@ -142,7 +142,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &352023339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -933,6 +933,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Scene_Manager: {fileID: 1149103808}
   path: 
+  id: 
+  pw: 
 --- !u!114 &1149103811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1537,7 +1539,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1539364322
 RectTransform:
   m_ObjectHideFlags: 0

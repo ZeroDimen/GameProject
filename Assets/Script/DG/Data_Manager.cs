@@ -20,7 +20,8 @@ public class Data_Manager : MonoBehaviour
     public GameObject Scene_Manager;
     private GameObject Player;
     public string path;
-    
+    public string id;
+    public string pw;
     private void Awake()
     {
         #region Singleton
