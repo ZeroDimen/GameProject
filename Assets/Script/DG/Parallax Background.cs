@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class ParallaxBackground : MonoBehaviour
 {
     [SerializeField] private Transform target;
     [SerializeField] private float scrollAmount;

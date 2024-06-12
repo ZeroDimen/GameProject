@@ -69,9 +69,19 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
             Attack_Speed_Change(attackAniSpeed);
         }
 
+        if (isSliding)
+        {
+            rigid.gravityScale = playerSlidingGrav;
+        }
+        else
+        {
+            rigid.gravityScale = playerGrav;
+        }
+        
         ani.SetBool("IsJump", !isGrounded);
         ani.SetBool("IsSliding", isSliding);
         ani.SetFloat("Jump_V", rigid.velocity.y);
+
     }
 
     private void FixedUpdate()
@@ -223,13 +233,11 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
                 if (rigid.velocity.y < 0 && arrowInput != 0 && !isHeading)
                 {
                     isSliding = true;
-                    rigid.gravityScale = playerSlidingGrav;
                 }
             }
             else
             {
                 isSliding = false;
-                rigid.gravityScale = playerGrav;
             }
             
         }
@@ -261,7 +269,6 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
         {
             isGrounded = false;
             isSliding = false;
-            rigid.gravityScale = playerGrav;
         }
     }
 
@@ -299,7 +306,6 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
         if (other.gameObject.CompareTag("Platform"))
         {
             isSliding = false;
-            rigid.gravityScale = playerGrav;
         }
     }
 }

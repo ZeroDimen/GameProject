@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ad : MonoBehaviour
+public class OnCamCollider : MonoBehaviour
 {
     public GameObject Cam_Col;
     private void OnTriggerEnter2D(Collider2D collision) 
