@@ -3,7 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
+enum GameStatus
+{
+    Title,
+    Ingame,
+    EscapeMenuOpen
+}
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance = null;
@@ -12,6 +19,8 @@ public class UIManager : MonoBehaviour
     public GameObject SlotMenu;
     public TMP_Text Idtext;
     public TMP_Text Pwtext;
+    private bool IsEscapeMenuOpen;
+    private GameStatus _gameStatus;
 
     private void Awake()
     {
@@ -27,6 +36,7 @@ public class UIManager : MonoBehaviour
         EscapeMenu.SetActive(false);
         SlotMenu.SetActive(false);
         LoginPanel.SetActive(true);
+        _gameStatus = GameStatus.Title;
     }
 
     private void Update()
@@ -42,5 +52,10 @@ public class UIManager : MonoBehaviour
         //서버에서 불러오기?
         LoginPanel.SetActive(false);
         //this.gameObject.SetActive(false);
+    }
+
+    public void ExitButton()
+    {
+        
     }
 }
