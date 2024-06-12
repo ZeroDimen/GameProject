@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class PlayerMoveinFixedUpdate1 : MonoBehaviour
 {
+    RaycastHit2D rightHit;
+    RaycastHit2D leftHit;
     private Rigidbody2D rigid;
     private Animator ani;
 
@@ -10,6 +12,7 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
     public float attackKeySpeed = 0.5f;
     public float playerGrav = 5f;
     public float playerSlidingGrav = 0f;
+    float hp = 10;
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
     public int jumpCount; //not use now but player can double jump it'll be use
@@ -26,10 +29,14 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
     private bool isHeading;
     private bool isDamaged;
     private bool isCoroutineRunning;
-    private bool flag;
+    static public bool moveFlag = true;
+    static public bool stun = false;
+    static public float lastTime;
+    static public Vector3 lastPos;
+    static public bool flag;
 
     private bool isRight;
-    
+
     private bool CanAttack;
     private bool CanFilp;
 
@@ -76,11 +83,6 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!flag)
-            rigid.velocity = new Vector2(arrowInput * moveSpeed, rigid.velocity.y);
-        else
-            rigid.velocity = new Vector2(rigid.velocity.x, rigid.velocity.y);
-
         PlayerMove();
         Landing_Platform();
         Heading_Platform();
@@ -122,7 +124,7 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
     {
         rigid.velocity = new Vector2(arrowInput * moveSpeed, rigid.velocity.y);
     }
-    
+
     void Jump()
     {
         if (isGrounded)
@@ -179,7 +181,22 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
     void IsDamaged()
     {
         if (isDamaged && !isCoroutineRunning)
+        {
             StartCoroutine(Blink(gameObject, 2));
+            hp--;
+            if (hp <= 0)
+                Destroy(gameObject);
+        }
+    }
+    void Collision_Check()
+    {
+        rightHit = Physics2D.Raycast(transform.position + Vector3.up, Vector3.right, 0.5f);
+        leftHit = Physics2D.Raycast(transform.position + Vector3.up, Vector3.left, 0.5f);
+
+        if (rightHit.collider != null && rightHit.collider.CompareTag("Monster"))
+            isDamaged = true;
+        if (leftHit.collider != null && leftHit.collider.CompareTag("Monster"))
+            isDamaged = true;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -192,6 +209,8 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
             isDamaged = true;
             Invoke("Flag", 0.1f);
         }
+        if (other.CompareTag("Boss"))
+            isDamaged = true;
     }
     void Flag()
     {

@@ -5,7 +5,6 @@ using UnityEngine;
 public class Spider_Idle_State : IMonsterState
 {
     Animator anime;
-    Rigidbody2D rigid;
     RaycastHit2D hitRight;
     RaycastHit2D hitLeft;
     RaycastHit2D hitDown;
@@ -22,14 +21,12 @@ public class Spider_Idle_State : IMonsterState
     public override void StateEnter()
     {
         anime = _monster.GetComponent<Animator>();
-        rigid = _monster.GetComponent<Rigidbody2D>();
         firstPos = _monster.GetComponent<Spider>().firstPos;
         targetPos = _monster.transform.position.x;
         moveSpeed = _monster.GetComponent<Spider>().monsterInfo.moveSpeed;
         isStop = false;
         modify = false;
         timeInterval = 3;
-        //anime.SetBool("isIdle", true);
         layerMask = 1 << LayerMask.NameToLayer("Platform");
     }
     public override void StateUpdate()
