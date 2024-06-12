@@ -17,15 +17,16 @@ public class Database : MonoBehaviour  // 서버에 데이터를 저장하기 �
         string[] json = new string[3];
         for (int i = 0; i < 3; i++)
         {
-            if (File.Exists(Data_Manager.instance.path + $"{i}"))
-            {
-                Debug.Log($"{i} Load Success");
-                json[i] = File.ReadAllText(path + i.ToString());
-            }
-            else
-            {
-                json[i] = null;
-            }
+            //     if (File.Exists(Data_Manager.instance.path + $"{i}"))
+            //     {
+            //         Debug.Log($"{i} Load Success");
+            //         json[i] = File.ReadAllText(path + i.ToString());
+            //     }
+            //     else
+            //     {
+            //         json[i] = null;
+            //     }
+            // }
         }
         StartCoroutine(UnityWebRequestGetTest(json));
     }

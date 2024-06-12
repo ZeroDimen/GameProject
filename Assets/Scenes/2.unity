@@ -2034,7 +2034,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5848052298580775713, guid: 6cd44a3c672b5994eb3104f54088c767, type: 3}
       propertyPath: m_Name
-      value: Spider (3)
+      value: Spider
       objectReference: {fileID: 0}
     - target: {fileID: 8958597020327335424, guid: 6cd44a3c672b5994eb3104f54088c767, type: 3}
       propertyPath: m_LocalPosition.x

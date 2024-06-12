@@ -90,9 +90,9 @@ public class Boss : MonoBehaviour
                     if (Vector3.Distance(playerPos.position, transform.position) < monsterInfo.fieldOfView)
                     {
                         _curState = State.FirstAction;
-                        PlayerMoveinFixedUpdate1.moveFlag = false;
-                        PlayerMoveinFixedUpdate1.lastTime = Time.time;
-                        PlayerMoveinFixedUpdate1.lastPos = playerPos.position;
+                        PlayerMoveinFixedUpdate.moveFlag = false;
+                        PlayerMoveinFixedUpdate.lastTime = Time.time;
+                        PlayerMoveinFixedUpdate.lastPos = playerPos.position;
                         // WideCam = GameObject.Find("Cam").transform.GetChild(0).gameObject;
                     }
                     break;
@@ -105,7 +105,7 @@ public class Boss : MonoBehaviour
                     // WideCam.SetActive(false);
                     walls[0].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
                     walls[1].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-                    PlayerMoveinFixedUpdate1.moveFlag = true;
+                    PlayerMoveinFixedUpdate.moveFlag = true;
                     _curState = State.Idle;
                     break;
                 case State.Idle:
@@ -166,10 +166,10 @@ public class Boss : MonoBehaviour
 
                     if (GameObject.Find("Player").GetComponent<Rigidbody2D>().velocity.y == 0)
                     {
-                        PlayerMoveinFixedUpdate1.moveFlag = false;
-                        PlayerMoveinFixedUpdate1.stun = true;
-                        PlayerMoveinFixedUpdate1.lastTime = Time.time;
-                        PlayerMoveinFixedUpdate1.lastPos = playerPos.position;
+                        PlayerMoveinFixedUpdate.moveFlag = false;
+                        PlayerMoveinFixedUpdate.stun = true;
+                        PlayerMoveinFixedUpdate.lastTime = Time.time;
+                        PlayerMoveinFixedUpdate.lastPos = playerPos.position;
                     }
                     yield return new WaitForSeconds(1f);
                     noise.m_AmplitudeGain = 0;
@@ -215,13 +215,13 @@ public class Boss : MonoBehaviour
                     {
                         Rigidbody2D rigid2d = playerPos.GetComponent<Rigidbody2D>();
 
-                        PlayerMoveinFixedUpdate1.flag = true;
+                        PlayerMoveinFixedUpdate.flag = true;
                         Vector3 direction = (playerPos.position - transform.position).normalized;
                         rigid2d.AddForce(direction * 50f, ForceMode2D.Impulse);
                         yield return new WaitUntil(() => Vector3.Distance(playerPos.position, transform.position) > 10);
-                        PlayerMoveinFixedUpdate1.flag = false;
+                        PlayerMoveinFixedUpdate.flag = false;
                     }
-                    yield return new WaitUntil(() => !PlayerMoveinFixedUpdate1.flag);
+                    yield return new WaitUntil(() => !PlayerMoveinFixedUpdate.flag);
                     _curState = State.Idle;
                     yield return new WaitForSeconds(1f);
                     break;
@@ -342,7 +342,7 @@ public class Boss : MonoBehaviour
     }
     void playerFlag()
     {
-        PlayerMoveinFixedUpdate1.flag = true;
+        PlayerMoveinFixedUpdate.flag = true;
     }
     IEnumerator CryRange()
     {
