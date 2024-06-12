@@ -525,11 +525,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 1
-  orthographic size: 10
+  near clip plane: 0.1
+  far clip plane: 5000
+  field of view: 40
+  orthographic: 0
+  orthographic size: 5
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -554,7 +554,7 @@ Transform:
   m_GameObject: {fileID: 714595381}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -141.4, y: 20.1, z: -22}
+  m_LocalPosition: {x: 7.52, y: 0, z: -12.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1639,7 +1639,7 @@ MonoBehaviour:
   attackAniSpeed: 2.5
   attackKeySpeed: 1
   playerGrav: 5
-  playerSlidingGrav: 0
+  playerSlidingGrav: 1
   moveSpeed: 10
   jumpForce: 1200
   jumpCount: 0
@@ -2118,7 +2118,5 @@ SceneRoots:
   - {fileID: 744806270}
   - {fileID: 2111758317}
   - {fileID: 338914437}
-  - {fileID: 1180196194}
-  - {fileID: 249525298}
   - {fileID: 1871654672}
   - {fileID: 912125498}
