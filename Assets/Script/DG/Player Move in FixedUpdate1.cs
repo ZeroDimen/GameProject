@@ -8,6 +8,7 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
     private Rigidbody2D rigid;
     private Animator ani;
 
+    float hp = 10;
     public float attackSpeed = 2.5f;
     public float moveSpeed = 5f;
     public float jumpForce = 10f;
@@ -25,7 +26,11 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
     private bool isHeading;
     private bool isDamaged;
     private bool isCoroutineRunning;
-    private bool flag;
+    static public bool moveFlag = true;
+    static public bool stun = false;
+    static public float lastTime;
+    static public Vector3 lastPos;
+    static public bool flag;
 
     private bool isRight;
 
@@ -53,24 +58,41 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ArrowInput();
-        Jump();
-        Flip();
-        Collision_Check();
-        IsDamaged();
-        if (Input.GetMouseButtonDown(0) && CanAttack)
+        if (moveFlag)
         {
-            CanFilp = false;
-            CanAttack = false;
-            Attack_Obj.SetActive(true);
-            Attack_Obj.GetComponent<Attack_Test>().Attack_Ani();
-            Attack_Speed_Change(attackSpeed);
-        }
+            ArrowInput();
+            Jump();
+            Flip();
+            Collision_Check();
+            IsDamaged();
+            if (Input.GetMouseButtonDown(0) && CanAttack)
+            {
+                CanFilp = false;
+                CanAttack = false;
+                Attack_Obj.SetActive(true);
+                Attack_Obj.GetComponent<Attack_Test>().Attack_Ani();
+                Attack_Speed_Change(attackSpeed);
+            }
 
-        ani.SetBool("IsJump", !isGrounded);
-        ani.SetBool("IsSliding", isSliding);
-        ani.SetFloat("Jump_V", rigid.velocity.y);
-        ani.SetBool("IsAttack", !CanAttack);
+            ani.SetBool("IsJump", !isGrounded);
+            ani.SetBool("IsSliding", isSliding);
+            ani.SetFloat("Jump_V", rigid.velocity.y);
+            ani.SetBool("IsAttack", !CanAttack);
+        }
+        else if (stun)
+        {
+            transform.position = lastPos;
+            if (Time.time - lastTime >= 3)
+            {
+                moveFlag = true;
+                stun = false;
+            }
+        }
+        else
+        {
+            transform.position = lastPos;
+            rigid.velocity = Vector3.zero;
+        }
     }
 
     private void FixedUpdate()
@@ -184,7 +206,12 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
     void IsDamaged()
     {
         if (isDamaged && !isCoroutineRunning)
+        {
             StartCoroutine(Blink(gameObject, 2));
+            hp--;
+            if (hp <= 0)
+                Destroy(gameObject);
+        }
     }
     void Collision_Check()
     {
@@ -207,6 +234,8 @@ public class PlayerMoveinFixedUpdate1 : MonoBehaviour
             isDamaged = true;
             Invoke("Flag", 0.1f);
         }
+        if (other.CompareTag("Boss"))
+            isDamaged = true;
     }
     void Flag()
     {

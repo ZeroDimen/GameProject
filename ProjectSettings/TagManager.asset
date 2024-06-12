@@ -9,6 +9,8 @@ TagManager:
   - Weapon
   - Monster
   - MonterAttack
+  - Stone
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -24,9 +26,9 @@ TagManager:
   - SeamlessLine
   - Spider
   - MonterAttack
-  - 
-  - 
-  - 
+  - Boss
+  - Stone
+  - Background
   - 
   - 
   - 
@@ -43,6 +45,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 3625044075
+    locked: 0
+  - name: Platform
+    uniqueID: 179595961
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

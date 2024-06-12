@@ -152,6 +152,7 @@ public class Spider : Monster
             ChangeState(State.Greet);
         if (other.CompareTag("Weapon") && _curState != State.Death)
         {
+            StartCoroutine(Blink(gameObject, 2));
             Functions.Hit_Knock_Back(other.gameObject, gameObject, 14f);
             Invoke("Velocity_Zero", 0.2f);
             hp--;

@@ -11,4 +11,17 @@ public class Functions : MonoBehaviour
         else if (hitObj.transform.position.x - hitedObj.transform.position.x < 0)
             hitedObj.GetComponent<Rigidbody2D>().AddForce(Vector3.right * power, ForceMode2D.Impulse);
     }
+
+    public static IEnumerator Blink_Color(GameObject obj, Color color)
+    {
+        SpriteRenderer sprite = obj.GetComponent<SpriteRenderer>();
+        Color origin = sprite.color;
+        for (int i = 0; i < 3; i++)
+        {
+            sprite.color = color;
+            yield return new WaitForSeconds(0.2f);
+            sprite.color = origin;
+            yield return new WaitForSeconds(0.2f);
+        }
+    }
 }
