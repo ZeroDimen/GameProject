@@ -291,11 +291,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
+  near clip plane: 0.1
+  far clip plane: 5000
+  field of view: 40
   orthographic: 0
-  orthographic size: 10
+  orthographic size: 5
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -320,7 +320,7 @@ Transform:
   m_GameObject: {fileID: 714595381}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -141.4, y: 22.1, z: -20}
+  m_LocalPosition: {x: 7.52, y: 0, z: -12.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -339,7 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed8e03c22cbcfe418667b8facfc2398, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SPScale: 0
+  SPScale: 1
   appliedTimeToShader: 0.01
   appliedTimeToColor: 1
 --- !u!1001 &744806270
@@ -356,7 +356,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 490699665591751955, guid: e8d92a46954b42f4d878f30cb73ccf36, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -141.4
+      value: -2.5
       objectReference: {fileID: 0}
     - target: {fileID: 490699665591751955, guid: e8d92a46954b42f4d878f30cb73ccf36, type: 3}
       propertyPath: m_LocalPosition.y
@@ -823,7 +823,7 @@ Transform:
   m_GameObject: {fileID: 1527948725}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -141.4, y: 22.1, z: -20}
+  m_LocalPosition: {x: -2.5, y: 22.1, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1004,6 +1004,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1989505527
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1989505528}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1989505528
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989505527}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0.254222, w: 0.96714586}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -29.455}
 --- !u!1 &2032588912
 GameObject:
   m_ObjectHideFlags: 0
@@ -1155,3 +1186,4 @@ SceneRoots:
   - {fileID: 744806270}
   - {fileID: 2111758317}
   - {fileID: 912125498}
+  - {fileID: 1989505528}
