@@ -60,7 +60,8 @@ public class Goblin : Monster
     {
         while (true)
         {
-            playerPos = GameObject.Find("Player").transform;
+            if (playerPos != null)
+                playerPos = GameObject.Find("Player").transform;
             switch (_curState)
             {
                 case State.Idle:

@@ -1,5 +1,6 @@
 using System.Collections;
 using Cinemachine;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Boss : MonoBehaviour
@@ -40,6 +41,9 @@ public class Boss : MonoBehaviour
     Vector3 lastPlayerPos;
     IEnumerator phase_1;
     IEnumerator phase_2;
+    RaycastHit2D right;
+    RaycastHit2D left;
+    bool flag;
     private void Awake()
     {
         phase_1 = Phase1();
@@ -60,6 +64,38 @@ public class Boss : MonoBehaviour
         noise = cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         StartCoroutine(phase_1);
     }
+    private void Update()
+    {
+        if (_curState == State.Dash && !flag)
+        {
+            playerPos = GameObject.Find("Player").transform;
+            right = Physics2D.Raycast(transform.position, Vector3.right, 0.3f, 1 << LayerMask.NameToLayer("Player"));
+            left = Physics2D.Raycast(transform.position, Vector3.left, 0.3f, 1 << LayerMask.NameToLayer("Player"));
+
+            if (right.collider != null)
+            {
+                if (playerPos.position.x - transform.position.x > 0 && !flag)
+                {
+                    PlayerMoveinFixedUpdate.flag = true;
+                    playerPos.GetComponent<Rigidbody2D>().AddForce(Vector3.right * 40f + Vector3.up * 10, ForceMode2D.Impulse);
+                    Invoke("playerFlag", 0.5f);
+                    flag = true;
+                }
+            }
+
+            if (left.collider != null)
+            {
+                if (playerPos.position.x - transform.position.x < 0 && !flag)
+                {
+                    PlayerMoveinFixedUpdate.flag = true;
+                    playerPos.GetComponent<Rigidbody2D>().AddForce(Vector3.left * 40f + Vector3.up * 10, ForceMode2D.Impulse);
+                    Invoke("playerFlag", 0.5f);
+                    flag = true;
+                }
+            }
+        }
+
+    }
     void CreatePoints(float radius)
     {
         float angle = 2 * Mathf.PI / segments;
@@ -74,8 +110,11 @@ public class Boss : MonoBehaviour
     }
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(transform.position, monsterInfo.fieldOfView);
+        if (_curState == State.Waiting)
+        {
+            Gizmos.color = Color.white;
+            Gizmos.DrawWireSphere(transform.position, monsterInfo.fieldOfView);
+        }
     }
     IEnumerator Phase1()
     {
@@ -201,6 +240,7 @@ public class Boss : MonoBehaviour
                     break;
                 case State.Dash:
                     yield return StartCoroutine(Blink(gameObject));
+                    flag = false;
                     yield return new WaitForSeconds(1f);
                     rigid.AddForce(new Vector3(playerPos.position.x - transform.position.x, 0, 0).normalized * 60f, ForceMode2D.Impulse);
                     yield return new WaitForSeconds(0.3f);
@@ -214,7 +254,6 @@ public class Boss : MonoBehaviour
                     if (Vector3.Distance(playerPos.position, transform.position) <= 10)
                     {
                         Rigidbody2D rigid2d = playerPos.GetComponent<Rigidbody2D>();
-
                         PlayerMoveinFixedUpdate.flag = true;
                         Vector3 direction = (playerPos.position - transform.position).normalized;
                         rigid2d.AddForce(direction * 50f, ForceMode2D.Impulse);
@@ -231,6 +270,10 @@ public class Boss : MonoBehaviour
     }
     IEnumerator Phase2()
     {
+
+        yield return StartCoroutine(Functions.Blink_Color(gameObject, Color.black, 2));
+        GetComponent<SpriteRenderer>().color = Color.black;
+
         while (true)
         {
             playerPos = GameObject.Find("Player").transform;
@@ -238,40 +281,72 @@ public class Boss : MonoBehaviour
             switch (_curState)
             {
                 case State.Idle:
-                    if (Input.GetKeyDown(KeyCode.E))
-                        _curState = State.Earthquake;
-                    if (Input.GetKeyDown(KeyCode.Q))
+                    if (Vector3.Distance(transform.position, playerPos.position) < 15)
                     {
-                        _curState = State.Dash;
-                    }
-                    if (Input.GetKeyDown(KeyCode.P))
-                    {
-                        _curState = State.Path;
-                    }
-                    if (Input.GetKeyDown(KeyCode.T))
-                    {
-                        _curState = State.Throw;
+                        nextAttackNum = Random.Range(0, 4);
+                        if (nextAttackNum == curAttackNum)
+                            nextAttackNum = Random.Range(0, 4);
+                        curAttackNum = nextAttackNum;
+                        switch (curAttackNum)
+                        {
+                            case 0:
+                                _curState = State.Earthquake;
+                                break;
+                            case 1:
+                                _curState = State.Path;
+                                break;
+                            case 2:
+                                _curState = State.Dash;
+                                break;
+                            case 3:
+                                _curState = State.Throw;
+                                break;
+                        }
                     }
                     break;
+                // if (Input.GetKeyDown(KeyCode.E))
+                //     _curState = State.Earthquake;
+                // if (Input.GetKeyDown(KeyCode.Q))
+                // {
+                //     _curState = State.Dash;
+                // }
+                // if (Input.GetKeyDown(KeyCode.P))
+                // {
+                //     _curState = State.Path;
+                // }
+                // if (Input.GetKeyDown(KeyCode.T))
+                // {
+                //     _curState = State.Throw;
+                // }
+                // break;
                 case State.Earthquake:
                     transform.position = playerPos.position + Vector3.up * 40;
                     shadow.SetActive(true);
-                    shadow.transform.position = new Vector3(playerPos.position.x,
-                    shadow.transform.position.y, -1);
+                    shadow.transform.position = new Vector3(playerPos.position.x, shadow.transform.position.y, -1);
                     yield return new WaitForSeconds(1f);
                     rigid.gravityScale = 30f;
                     yield return new WaitUntil(() => rigid.velocity.y == 0 || rigid.gravityScale == 1f);
                     shadow.SetActive(false);
                     hitRange.SetActive(true);
-                    hitRange.transform.position = new Vector3(shadow.transform.position.x,
-                    hitRange.transform.position.y, -1);
+                    hitRange.transform.position = new Vector3(shadow.transform.position.x, hitRange.transform.position.y, -1);
                     Invoke("HitRange", 0.4f);
                     rigid.gravityScale = 1f;
+                    if (Vector3.Distance(transform.position, playerPos.position) <= 5)
+                    {
+                        PlayerMoveinFixedUpdate.flag = true;
+                        playerPos.GetComponent<Rigidbody2D>().AddForce((playerPos.position - transform.position).normalized * 20f, ForceMode2D.Impulse);
+                        Invoke("playerFlag", 0.5f);
+                    }
+                    yield return new WaitForSeconds(2);
+                    noise.m_AmplitudeGain = 0;
+                    noise.m_FrequencyGain = 0;
+                    rigid.gravityScale = 1;
                     _curState = State.Idle;
                     break;
                 case State.Dash:
                     yield return StartCoroutine(Blink(gameObject));
                     yield return new WaitForSeconds(1f);
+                    flag = false;
                     rigid.AddForce(new Vector3(playerPos.position.x - transform.position.x, 0, 0).normalized * 60f, ForceMode2D.Impulse);
                     yield return new WaitForSeconds(0.3f);
                     rigid.velocity = Vector3.zero;
@@ -289,11 +364,12 @@ public class Boss : MonoBehaviour
                     _curState = State.Idle;
                     break;
                 case State.Throw:
+                    yield return StartCoroutine(Functions.Blink_Color(gameObject, Color.blue));
                     for (int i = 0; i < 5; i++)
                     {
                         GameObject obj = Instantiate(stone, transform.position, Quaternion.identity);
                         obj.GetComponent<Rigidbody2D>().AddForce(new Vector3(playerPos.position.x - transform.position.x, 0, 0).normalized * 30, ForceMode2D.Impulse);
-                        yield return new WaitForSeconds(0.5f);
+                        yield return new WaitForSeconds(0.7f);
                     }
                     _curState = State.Idle;
                     break;
@@ -330,11 +406,13 @@ public class Boss : MonoBehaviour
         {
             hp--;
             Debug.Log(hp);
-            if (hp == 25)
+            if (hp == 10)
             {
                 StopCoroutine(phase_1);
                 StartCoroutine(phase_2);
-                Debug.Log("Phase2");
+                PlayerMoveinFixedUpdate.flag = true;
+                playerPos.GetComponent<Rigidbody2D>().AddForce(new Vector3(playerPos.position.x - transform.position.x, 0, 0).normalized * 40f, ForceMode2D.Impulse);
+                Invoke("playerFlag", 0.5f);
             }
             else if (hp <= 0)
                 Destroy(gameObject);
@@ -342,7 +420,7 @@ public class Boss : MonoBehaviour
     }
     void playerFlag()
     {
-        PlayerMoveinFixedUpdate.flag = true;
+        PlayerMoveinFixedUpdate.flag = false;
     }
     IEnumerator CryRange()
     {

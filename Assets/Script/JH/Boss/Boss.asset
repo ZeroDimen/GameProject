@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Boss
   m_EditorClassIdentifier: 
   level: 0
-  hp: 50
+  hp: 20
   moveSpeed: 0
   fieldOfView: 20
   attackRange: 0

@@ -12,11 +12,11 @@ public class Functions : MonoBehaviour
             hitedObj.GetComponent<Rigidbody2D>().AddForce(Vector3.right * power, ForceMode2D.Impulse);
     }
 
-    public static IEnumerator Blink_Color(GameObject obj, Color color)
+    public static IEnumerator Blink_Color(GameObject obj, Color color, float n = 3)
     {
         SpriteRenderer sprite = obj.GetComponent<SpriteRenderer>();
         Color origin = sprite.color;
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < n; i++)
         {
             sprite.color = color;
             yield return new WaitForSeconds(0.2f);
