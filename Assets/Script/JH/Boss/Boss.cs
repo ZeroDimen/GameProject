@@ -2,6 +2,7 @@ using System.Collections;
 using Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Boss : MonoBehaviour
 {
@@ -18,6 +19,10 @@ public class Boss : MonoBehaviour
         Path,
         Throw
     }
+    GameObject sliderObj;
+    RectTransform sliderRectTransform;
+    Camera mainCamera;
+    Slider slider;
     State _curState;
     Transform playerPos;
     CinemachineVirtualCamera cam;
@@ -37,7 +42,7 @@ public class Boss : MonoBehaviour
     private LineRenderer lineRenderer;
     float curAttackNum = 0;
     float nextAttackNum;
-    int hp;
+    float hp;
     Vector3 lastPlayerPos;
     IEnumerator phase_1;
     IEnumerator phase_2;
@@ -63,9 +68,21 @@ public class Boss : MonoBehaviour
         cam = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
         noise = cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         StartCoroutine(phase_1);
+        sliderObj = GameObject.Find("Canvas").transform.GetChild(0).gameObject;
+        slider = sliderObj.GetComponent<Slider>();
+        sliderObj.SetActive(true);
+
+        sliderRectTransform = sliderObj.GetComponent<RectTransform>();
+        CinemachineBrain cinemachineBrain = GameObject.Find("Main Camera").GetComponent<CinemachineBrain>();
+        mainCamera = cinemachineBrain.OutputCamera;
     }
     private void Update()
     {
+        if (sliderObj.activeSelf)
+        {
+            sliderRectTransform.position = mainCamera.WorldToScreenPoint(transform.position + Vector3.up * 1.7f);
+        }
+
         if (_curState == State.Dash && !flag)
         {
             playerPos = GameObject.Find("Player").transform;
@@ -405,7 +422,7 @@ public class Boss : MonoBehaviour
         if (other.CompareTag("Weapon"))
         {
             hp--;
-            Debug.Log(hp);
+            slider.value = hp / monsterInfo.hp;
             if (hp == 10)
             {
                 StopCoroutine(phase_1);
@@ -415,7 +432,10 @@ public class Boss : MonoBehaviour
                 Invoke("playerFlag", 0.5f);
             }
             else if (hp <= 0)
+            {
+                sliderObj.SetActive(false);
                 Destroy(gameObject);
+            }
         }
     }
     void playerFlag()
