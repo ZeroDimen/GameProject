@@ -1,7 +1,8 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMoveinFixedUpdate : MonoBehaviour
+public class CutSceneBattlePlayer : MonoBehaviour
 {
     RaycastHit2D rightHit;
     RaycastHit2D leftHit;
@@ -189,13 +190,13 @@ public class PlayerMoveinFixedUpdate : MonoBehaviour
         {
             if (Input.GetAxisRaw("Horizontal") > 0)
             {
-                transform.localScale = new Vector3(1, 1, 1);
+                transform.localScale = new Vector3(0.6f, 0.6f, 1);
                 isRight = true;
 
             }
             else if (Input.GetAxisRaw("Horizontal") < 0)
             {
-                transform.localScale = new Vector3(-1, 1, 1);
+                transform.localScale = new Vector3(-0.6f, 0.6f, 1);
                 isRight = false;
             }
         }
@@ -257,7 +258,21 @@ public class PlayerMoveinFixedUpdate : MonoBehaviour
     }
     private void OnCollisionStay2D(Collision2D other)
     {
+        if (other.gameObject.CompareTag("Platform"))
+        {
+            if (!isGrounded)
+            {
+                if (rigid.velocity.y < 0 && arrowInput != 0 && !isHeading)
+                {
+                    isSliding = true;
+                }
+            }
+            else
+            {
+                isSliding = false;
+            }
 
+        }
     }
     private void Landing_Platform()
     {

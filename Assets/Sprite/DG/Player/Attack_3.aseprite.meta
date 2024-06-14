@@ -7,7 +7,7 @@ ScriptedImporter:
       type: UnityEngine:AnimationClip
       assembly: UnityEngine.AnimationModule
       name: Attack_3_Clip
-    second: {fileID: 7400000, guid: ecbf2df4cc776e544b0a7057a1cad750, type: 2}
+    second: {fileID: 7400000, guid: 9c6b535d93e379541873c544dec440d4, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -102,7 +102,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638530341525367043
+  platformSettingsDirtyTick: 638540056511560309
   textureAssetName: 
   singleSpriteImportData:
   - name: 

@@ -7,7 +7,7 @@ ScriptedImporter:
       type: UnityEngine:AnimationClip
       assembly: UnityEngine.AnimationModule
       name: Run2_Clip
-    second: {fileID: 7400000, guid: ad1a8b6f7d3ae7c409ee40da39a1451b, type: 2}
+    second: {fileID: 7400000, guid: 1594656442e73d24fa131791a6dd83ae, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -102,7 +102,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638519385942063342
+  platformSettingsDirtyTick: 638539889141266996
   textureAssetName: 
   singleSpriteImportData:
   - name: 
