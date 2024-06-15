@@ -6,7 +6,9 @@ public class Loadtrigger : MonoBehaviour
     [SerializeField] private SceneField[] _scenesToLoad;
     [SerializeField] private SceneField[] _scenesToUnload;
     
-    private void OnTriggerEnter2D(Collider2D collision) 
+    
+    
+    private void OnTriggerExit2D(Collider2D collision) 
     {
         if (collision.CompareTag("Player"))
         {

@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class SPShader : MonoBehaviour
 {
-    
+    public static SPShader instance;
     private Material cameraMaterial;
     public float SPScale = 0.0f;
     
     public float appliedTimeToShader = 0.01f;
     public float appliedTimeToColor = 1.0f;
     private bool _onShader;
+    
+    private void Awake()
+    {
+        instance = this;
+    }
     private void Start()
     {
         if (SPScale <= 1.0f)
@@ -30,6 +35,7 @@ public class SPShader : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             gameCameraEffect();
+            
         }
     }
 
@@ -49,7 +55,6 @@ public class SPShader : MonoBehaviour
         {
             StartCoroutine(gameOffShaderEffect());
         }
-        
     }
     
     private IEnumerator gameOffShaderEffect()

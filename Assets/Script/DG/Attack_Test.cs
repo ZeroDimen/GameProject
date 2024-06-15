@@ -17,6 +17,7 @@ public class Attack_Test : MonoBehaviour
     public void Attack_Ani()
     {
         ani.Play("Attack_Sample");
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.attack);
     }
 
     public void Attack_Effact_Speed_Change(float Speed)
