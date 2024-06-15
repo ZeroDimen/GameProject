@@ -1,13 +1,14 @@
+using System;
 using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class DoorInteraction : MonoBehaviour
 {
     public GameObject obj;
+    [SerializeField] private SceneField[] _scenesToLoad;
+    [SerializeField] private SceneField[] _scenesToUnload;
     private GameObject Player;
     
-    public string from_SceneName;
-    public string to_SceneName;
     
     public Vector3 to_Position;
     private void Start()
@@ -19,9 +20,45 @@ public class DoorInteraction : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E) && obj.activeSelf)
         {
-            SceneManager.LoadScene(to_SceneName, LoadSceneMode.Additive);
+            LoadScenes();
+            UnloadScenes();
             Player.transform.position = to_Position;
-            SceneManager.UnloadSceneAsync(from_SceneName);
+        }
+    }
+
+    private void LoadScenes()
+    {
+        for (int i = 0; i < _scenesToLoad.Length; i++)
+        {
+            bool isSceneLoaded = false;
+            for (int j = 0; j < SceneManager.sceneCount; j++)
+            {
+                Scene loadedScene = SceneManager.GetSceneAt(j);
+                if (loadedScene.name == _scenesToLoad[i].SceneName)
+                {
+                    isSceneLoaded = true;
+                    break;
+                }
+            }
+
+            if (!isSceneLoaded)
+            {
+                SceneManager.LoadSceneAsync(_scenesToLoad[i], LoadSceneMode.Additive);
+            }
+        }
+    }
+    private void UnloadScenes()
+    {
+        for (int i = 0; i < _scenesToUnload.Length; i++)
+        {
+            for (int j = 0; j < SceneManager.sceneCount; j++)
+            {
+                Scene loadedScene = SceneManager.GetSceneAt(j);
+                if (loadedScene.name == _scenesToUnload[i].SceneName)
+                {
+                    SceneManager.UnloadSceneAsync(_scenesToUnload[i]);
+                }
+            }    
         }
     }
 

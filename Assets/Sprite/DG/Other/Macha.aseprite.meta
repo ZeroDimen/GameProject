@@ -1,0 +1,600 @@
+fileFormatVersion: 2
+guid: eab413a20d61b8e45a43e4d2d999acf2
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Macha_Clip
+    second: {fileID: 7400000, guid: 363eee575775ac34ab3d96a671578ff1, type: 2}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    mosaicPadding: 4
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 638538438313241317
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Macha_Frame_0
+    originalName: 
+    pivot: {x: 0.8369099, y: -0.74561405}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 233
+      height: 114
+    spriteID: 87813e76d3e2faf4dbfb3f99f1cb8006
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Macha_Frame_1
+    originalName: 
+    pivot: {x: 0.8369099, y: -0.74561405}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 126
+      width: 233
+      height: 114
+    spriteID: b7b363e0f1fea0f4e910d66a3e65aadb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 126}
+  - name: Macha_Frame_2
+    originalName: 
+    pivot: {x: 0.8369099, y: -0.74561405}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 248
+      width: 233
+      height: 114
+    spriteID: 7f8c6798996a4404d8bda8703ff7533f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 248}
+  - name: Macha_Frame_3
+    originalName: 
+    pivot: {x: 0.8369099, y: -0.74561405}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 370
+      width: 233
+      height: 114
+    spriteID: 185770cd75aa2e746bc86eba6f0602d0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 370}
+  - name: Macha_Frame_4
+    originalName: 
+    pivot: {x: 0.8369099, y: -0.74561405}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 492
+      width: 233
+      height: 114
+    spriteID: 4b7e64accd355a64aa956ebab9396ff9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 492}
+  - name: Macha_Frame_5
+    originalName: 
+    pivot: {x: 0.8369099, y: -0.74561405}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 614
+      width: 233
+      height: 114
+    spriteID: 1d29f7f76a9807b4c86d6e1bf5e3e7be
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 614}
+  - name: Macha_Frame_6
+    originalName: 
+    pivot: {x: 0.8369099, y: -0.74561405}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 736
+      width: 233
+      height: 114
+    spriteID: f4f735855c52abc4aa996abbdcb62ae7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 736}
+  - name: Macha_Frame_7
+    originalName: 
+    pivot: {x: 0.8369099, y: -0.74561405}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 858
+      width: 233
+      height: 114
+    spriteID: 9b9be540b9ff84a49861f437250ccc6e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 858}
+  - name: Macha_Frame_8
+    originalName: 
+    pivot: {x: 0.8369099, y: -0.74561405}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 245
+      y: 4
+      width: 233
+      height: 114
+    spriteID: d050c6596df29184b95763d7bfcc5cd7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 245, y: 4}
+  - name: Macha_Frame_9
+    originalName: 
+    pivot: {x: 0.8369099, y: -0.74561405}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 245
+      y: 126
+      width: 233
+      height: 114
+    spriteID: e69324ca242f9bb418b4d5880f40b22f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 245, y: 126}
+  - name: Macha_Frame_10
+    originalName: 
+    pivot: {x: 0.8369099, y: -0.74561405}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 245
+      y: 248
+      width: 233
+      height: 114
+    spriteID: ab7d2a0877c193242b1db1728b0b6dc5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 245, y: 248}
+  - name: Macha_Frame_11
+    originalName: 
+    pivot: {x: 0.8369099, y: -0.74561405}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 245
+      y: 370
+      width: 233
+      height: 114
+    spriteID: 3be84e789272dd54b96598d525b0bccc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 245, y: 370}
+  - name: Macha_Frame_12
+    originalName: 
+    pivot: {x: 0.8369099, y: -0.74561405}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 245
+      y: 492
+      width: 233
+      height: 114
+    spriteID: 6b2de9a8b570e2840978a30a51c1e3a7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 245, y: 492}
+  - name: Macha_Frame_13
+    originalName: 
+    pivot: {x: 0.8369099, y: -0.74561405}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 245
+      y: 614
+      width: 233
+      height: 114
+    spriteID: 104e7ef8fede4924c8c12567481f058b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 245, y: 614}
+  - name: Macha_Frame_14
+    originalName: 
+    pivot: {x: 0.8369099, y: -0.74561405}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 245
+      y: 736
+      width: 233
+      height: 114
+    spriteID: 2fb67f5f8f59a374080daf7f87b32303
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 245, y: 736}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -452334930
+    name: Macha
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Macha_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 5
+        y: 85
+        width: 233
+        height: 114
+      spriteId: 87813e76d3e2faf4dbfb3f99f1cb8006
+    - name: Macha_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 5
+        y: 85
+        width: 233
+        height: 114
+      spriteId: b7b363e0f1fea0f4e910d66a3e65aadb
+    - name: Macha_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 5
+        y: 85
+        width: 233
+        height: 114
+      spriteId: 7f8c6798996a4404d8bda8703ff7533f
+    - name: Macha_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 5
+        y: 85
+        width: 233
+        height: 114
+      spriteId: 185770cd75aa2e746bc86eba6f0602d0
+    - name: Macha_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 5
+        y: 85
+        width: 233
+        height: 114
+      spriteId: 4b7e64accd355a64aa956ebab9396ff9
+    - name: Macha_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 5
+        y: 85
+        width: 233
+        height: 114
+      spriteId: 1d29f7f76a9807b4c86d6e1bf5e3e7be
+    - name: Macha_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 5
+        y: 85
+        width: 233
+        height: 114
+      spriteId: f4f735855c52abc4aa996abbdcb62ae7
+    - name: Macha_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 5
+        y: 85
+        width: 233
+        height: 114
+      spriteId: 9b9be540b9ff84a49861f437250ccc6e
+    - name: Macha_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 5
+        y: 85
+        width: 233
+        height: 114
+      spriteId: d050c6596df29184b95763d7bfcc5cd7
+    - name: Macha_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 5
+        y: 85
+        width: 233
+        height: 114
+      spriteId: e69324ca242f9bb418b4d5880f40b22f
+    - name: Macha_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 5
+        y: 85
+        width: 233
+        height: 114
+      spriteId: ab7d2a0877c193242b1db1728b0b6dc5
+    - name: Macha_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 5
+        y: 85
+        width: 233
+        height: 114
+      spriteId: 3be84e789272dd54b96598d525b0bccc
+    - name: Macha_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 5
+        y: 85
+        width: 233
+        height: 114
+      spriteId: 6b2de9a8b570e2840978a30a51c1e3a7
+    - name: Macha_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 5
+        y: 85
+        width: 233
+        height: 114
+      spriteId: 104e7ef8fede4924c8c12567481f058b
+    - name: Macha_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 5
+        y: 85
+        width: 233
+        height: 114
+      spriteId: 2fb67f5f8f59a374080daf7f87b32303
+    linkedCells: []
+    parentIndex: -1
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: WebGL
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  generatePhysicsShape: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 400, y: 300}
