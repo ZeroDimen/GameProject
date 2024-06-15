@@ -27,7 +27,9 @@ public class PlayerMoveinFixedUpdate : MonoBehaviour
     public bool isGrounded; // != IsJump
     public bool isSliding;
     private bool isHeading;
+    [SerializeField]
     private bool isDamaged;
+    [SerializeField]
     private bool isCoroutineRunning;
     static public bool moveFlag = true;
     static public bool stun = false;
@@ -67,6 +69,7 @@ public class PlayerMoveinFixedUpdate : MonoBehaviour
             ArrowInput();
             Jump();
             Flip();
+            Collision_Check();
             IsDamaged();
             if (Input.GetMouseButtonDown(0) && CanAttack && !isSliding)
             {
@@ -86,7 +89,6 @@ public class PlayerMoveinFixedUpdate : MonoBehaviour
             {
                 rigid.gravityScale = playerGrav;
             }
-
             ani.SetBool("IsJump", !isGrounded);
             ani.SetBool("IsSliding", isSliding);
             ani.SetFloat("Jump_V", rigid.velocity.y);
@@ -94,6 +96,7 @@ public class PlayerMoveinFixedUpdate : MonoBehaviour
         }
         else
         {
+            ani.SetBool("IsMove", false);
             transform.position = lastPos;
             if (Time.time - lastTime >= 3)
             {
@@ -144,7 +147,14 @@ public class PlayerMoveinFixedUpdate : MonoBehaviour
     }
     private void PlayerMove()
     {
-        rigid.velocity = new Vector2(arrowInput * moveSpeed, rigid.velocity.y);
+        if (!flag)
+        {
+            rigid.velocity = new Vector2(arrowInput * moveSpeed, rigid.velocity.y);
+        }
+        else
+        {
+            rigid.velocity = new Vector2(rigid.velocity.x, rigid.velocity.y);
+        }
     }
 
     void Jump()
@@ -206,8 +216,6 @@ public class PlayerMoveinFixedUpdate : MonoBehaviour
         {
             StartCoroutine(Blink(gameObject, 2));
             hp--;
-            if (hp <= 0)
-                Destroy(gameObject);
         }
     }
     void Collision_Check()
@@ -215,14 +223,15 @@ public class PlayerMoveinFixedUpdate : MonoBehaviour
         rightHit = Physics2D.Raycast(transform.position + Vector3.up, Vector3.right, 0.5f);
         leftHit = Physics2D.Raycast(transform.position + Vector3.up, Vector3.left, 0.5f);
 
-        if (rightHit.collider != null && rightHit.collider.CompareTag("Monster"))
+        if (rightHit.collider != null && (rightHit.collider.CompareTag("Monster") || rightHit.collider.CompareTag("Boss")))
             isDamaged = true;
-        if (leftHit.collider != null && leftHit.collider.CompareTag("Monster"))
+        if (leftHit.collider != null && (leftHit.collider.CompareTag("Monster") || leftHit.collider.CompareTag("Boss")))
             isDamaged = true;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Monster"))
+
+        if (other.CompareTag("Monster") || other.CompareTag("Stone"))
             isDamaged = true;
         if (other.CompareTag("MonterAttack"))
         {
@@ -231,8 +240,6 @@ public class PlayerMoveinFixedUpdate : MonoBehaviour
             isDamaged = true;
             Invoke("Flag", 0.1f);
         }
-        if (other.CompareTag("Boss"))
-            isDamaged = true;
     }
     void Flag()
     {
@@ -245,15 +252,16 @@ public class PlayerMoveinFixedUpdate : MonoBehaviour
     }
     IEnumerator Blink(GameObject obj, int n = 4)
     {
+        isCoroutineRunning = true;
         for (int i = 0; i < n; i++)
         {
-            isCoroutineRunning = true;
             obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
             yield return new WaitForSeconds(0.2f);
             obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
             yield return new WaitForSeconds(0.2f);
         }
         isCoroutineRunning = false;
+        isDamaged = false;
     }
     private void OnCollisionStay2D(Collision2D other)
     {
