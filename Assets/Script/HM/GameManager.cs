@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
         {
             player[i] = new PlayerData();
         }
+        player1 = GameObject.Find("Player");
         player1.SetActive(false);
     }
 }
