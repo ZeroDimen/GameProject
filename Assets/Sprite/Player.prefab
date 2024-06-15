@@ -289,7 +289,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2067b86971f69f446a039e54634bc7ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 2.5
+  attackAniSpeed: 2.5
+  attackKeySpeed: 0.5
+  playerGrav: 5
+  playerSlidingGrav: 0
   moveSpeed: 10
   jumpForce: 1200
   jumpCount: 0
