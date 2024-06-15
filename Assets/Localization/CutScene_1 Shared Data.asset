@@ -10,63 +10,59 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
-  m_Name: UI Shared Data
+  m_Name: CutScene_1 Shared Data
   m_EditorClassIdentifier: 
-  m_TableCollectionName: UI
-  m_TableCollectionNameGuidString: 8906a502eb5c240259bbd0c6a04243bb
+  m_TableCollectionName: CutScene_1
+  m_TableCollectionNameGuidString: 7a1543a3446cc42bfa7ed739414b5b6e
   m_Entries:
-  - m_Id: 62078836736
-    m_Key: UI_Continue
+  - m_Id: 11935932416
+    m_Key: CutScene_1-1
     m_Metadata:
       m_Items: []
-  - m_Id: 14351586025472
-    m_Key: UI_Setting
+  - m_Id: 217104506880
+    m_Key: CutScene_1-2
     m_Metadata:
       m_Items: []
-  - m_Id: 14436550041600
-    m_Key: UI_End
+  - m_Id: 246775013376
+    m_Key: CutScene_1-3
     m_Metadata:
       m_Items: []
-  - m_Id: 392589109878784
-    m_Key: UI_Login
+  - m_Id: 259706052608
+    m_Key: CutScene_1-4
     m_Metadata:
       m_Items: []
-  - m_Id: 735627459944448
-    m_Key: UI_SignUp
+  - m_Id: 262449127424
+    m_Key: CutScene_1-5
     m_Metadata:
       m_Items: []
-  - m_Id: 742907572117504
-    m_Key: UI_Username
+  - m_Id: 263950688256
+    m_Key: CutScene_1-6
     m_Metadata:
       m_Items: []
-  - m_Id: 743346111766528
-    m_Key: UI_Password
+  - m_Id: 264625971200
+    m_Key: CutScene_1-7
     m_Metadata:
       m_Items: []
-  - m_Id: 749469388759040
-    m_Key: UI_Already
+  - m_Id: 265263505408
+    m_Key: CutScene_1-8
     m_Metadata:
       m_Items: []
-  - m_Id: 1010301657931776
-    m_Key: UI_Pause
+  - m_Id: 265892651008
+    m_Key: CutScene_1-9
     m_Metadata:
       m_Items: []
-  - m_Id: 1051505401520128
-    m_Key: UI_Graphic
-    m_Metadata:
-      m_Items: []
-  - m_Id: 1051570656501760
-    m_Key: UI_Resolution
+  - m_Id: 266458882048
+    m_Key: CutScene_1-10
     m_Metadata:
       m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
-    rid: 2952362680514773016
+    rid: 2952362783918260224
   references:
     version: 2
     RefIds:
-    - rid: 2952362680514773016
+    - rid: 2952362783918260224
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:
-        m_CustomEpoch: 1718018224308
+        m_CustomEpoch: 1718412514398

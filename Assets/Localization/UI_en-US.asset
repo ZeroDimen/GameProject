@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: en-US
   m_SharedData: {fileID: 11400000, guid: 8906a502eb5c240259bbd0c6a04243bb, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 2952362771096010794
   m_TableData:
   - m_Id: 62078836736
     m_Localized: Continue
@@ -34,6 +35,35 @@ MonoBehaviour:
     m_Localized: Login
     m_Metadata:
       m_Items: []
+  - m_Id: 735627459944448
+    m_Localized: SIGN UP
+    m_Metadata:
+      m_Items: []
+  - m_Id: 742907572117504
+    m_Localized: Username
+    m_Metadata:
+      m_Items: []
+  - m_Id: 743346111766528
+    m_Localized: Password
+    m_Metadata:
+      m_Items: []
+  - m_Id: 749469388759040
+    m_Localized: Aleady have an account?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1010301657931776
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1051570656501760
+    m_Localized: Resolution        <{Resolution}>
+    m_Metadata:
+      m_Items:
+      - rid: 2952362771096010794
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 2952362771096010794
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 00e06fdf65bc0300

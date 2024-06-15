@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SaveData : MonoBehaviour
 {
@@ -13,21 +15,27 @@ public class SaveData : MonoBehaviour
     public GameObject Player;
     public TMP_Text[] Text_Location;
     public TMP_Text[] Text_Time;
+
+    public Button Slot1, Slot2, Slot3;
+    
     private void Start()
     {
         path = Application.persistentDataPath + "/";
-        Player = GameObject.Find("Player");
         
+        Slot1.onClick.AddListener(()=>SlotLoadBtn(0));
+        Slot2.onClick.AddListener(()=>SlotLoadBtn(1));
+        Slot3.onClick.AddListener(()=>SlotLoadBtn(2));
+    }
+
+    public void SlotLoad() //load slot from local
+    {
         for (int i = 0; i < 3; i++)
         {
-            if (File.Exists(path+ $"{i}"))
+            if (GameManager.instance.player[i].Location != "No Data")
             {
-                GameManager.instance.player[i] = LoadData(i);
-                if (GameManager.instance.player[i].Location != "No Data")
-                {
-                    Text_Location[i].text = GameManager.instance.player[i].Location;
-                    Text_Time[i].text = GameManager.instance.player[i].Time;
-                }
+                Text_Location[i].text = GameManager.instance.player[i].Location;
+                Text_Time[i].text = GameManager.instance.player[i].Time;
+                
             }
             else
             {
@@ -37,67 +45,71 @@ public class SaveData : MonoBehaviour
         }
     }
     
-    public void Btn1_Data() //이거도 함수 하나로 변경하자
+    // public void Btn1_Data() //이거도 함수 하나로 변경하자
+    // {
+    //     LoadSceneTest(LoadData(0).Location);
+    //     GameManager.instance.playerNumber = 0;
+    //     UIManager.instance.SlotMenu.SetActive(false);
+    // }
+    // public void Btn2_Data()
+    // {
+    //     LoadSceneTest(LoadData(1).Location);
+    //     GameManager.instance.playerNumber = 1;
+    //     UIManager.instance.SlotMenu.SetActive(false);
+    // }
+    // public void Btn3_Data()
+    // {
+    //     LoadSceneTest(LoadData(2).Location);
+    //     GameManager.instance.playerNumber = 2;
+    //     UIManager.instance.SlotMenu.SetActive(false);
+    // }
+
+    public void SlotLoadBtn(int index)
     {
-        LoadSceneTest(LoadData(0).Location);
-        GameManager.instance.playerNumber = 0;
+        LoadSceneTest(GameManager.instance.player[index].Location);
+        GameManager.instance.playerNumber = index;
         UIManager.instance.SlotMenu.SetActive(false);
-    }
-    public void Btn2_Data()
-    {
-        LoadSceneTest(LoadData(1).Location);
-        GameManager.instance.playerNumber = 1;
-        UIManager.instance.SlotMenu.SetActive(false);
-    }
-    public void Btn3_Data()
-    {
-        LoadSceneTest(LoadData(2).Location);
-        GameManager.instance.playerNumber = 2;
-        UIManager.instance.SlotMenu.SetActive(false);
+        UIManager.instance.gameStatus = GameStatus.Ingame;
     }
     
     public void SaveDataInGame(int num, string Location = null)
     {
         if (Location != null)
         {
-            GameManager.instance.player[GameManager.instance.playerNumber].Location = $"{Location}";
+            GameManager.instance.player[num].Location = $"{Location}";
         }
-        GameManager.instance.player[GameManager.instance.playerNumber].Time = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
-        GameManager.instance.player[GameManager.instance.playerNumber].pos = Player.transform.position; 
+        GameManager.instance.player[num].Time = DateTime.Now.ToString("yyyy/MM/dd HH:mm");
+        GameManager.instance.player[num].pos = Player.transform.position; 
         
-        string Data = JsonUtility.ToJson(Player);
+        string Data = JsonUtility.ToJson(GameManager.instance.player[num]);
         
         File.WriteAllText(path + num.ToString(), Data);
     }
-    public PlayerData LoadData(int num)
+    public void LoadData()
     {
-        PlayerData player = new PlayerData();
-        if (!File.Exists(path+ $"{num}"))
+        for (int i = 0; i < 3; i++)
         {
-            
-            player.Data_Num = num;
-            player.Location = "No Data";
-            return player;
-        }
-        else if (File.Exists(path+ $"{num}"))
-        {
-            string Data = File.ReadAllText(path + num.ToString());
-            player.Data_Num = num;
-            player = JsonUtility.FromJson<PlayerData>(Data);
-            return player;
-        }
-        else
-        {
-            return null;
+            if (!File.Exists(path + $"{i}"))
+            {
+                Debug.Log($"There is no File{i}");
+                GameManager.instance.player[i].Data_Num = i;
+                GameManager.instance.player[i].Location = "No Data";
+            }
+            else
+            {
+                string Data = File.ReadAllText(path + i.ToString());
+                //GameManager.instance.player[i].Data_Num = i;
+                GameManager.instance.player[i] = JsonUtility.FromJson<PlayerData>(Data);
+            }
         }
     }
     
-    public void LoadSceneTest(string Location = null)
+    public void LoadSceneTest(string Location = null) // scene load when slot btn click
     {
         if (Location == "No Data")
         {
             //SceneManager.UnloadSceneAsync("StartScene");
-            SceneManager.LoadScene("Village_Chief_House", LoadSceneMode.Additive);
+            SceneManager.LoadScene("Village", LoadSceneMode.Additive);
             Player.SetActive(true);
         }
         else if (Location != null)

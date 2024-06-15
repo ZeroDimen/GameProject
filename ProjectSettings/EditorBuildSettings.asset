@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/CamScene.unity
     guid: 144a978d5c89cd047b909606407b47a5
   - enabled: 1
+    path: Assets/Scenes/HM/UI.unity
+    guid: dd35acc214abb4709beece91b4c10f47
+  - enabled: 1
     path: Assets/Scenes/Village.unity
     guid: 18ca4e86f3311df438c238be3e8ef275
   - enabled: 1
