@@ -7,7 +7,7 @@ ScriptedImporter:
       type: UnityEngine:AnimationClip
       assembly: UnityEngine.AnimationModule
       name: Standing1-3_Clip
-    second: {fileID: 7400000, guid: ade049939eb69f444924eb39c58119a4, type: 2}
+    second: {fileID: 7400000, guid: 5c73f9336070d1a4aac6498e975c65fa, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -102,7 +102,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638519385766666878
+  platformSettingsDirtyTick: 638539888818494042
   textureAssetName: 
   singleSpriteImportData:
   - name: 

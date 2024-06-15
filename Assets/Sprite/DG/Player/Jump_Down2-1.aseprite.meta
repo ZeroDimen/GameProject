@@ -7,7 +7,7 @@ ScriptedImporter:
       type: UnityEngine:AnimationClip
       assembly: UnityEngine.AnimationModule
       name: Jump_Down2-1_Clip
-    second: {fileID: 7400000, guid: 720ca4de4db249c40a309154bf338bb3, type: 2}
+    second: {fileID: 7400000, guid: 1591551b853f8764ab4d32acb1cbd582, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -102,7 +102,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638523456666106275
+  platformSettingsDirtyTick: 638540038944220183
   textureAssetName: 
   singleSpriteImportData:
   - name: 
