@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
-using UnityEditor.Localization;
+//using UnityEditor.Localization;
 using UnityEngine;
 using UnityEngine.Localization.Components;
 using UnityEngine.Localization.Tables;

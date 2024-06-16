@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public Vector3 to_Position;
     private void Awake()
     {
+        Talk.instance.end = true;
         if (instance == null)
         {
             instance = this;

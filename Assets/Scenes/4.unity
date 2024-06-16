@@ -2688,7 +2688,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 100, y: 13.302185, z: 0}
+    - position: {x: 100, y: 12, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -2696,7 +2696,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 105, y: 13.302185, z: 0}
+    - position: {x: 105, y: 12, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -2775,8 +2775,8 @@ MonoBehaviour:
   - {x: 80, y: 4.9982867}
   - {x: 79.998085, y: 2}
   - {x: 100, y: 1.9982867}
-  - {x: 100.002045, y: 13.302185}
-  - {x: 105, y: 13.300472}
+  - {x: 100.002045, y: 12}
+  - {x: 105, y: 11.998287}
   - {x: 104.998085, y: 7}
   - {x: 110, y: 6.9982867}
   - {x: 109.998085, y: 2}
@@ -2844,8 +2844,8 @@ SpriteShapeRenderer:
   - {fileID: -2084948043075760409, guid: 76dcb53c0ed026c4285198071b9b8eeb, type: 3}
   - {fileID: -4671000020934413352, guid: 76dcb53c0ed026c4285198071b9b8eeb, type: 3}
   m_LocalAABB:
-    m_Center: {x: 76.50001, y: 5.680949, z: 0}
-    m_Extent: {x: 79.880005, y: 8.654568, z: 0}
+    m_Center: {x: 76.50001, y: 5.0298567, z: 0}
+    m_Extent: {x: 79.880005, y: 8.003475, z: 0}
   m_SpriteSortPoint: 0
 --- !u!60 &1867755815
 PolygonCollider2D:
@@ -2905,8 +2905,8 @@ PolygonCollider2D:
       - {x: 80, y: 4.9982867}
       - {x: 79.998085, y: 2}
       - {x: 100, y: 1.9982867}
-      - {x: 100.002045, y: 13.302185}
-      - {x: 105, y: 13.300472}
+      - {x: 100.002045, y: 12}
+      - {x: 105, y: 11.998287}
       - {x: 104.998085, y: 7}
       - {x: 110, y: 6.9982867}
       - {x: 109.998085, y: 2}

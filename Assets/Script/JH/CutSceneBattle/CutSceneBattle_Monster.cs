@@ -114,11 +114,11 @@ public class CutSceneBattle_Monster : MonoBehaviour
                     {
                         if (id == 2)
                         {
-                            FadeInOut_Image.instance.FadeInOut();
-                            yield return new WaitForSeconds(1.15f);
-                            AudioManager.instance.ChangeBgm(AudioManager.Bgm.Village);
-                            SceneManager.LoadScene("Village", LoadSceneMode.Additive);
+                            FadeInOut_Image.instance.FadeInOut(1f, 2.5f, 1f);
+                            yield return new WaitForSeconds(1.1f);
+                            SceneManager.LoadScene("Village",LoadSceneMode.Additive);
                             GameManager.instance.Player_teleport();
+                            AudioManager.instance.ChangeBgm(AudioManager.Bgm.Village);
                             SceneManager.UnloadSceneAsync("CutScene_Battle");
 
                         }

@@ -18,7 +18,7 @@ public class Talk : MonoBehaviour
     public static int talkIndex;
     int cutSceneIndex;
     public bool flag;
-    private bool end;
+    public bool end;
     private void Awake()
     {
         instance = this;

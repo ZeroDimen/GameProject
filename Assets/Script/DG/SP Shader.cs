@@ -82,8 +82,14 @@ public class SPShader : MonoBehaviour
         _onShader = true;
     }
 
-    private bool ApplyShader()
+    public bool ApplyShader(bool On = false)
     {
+        if (On)
+        {
+            SPScale = 1f;
+            return false;
+        }
+  
         for (int i = 0; i < SceneManager.sceneCount; i++)
         {
             Scene scene = SceneManager.GetSceneAt(i);
@@ -92,6 +98,7 @@ public class SPShader : MonoBehaviour
                 return true;
             }
         }
+        
         return false;
     }
 }
