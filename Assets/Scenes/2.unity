@@ -6367,6 +6367,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wild_Boar
       objectReference: {fileID: 0}
+    - target: {fileID: 8316696604293879966, guid: f1625c100ba3334418e98f1bb177329b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -2098981104, guid: c24fa4c8c2fbd5f439a9fa1de6eb2e03, type: 3}
     - target: {fileID: 8381158700122728030, guid: f1625c100ba3334418e98f1bb177329b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -126

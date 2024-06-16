@@ -25,6 +25,7 @@ public class Goblin : Monster
     RaycastHit2D hitRight_Chase;
     RaycastHit2D hitLeft_Chase;
     RaycastHit2D hitDown_Chase;
+    Rigidbody2D rigid;
     public Vector3 firstPos;
     int layerMask;
     int layerMask_Chase;
@@ -35,6 +36,7 @@ public class Goblin : Monster
         layerMask = 1 << LayerMask.NameToLayer("SeamlessLine") | 1 << LayerMask.NameToLayer("Goblin");
         layerMask_Chase = 1 << LayerMask.NameToLayer("Platform");
         firstPos = transform.position;
+        rigid = GetComponent<Rigidbody2D>();
     }
     private void Start()
     {
@@ -60,7 +62,7 @@ public class Goblin : Monster
     {
         while (true)
         {
-            if (playerPos != null)
+            if (GameObject.Find("Player"))
                 playerPos = GameObject.Find("Player").transform;
             switch (_curState)
             {

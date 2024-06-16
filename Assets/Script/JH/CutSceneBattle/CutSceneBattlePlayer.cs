@@ -28,7 +28,9 @@ public class CutSceneBattlePlayer : MonoBehaviour
     public bool isGrounded; // != IsJump
     public bool isSliding;
     private bool isHeading;
+    [SerializeField]
     private bool isDamaged;
+    [SerializeField]
     private bool isCoroutineRunning;
     static public bool moveFlag = true;
     static public bool stun = false;
@@ -68,6 +70,7 @@ public class CutSceneBattlePlayer : MonoBehaviour
             ArrowInput();
             Jump();
             Flip();
+            // Collision_Check();
             IsDamaged();
             if (Input.GetMouseButtonDown(0) && CanAttack && !isSliding)
             {
@@ -87,7 +90,6 @@ public class CutSceneBattlePlayer : MonoBehaviour
             {
                 rigid.gravityScale = playerGrav;
             }
-
             ani.SetBool("IsJump", !isGrounded);
             ani.SetBool("IsSliding", isSliding);
             ani.SetFloat("Jump_V", rigid.velocity.y);
@@ -95,11 +97,15 @@ public class CutSceneBattlePlayer : MonoBehaviour
         }
         else
         {
+            ani.SetBool("IsMove", false);
             transform.position = lastPos;
-            if (Time.time - lastTime >= 3)
+            if (stun)
             {
-                moveFlag = true;
-                stun = false;
+                if (Time.time - lastTime >= 3)
+                {
+                    moveFlag = true;
+                    stun = false;
+                }
             }
         }
     }
@@ -145,7 +151,14 @@ public class CutSceneBattlePlayer : MonoBehaviour
     }
     private void PlayerMove()
     {
-        rigid.velocity = new Vector2(arrowInput * moveSpeed, rigid.velocity.y);
+        if (!flag)
+        {
+            rigid.velocity = new Vector2(arrowInput * moveSpeed, rigid.velocity.y);
+        }
+        else
+        {
+            rigid.velocity = new Vector2(rigid.velocity.x, rigid.velocity.y);
+        }
     }
 
     void Jump()
@@ -207,33 +220,31 @@ public class CutSceneBattlePlayer : MonoBehaviour
         {
             StartCoroutine(Blink(gameObject, 2));
             hp--;
-            if (hp <= 0)
-                Destroy(gameObject);
         }
     }
     void Collision_Check()
     {
-        rightHit = Physics2D.Raycast(transform.position + Vector3.up, Vector3.right, 0.5f);
-        leftHit = Physics2D.Raycast(transform.position + Vector3.up, Vector3.left, 0.5f);
-
-        if (rightHit.collider != null && rightHit.collider.CompareTag("Monster"))
+        int layerMask = 1 << LayerMask.NameToLayer("SeamlessLine") | 1 << LayerMask.NameToLayer("Player") | 1 << LayerMask.NameToLayer("Platform");
+        rightHit = Physics2D.Raycast(transform.position + Vector3.up, Vector3.right, 0.3f, ~layerMask);
+        leftHit = Physics2D.Raycast(transform.position + Vector3.up, Vector3.left, 0.3f, ~layerMask);
+        if (rightHit.collider != null)
             isDamaged = true;
-        if (leftHit.collider != null && leftHit.collider.CompareTag("Monster"))
+
+        if (leftHit.collider != null)
             isDamaged = true;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Monster"))
+
+        if (other.CompareTag("Stone"))
             isDamaged = true;
         if (other.CompareTag("MonterAttack"))
         {
             flag = true;
-            Functions.Hit_Knock_Back(other.gameObject, gameObject);
+            Functions.Hit_Knock_Back(other.gameObject, gameObject, 4f);
             isDamaged = true;
             Invoke("Flag", 0.1f);
         }
-        if (other.CompareTag("Boss"))
-            isDamaged = true;
     }
     void Flag()
     {
@@ -246,33 +257,20 @@ public class CutSceneBattlePlayer : MonoBehaviour
     }
     IEnumerator Blink(GameObject obj, int n = 4)
     {
+        isCoroutineRunning = true;
         for (int i = 0; i < n; i++)
         {
-            isCoroutineRunning = true;
             obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
             yield return new WaitForSeconds(0.2f);
             obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
             yield return new WaitForSeconds(0.2f);
         }
         isCoroutineRunning = false;
+        isDamaged = false;
     }
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Platform"))
-        {
-            if (!isGrounded)
-            {
-                if (rigid.velocity.y < 0 && arrowInput != 0 && !isHeading)
-                {
-                    isSliding = true;
-                }
-            }
-            else
-            {
-                isSliding = false;
-            }
 
-        }
     }
     private void Landing_Platform()
     {

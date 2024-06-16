@@ -5,6 +5,7 @@ using UnityEngine;
 public class CutSceneBattle_Monster_Dead : MonoBehaviour
 {
     Animator anime;
+    bool flag = false;
     void Start()
     {
         anime = GetComponent<Animator>();
@@ -18,7 +19,10 @@ public class CutSceneBattle_Monster_Dead : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Weapon"))
+        if (other.CompareTag("Weapon") && !flag)
+        {
             anime.SetBool("Flag", true);
+            flag = true;
+        }
     }
 }

@@ -488,6 +488,7 @@ GameObject:
   - component: {fileID: 79961971}
   - component: {fileID: 79961970}
   - component: {fileID: 79961973}
+  - component: {fileID: 79961974}
   m_Layer: 8
   m_Name: Forest ground
   m_TagString: Platform
@@ -727,6 +728,33 @@ PolygonCollider2D:
       - {x: 60.000004, y: -1.9070001}
       - {x: -1.898, y: -1.9070001}
   m_UseDelaunayMesh: 0
+--- !u!50 &79961974
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 79961968}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &120821768
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,11 +1285,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 490699665591751955, guid: e8d92a46954b42f4d878f30cb73ccf36, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.93
+      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: 490699665591751955, guid: e8d92a46954b42f4d878f30cb73ccf36, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.21
+      value: -3.08
       objectReference: {fileID: 0}
     - target: {fileID: 490699665591751955, guid: e8d92a46954b42f4d878f30cb73ccf36, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2110,10 +2138,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spider_Standing_1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: 3f3f17531818c0a4f84d36a19d79a930, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: 3f3f17531818c0a4f84d36a19d79a930, type: 3}
+      propertyPath: m_TagString
+      value: Monster
+      objectReference: {fileID: 0}
     - target: {fileID: 1160356261127867848, guid: 3f3f17531818c0a4f84d36a19d79a930, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 3a0f6941cee82924fb775e2714e5a3d8, type: 2}
+    - target: {fileID: 3626916397498700004, guid: 3f3f17531818c0a4f84d36a19d79a930, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 3f3f17531818c0a4f84d36a19d79a930, type: 3}
       propertyPath: m_LocalScale.x
       value: -0.4
@@ -2128,7 +2168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 3f3f17531818c0a4f84d36a19d79a930, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.55
+      value: -3.36
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 3f3f17531818c0a4f84d36a19d79a930, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2172,6 +2212,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 3f3f17531818c0a4f84d36a19d79a930, type: 3}
       insertIndex: -1
       addedObject: {fileID: 444277947}
+    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 3f3f17531818c0a4f84d36a19d79a930, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 444277949}
   m_SourcePrefab: {fileID: -8435245712485981826, guid: 3f3f17531818c0a4f84d36a19d79a930, type: 3}
 --- !u!1 &444277946 stripped
 GameObject:
@@ -2190,8 +2233,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b73d39fc4ef814ebfa3d5a6f988a29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  to_Position: {x: 0, y: 0, z: 0}
-  player1: {fileID: 0}
   id: 0
 --- !u!61 &444277948
 BoxCollider2D:
@@ -2222,7 +2263,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.25, y: 1.9}
@@ -2238,6 +2279,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.9, y: 2.2666667}
   m_EdgeRadius: 0
+--- !u!50 &444277949
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 444277946}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1001 &512362561
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4251,10 +4319,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spider_Standing_1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: 3f3f17531818c0a4f84d36a19d79a930, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: -2253911629886400664, guid: 3f3f17531818c0a4f84d36a19d79a930, type: 3}
+      propertyPath: m_TagString
+      value: Monster
+      objectReference: {fileID: 0}
     - target: {fileID: 1160356261127867848, guid: 3f3f17531818c0a4f84d36a19d79a930, type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 3a0f6941cee82924fb775e2714e5a3d8, type: 2}
+    - target: {fileID: 3626916397498700004, guid: 3f3f17531818c0a4f84d36a19d79a930, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 3f3f17531818c0a4f84d36a19d79a930, type: 3}
       propertyPath: m_LocalScale.x
       value: -0.4
@@ -4269,7 +4349,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 3f3f17531818c0a4f84d36a19d79a930, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.55
+      value: -3.36
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: 3f3f17531818c0a4f84d36a19d79a930, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4313,6 +4393,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 3f3f17531818c0a4f84d36a19d79a930, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1011053259}
+    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: 3f3f17531818c0a4f84d36a19d79a930, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1011053261}
   m_SourcePrefab: {fileID: -8435245712485981826, guid: 3f3f17531818c0a4f84d36a19d79a930, type: 3}
 --- !u!1 &968440848
 GameObject:
@@ -4425,7 +4508,7 @@ GameObject:
   m_Component:
   - component: {fileID: 981996823}
   - component: {fileID: 981996824}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4617,8 +4700,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b73d39fc4ef814ebfa3d5a6f988a29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  to_Position: {x: 15, y: 13.46, z: 0}
-  player1: {fileID: 0}
   id: 2
 --- !u!61 &1011053260
 BoxCollider2D:
@@ -4649,7 +4730,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.25, y: 1.9}
@@ -4665,6 +4746,33 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.9, y: 2.2666667}
   m_EdgeRadius: 0
+--- !u!50 &1011053261
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011053258}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1001 &1011949164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7274,7 +7382,7 @@ Transform:
   m_GameObject: {fileID: 1657155960}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.93, y: 0.78999996, z: -14}
+  m_LocalPosition: {x: 0.55, y: 0.9200001, z: -14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7487,6 +7595,8 @@ MonoBehaviour:
   jumpInputUp: 0
   isGrounded: 0
   isSliding: 0
+  isDamaged: 0
+  isCoroutineRunning: 0
   Attack_Obj: {fileID: 959651560}
 --- !u!1 &1759741688
 GameObject:

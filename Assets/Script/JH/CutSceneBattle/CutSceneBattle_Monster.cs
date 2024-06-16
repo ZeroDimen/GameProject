@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
 
 public class CutSceneBattle_Monster : MonoBehaviour
 {
@@ -15,17 +15,19 @@ public class CutSceneBattle_Monster : MonoBehaviour
     }
     State _curstate;
     Transform playerPos;
+    Rigidbody2D rigid;
     Animator anime;
     float hp = 4;
     public int id;
 
     void Start()
     {
+        rigid = GetComponent<Rigidbody2D>();
         anime = GetComponent<Animator>();
         _curstate = State.Idle;
         StartCoroutine(Monster());
     }
-    
+
     private void OnDrawGizmos()
     {
         if (_curstate == State.Idle)
@@ -38,7 +40,17 @@ public class CutSceneBattle_Monster : MonoBehaviour
     {
         while (true)
         {
-            playerPos = GameObject.Find("Player_CutScene_Battle").transform;
+            if (transform.position.y <= -5)
+            {
+                FadeInOut_Image.instance.FadeInOut();
+                yield return new WaitForSeconds(1.15f);
+                AudioManager.instance.ChangeBgm(AudioManager.Bgm.Village);
+                SceneManager.LoadScene("Village", LoadSceneMode.Additive);
+                GameManager.instance.Player_teleport();
+                SceneManager.UnloadSceneAsync("CutScene_Battle");
+            }
+            if (GameObject.Find("Player_CutScene_Battle"))
+                playerPos = GameObject.Find("Player_CutScene_Battle").transform;
             // if (playerPos.position.x - transform.position.x > 0)
             //     transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, playerPos.position.z);
             // else if (playerPos.position.x - transform.position.x < 0)
@@ -59,7 +71,7 @@ public class CutSceneBattle_Monster : MonoBehaviour
                     break;
                 case State.Walk:
                     transform.position += new Vector3(playerPos.position.x - transform.position.x, 0, 0).normalized * 0.05f;
-                    if (Vector3.Distance(transform.position, playerPos.position) <= 2)
+                    if (Vector3.Distance(transform.position, playerPos.position) <= 1)
                     {
                         _curstate = State.Attack;
                         anime.SetBool("isWalk", false);
@@ -83,7 +95,7 @@ public class CutSceneBattle_Monster : MonoBehaviour
                             _curstate = State.Dead;
                             anime.SetBool("isDead", true);
                         }
-                        else if (Vector3.Distance(transform.position, playerPos.position) <= 2)
+                        else if (Vector3.Distance(transform.position, playerPos.position) <= 1)
                         {
                             _curstate = State.Attack;
                             anime.SetBool("isWalk", false);
@@ -105,10 +117,10 @@ public class CutSceneBattle_Monster : MonoBehaviour
                             FadeInOut_Image.instance.FadeInOut();
                             yield return new WaitForSeconds(1.15f);
                             AudioManager.instance.ChangeBgm(AudioManager.Bgm.Village);
-                            SceneManager.LoadScene("Village",LoadSceneMode.Additive);
+                            SceneManager.LoadScene("Village", LoadSceneMode.Additive);
                             GameManager.instance.Player_teleport();
                             SceneManager.UnloadSceneAsync("CutScene_Battle");
-                            
+
                         }
                         Destroy(gameObject);
                     }
@@ -119,13 +131,22 @@ public class CutSceneBattle_Monster : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Weapon"))
+        if (_curstate != State.Dead)
         {
-            anime.SetBool("isWalk", false);
-            anime.SetBool("isAttack", false);
-            anime.Play("Damage");
-            _curstate = State.Damaged;
-            hp--;
+            if (other.CompareTag("Weapon"))
+            {
+                anime.SetBool("isWalk", false);
+                anime.SetBool("isAttack", false);
+                anime.Play("Damage");
+                _curstate = State.Damaged;
+                hp--;
+                Functions.Hit_Knock_Back(other.gameObject, gameObject, 5f);
+                Invoke("Velocity_Zero", 0.2f);
+            }
         }
+    }
+    void Velocity_Zero()
+    {
+        rigid.velocity = Vector3.zero;
     }
 }

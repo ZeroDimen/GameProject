@@ -1645,11 +1645,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.1
-  far clip plane: 5000
-  field of view: 40
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -1674,7 +1674,7 @@ Transform:
   m_GameObject: {fileID: 714595381}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 142.45326, y: 176.75096, z: -20}
+  m_LocalPosition: {x: -92.03038, y: 39.61192, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1726,11 +1726,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 490699665591751955, guid: e8d92a46954b42f4d878f30cb73ccf36, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 142.45
+      value: -100.88
       objectReference: {fileID: 0}
     - target: {fileID: 490699665591751955, guid: e8d92a46954b42f4d878f30cb73ccf36, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.195
+      value: 31.6
       objectReference: {fileID: 0}
     - target: {fileID: 490699665591751955, guid: e8d92a46954b42f4d878f30cb73ccf36, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3334,11 +3334,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 7e1ce79d8fa2c7a4891ad3e7abeebdef, type: 3}
   - {fileID: 8300000, guid: 4e708f209f3d7f740879a99f79e70949, type: 3}
   - {fileID: 8300000, guid: 604b8b1e542cf0140a3a8cf6a8fdeb91, type: 3}
-  bgmVolume: 0.3
+  bgmVolume: 1
   bgmPlayer: {fileID: 0}
   sfxClip:
   - {fileID: 8300000, guid: e3d3b8b47e6cbbb4f892b0020bbfb938, type: 3}
-  sfxVolume: 0.5
+  sfxVolume: 1
   channels: 8
   channelIndex: 0
 --- !u!1 &1255956126
@@ -4017,7 +4017,7 @@ Transform:
   m_GameObject: {fileID: 1527948725}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 142.45, y: 176.21, z: -20}
+  m_LocalPosition: {x: -100.88, y: 39.6, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4385,7 +4385,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1743568073}
   - component: {fileID: 1743568072}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: CamColider
   m_TagString: Untagged
   m_Icon: {fileID: 0}

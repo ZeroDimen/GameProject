@@ -223,18 +223,19 @@ public class PlayerMoveinFixedUpdate : MonoBehaviour
     }
     void Collision_Check()
     {
-        rightHit = Physics2D.Raycast(transform.position + Vector3.up, Vector3.right, 0.5f);
-        leftHit = Physics2D.Raycast(transform.position + Vector3.up, Vector3.left, 0.5f);
+        int layerMask = 1 << LayerMask.NameToLayer("SeamlessLine") | 1 << LayerMask.NameToLayer("Player") | 1 << LayerMask.NameToLayer("Platform");
+        rightHit = Physics2D.Raycast(transform.position + Vector3.up, Vector3.right, 0.3f, ~layerMask);
+        leftHit = Physics2D.Raycast(transform.position + Vector3.up, Vector3.left, 0.3f, ~layerMask);
 
-        if (rightHit.collider != null && (rightHit.collider.CompareTag("Monster") || rightHit.collider.CompareTag("Boss")))
+        if (rightHit.collider != null)
             isDamaged = true;
-        if (leftHit.collider != null && (leftHit.collider.CompareTag("Monster") || leftHit.collider.CompareTag("Boss")))
+        if (leftHit.collider != null)
             isDamaged = true;
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.CompareTag("Monster") || other.CompareTag("Stone"))
+        if (other.CompareTag("Stone"))
             isDamaged = true;
         if (other.CompareTag("MonterAttack"))
         {

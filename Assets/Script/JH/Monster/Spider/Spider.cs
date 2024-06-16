@@ -62,7 +62,7 @@ public class Spider : Monster
     {
         while (true)
         {
-            if (playerPos != null)
+            if (GameObject.Find("Player"))
                 playerPos = GameObject.Find("Player").transform;
             switch (_curState)
             {
@@ -80,7 +80,7 @@ public class Spider : Monster
                 case State.Chase:
                     if (Vector3.Distance(playerPos.position, transform.position) >= monsterInfo.fieldOfView)
                         ChangeState(State.Idle);
-                    if (Vector3.Distance(playerPos.position, transform.position) <= monsterInfo.attackRange)
+                    if (Vector3.Distance(playerPos.position, transform.position) < monsterInfo.attackRange)
                         ChangeState(State.Attack);
                     break;
                 case State.Attack:

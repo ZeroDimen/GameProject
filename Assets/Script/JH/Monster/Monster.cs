@@ -9,7 +9,7 @@ public class Monster : MonoBehaviour
     {
         for (int i = 0; i < n; i++)
         {
-            obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0);
+            obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
             yield return new WaitForSeconds(0.5f);
             obj.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
             yield return new WaitForSeconds(0.5f);
