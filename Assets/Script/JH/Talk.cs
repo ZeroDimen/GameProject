@@ -32,7 +32,7 @@ public class Talk : MonoBehaviour
     }
     void Update()
     {
-        if (GameObject.Find("colleague").transform != null)
+        if (GameObject.Find("colleague") != null)
             Colleague();
 
         if (Input.GetKeyDown(KeyCode.Q))

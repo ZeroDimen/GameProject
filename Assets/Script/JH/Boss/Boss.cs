@@ -68,9 +68,8 @@ public class Boss : MonoBehaviour
         cam = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
         noise = cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         StartCoroutine(phase_1);
-        sliderObj = GameObject.Find("Canvas").transform.GetChild(0).gameObject;
+        sliderObj = GameObject.Find("BossHP").transform.GetChild(0).gameObject;
         slider = sliderObj.GetComponent<Slider>();
-        sliderObj.SetActive(true);
 
         sliderRectTransform = sliderObj.GetComponent<RectTransform>();
         CinemachineBrain cinemachineBrain = GameObject.Find("Main Camera").GetComponent<CinemachineBrain>();
@@ -78,16 +77,11 @@ public class Boss : MonoBehaviour
     }
     private void Update()
     {
-        if (sliderObj.activeSelf)
-        {
-            sliderRectTransform.position = mainCamera.WorldToScreenPoint(transform.position + Vector3.up * 1.7f);
-        }
-
         if (_curState == State.Dash && !flag)
         {
             playerPos = GameObject.Find("Player").transform;
-            right = Physics2D.Raycast(transform.position, Vector3.right, 0.3f, 1 << LayerMask.NameToLayer("Player"));
-            left = Physics2D.Raycast(transform.position, Vector3.left, 0.3f, 1 << LayerMask.NameToLayer("Player"));
+            right = Physics2D.Raycast(transform.position + new Vector3(0.5f, 2f, 0), Vector3.right, 0.3f, 1 << LayerMask.NameToLayer("Player"));
+            left = Physics2D.Raycast(transform.position + new Vector3(0.5f, 2f, 0), Vector3.left, 0.3f, 1 << LayerMask.NameToLayer("Player"));
 
             if (right.collider != null)
             {
@@ -111,9 +105,9 @@ public class Boss : MonoBehaviour
                 }
             }
         }
-        if (transform.position.y < 168)
-            transform.position = new Vector3(transform.position.x, 168.6f, transform.position.z);
 
+        if (transform.position.y <= 167)
+            transform.position = new Vector3(transform.position.x, 167.5f, transform.position.z);
     }
     void CreatePoints(float radius)
     {
@@ -124,7 +118,7 @@ public class Boss : MonoBehaviour
             float x = Mathf.Sin(i * angle) * radius;
             float y = Mathf.Cos(i * angle) * radius;
 
-            lineRenderer.SetPosition(i, new Vector3(x, y, 0));
+            lineRenderer.SetPosition(i, new Vector3(x, y, -1));
         }
     }
     private void OnDrawGizmos()
@@ -132,16 +126,16 @@ public class Boss : MonoBehaviour
         if (_curState == State.Waiting)
         {
             Gizmos.color = Color.white;
-            Gizmos.DrawWireSphere(transform.position, monsterInfo.fieldOfView);
+            Gizmos.DrawWireSphere(transform.position + new Vector3(0.5f, 2f, 0), monsterInfo.fieldOfView);
         }
     }
     IEnumerator Phase1()
     {
         while (true)
         {
-            playerPos = GameObject.Find("Player").transform;
-            transform.localScale = new Vector3(Character_Direction(playerPos, transform), 1, 1);
-
+            if (GameObject.Find("Player") != null)
+                playerPos = GameObject.Find("Player").transform;
+            transform.localScale = new Vector3(-Character_Direction(playerPos, transform), 1, 1);
             switch (_curState)
             {
                 case State.Waiting:
@@ -151,6 +145,8 @@ public class Boss : MonoBehaviour
                         PlayerMoveinFixedUpdate.moveFlag = false;
                         PlayerMoveinFixedUpdate.lastTime = Time.time;
                         PlayerMoveinFixedUpdate.lastPos = playerPos.position;
+                        sliderObj.SetActive(true);
+
                         // WideCam = GameObject.Find("Cam").transform.GetChild(0).gameObject;
                     }
                     break;
@@ -188,17 +184,17 @@ public class Boss : MonoBehaviour
                     }
                     else
                     {
-                        nextAttackNum = Random.Range(0, 2);
+                        nextAttackNum = Random.Range(0, 1);
                         if (nextAttackNum == curAttackNum)
-                            nextAttackNum = Random.Range(0, 2);
+                            nextAttackNum = Random.Range(0, 1);
                         curAttackNum = nextAttackNum;
                         switch (nextAttackNum)
                         {
                             case 0:
-                                _curState = State.Tornado;
+                                _curState = State.Dash;
                                 break;
                             case 1:
-                                _curState = State.Dash;
+                                _curState = State.Tornado;
                                 break;
                         }
                     }
@@ -296,7 +292,7 @@ public class Boss : MonoBehaviour
         while (true)
         {
             playerPos = GameObject.Find("Player").transform;
-            transform.localScale = new Vector3(Character_Direction(playerPos, transform), 1, 1);
+            transform.localScale = new Vector3(-Character_Direction(playerPos, transform), 1, 1);
             switch (_curState)
             {
                 case State.Idle:
@@ -383,7 +379,7 @@ public class Boss : MonoBehaviour
                     yield return StartCoroutine(Functions.Blink_Color(gameObject, Color.blue));
                     for (int i = 0; i < 5; i++)
                     {
-                        GameObject obj = Instantiate(stone, transform.position, Quaternion.identity);
+                        GameObject obj = Instantiate(stone, transform.position + new Vector3(0.5f, 2f, 0), Quaternion.identity);
                         obj.GetComponent<Rigidbody2D>().AddForce(new Vector3(playerPos.position.x - transform.position.x, 0, 0).normalized * 30, ForceMode2D.Impulse);
                         yield return new WaitForSeconds(0.7f);
                     }
