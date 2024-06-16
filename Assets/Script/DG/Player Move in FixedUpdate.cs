@@ -98,10 +98,13 @@ public class PlayerMoveinFixedUpdate : MonoBehaviour
         {
             ani.SetBool("IsMove", false);
             transform.position = lastPos;
-            if (Time.time - lastTime >= 3)
+            if (stun)
             {
-                moveFlag = true;
-                stun = false;
+                if (Time.time - lastTime >= 3)
+                {
+                    moveFlag = true;
+                    stun = false;
+                }
             }
         }
     }

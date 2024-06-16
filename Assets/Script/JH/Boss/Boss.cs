@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Boss : MonoBehaviour
 {
     public MonsterInfo monsterInfo;
-    private enum State
+    public enum State
     {
         Waiting,
         FirstAction,
@@ -19,15 +19,16 @@ public class Boss : MonoBehaviour
         Path,
         Throw
     }
+    Animator anime;
     GameObject sliderObj;
     RectTransform sliderRectTransform;
     Camera mainCamera;
     Slider slider;
-    State _curState;
+    public State _curState;
     Transform playerPos;
     CinemachineVirtualCamera cam;
     CinemachineBasicMultiChannelPerlin noise;
-    // GameObject WideCam;
+    GameObject WideCam;
     public GameObject path;
     public GameObject stone;
     public GameObject shadow;
@@ -49,8 +50,13 @@ public class Boss : MonoBehaviour
     RaycastHit2D right;
     RaycastHit2D left;
     bool flag;
+    public bool phase_1_is_running;
+    public bool phase_2_is_running;
     private void Awake()
     {
+        anime = GetComponent<Animator>();
+        phase_1_is_running = true;
+        phase_2_is_running = false;
         phase_1 = Phase1();
         phase_2 = Phase2();
         hp = monsterInfo.hp;
@@ -63,8 +69,6 @@ public class Boss : MonoBehaviour
         currentRadius = initialRadius;
         lineRenderer.positionCount = segments + 1;
         lineRenderer.useWorldSpace = false;
-
-        // WideCam = GameObject.Find("Cam");
         cam = GameObject.Find("Virtual Camera").GetComponent<CinemachineVirtualCamera>();
         noise = cam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         StartCoroutine(phase_1);
@@ -108,6 +112,13 @@ public class Boss : MonoBehaviour
 
         if (transform.position.y <= 167)
             transform.position = new Vector3(transform.position.x, 167.5f, transform.position.z);
+
+        if (GameObject.Find("Player") != null)
+            playerPos = GameObject.Find("Player").transform;
+        transform.localScale = new Vector3(-Character_Direction(playerPos, transform), 1, 1);
+
+        // if (!phase_1_is_running && !phase_1_is_running)
+        //     StartCoroutine(phase_2);
     }
     void CreatePoints(float radius)
     {
@@ -131,11 +142,11 @@ public class Boss : MonoBehaviour
     }
     IEnumerator Phase1()
     {
+        if (GameObject.Find("Player") != null)
+            playerPos = GameObject.Find("Player").transform;
+        transform.localScale = new Vector3(-Character_Direction(playerPos, transform), 1, 1);
         while (true)
         {
-            if (GameObject.Find("Player") != null)
-                playerPos = GameObject.Find("Player").transform;
-            transform.localScale = new Vector3(-Character_Direction(playerPos, transform), 1, 1);
             switch (_curState)
             {
                 case State.Waiting:
@@ -147,16 +158,16 @@ public class Boss : MonoBehaviour
                         PlayerMoveinFixedUpdate.lastPos = playerPos.position;
                         sliderObj.SetActive(true);
 
-                        // WideCam = GameObject.Find("Cam").transform.GetChild(0).gameObject;
+                        WideCam = GameObject.Find("Cam").transform.GetChild(0).gameObject;
                     }
                     break;
                 case State.FirstAction:
-                    // WideCam.SetActive(true);
+                    WideCam.SetActive(true);
                     yield return new WaitForSeconds(3f);
                     walls[0].SetActive(true);
                     walls[1].SetActive(true);
                     yield return new WaitForSeconds(3f);
-                    // WideCam.SetActive(false);
+                    WideCam.SetActive(false);
                     walls[0].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
                     walls[1].GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
                     PlayerMoveinFixedUpdate.moveFlag = true;
@@ -209,12 +220,14 @@ public class Boss : MonoBehaviour
                 //     _curState = State.Tornado;
                 // break;
                 case State.Earthquake:
+                    yield return StartCoroutine(Functions.Blink_Color(gameObject, Color.blue));
                     rigid.AddForce(Vector3.up * 400);
                     yield return new WaitUntil(() => rigid.velocity.y < 0);
 
                     rigid.gravityScale = 50f;
 
                     yield return new WaitUntil(() => rigid.velocity.y == 0);
+
                     noise.m_AmplitudeGain = 5;
                     noise.m_FrequencyGain = 1;
 
@@ -265,6 +278,7 @@ public class Boss : MonoBehaviour
                     break;
                 case State.Cry:
                     yield return StartCoroutine(Functions.Blink_Color(gameObject, Color.red));
+                    anime.SetBool("isCry", true);
                     StartCoroutine(CryRange());
                     if (Vector3.Distance(playerPos.position, transform.position) <= 10)
                     {
@@ -276,6 +290,8 @@ public class Boss : MonoBehaviour
                         PlayerMoveinFixedUpdate.flag = false;
                     }
                     yield return new WaitUntil(() => !PlayerMoveinFixedUpdate.flag);
+                    yield return new WaitUntil(() => anime.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f);
+                    anime.SetBool("isCry", false);
                     _curState = State.Idle;
                     yield return new WaitForSeconds(1f);
                     break;
@@ -285,13 +301,14 @@ public class Boss : MonoBehaviour
     }
     IEnumerator Phase2()
     {
-
-        yield return StartCoroutine(Functions.Blink_Color(gameObject, Color.black, 2));
-        GetComponent<SpriteRenderer>().color = Color.black;
+        phase_2_is_running = true;
+        GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 1f);
+        yield return new WaitForSeconds(2f);
 
         while (true)
         {
-            playerPos = GameObject.Find("Player").transform;
+            if (GameObject.Find("Player") != null)
+                playerPos = GameObject.Find("Player").transform;
             transform.localScale = new Vector3(-Character_Direction(playerPos, transform), 1, 1);
             switch (_curState)
             {
@@ -316,32 +333,22 @@ public class Boss : MonoBehaviour
                             break;
                     }
                     break;
-                // if (Input.GetKeyDown(KeyCode.E))
-                //     _curState = State.Earthquake;
-                // if (Input.GetKeyDown(KeyCode.Q))
-                // {
-                //     _curState = State.Dash;
-                // }
-                // if (Input.GetKeyDown(KeyCode.P))
-                // {
-                //     _curState = State.Path;
-                // }
-                // if (Input.GetKeyDown(KeyCode.T))
-                // {
-                //     _curState = State.Throw;
-                // }
-                // break;
                 case State.Earthquake:
+                    yield return StartCoroutine(Functions.Blink_Color(gameObject, Color.blue));
+                    yield return new WaitForSeconds(0.5f);
                     transform.position = playerPos.position + Vector3.up * 40;
+                    yield return new WaitUntil(() => transform.position.y >= playerPos.position.y + 30);
                     shadow.SetActive(true);
                     shadow.transform.position = new Vector3(playerPos.position.x, shadow.transform.position.y, -1);
                     yield return new WaitForSeconds(1f);
                     rigid.gravityScale = 30f;
                     yield return new WaitUntil(() => rigid.velocity.y == 0 || rigid.gravityScale == 1f);
+                    noise.m_AmplitudeGain = 5;
+                    noise.m_FrequencyGain = 1;
                     shadow.SetActive(false);
-                    hitRange.SetActive(true);
-                    hitRange.transform.position = new Vector3(shadow.transform.position.x, hitRange.transform.position.y, -1);
-                    Invoke("HitRange", 0.4f);
+                    //hitRange.SetActive(true);
+                    //hitRange.transform.position = new Vector3(shadow.transform.position.x, hitRange.transform.position.y, -1);
+                    //Invoke("HitRange", 0.4f);
                     rigid.gravityScale = 1f;
                     if (Vector3.Distance(transform.position, playerPos.position) <= 5)
                     {
@@ -349,14 +356,13 @@ public class Boss : MonoBehaviour
                         playerPos.GetComponent<Rigidbody2D>().AddForce((playerPos.position - transform.position).normalized * 20f, ForceMode2D.Impulse);
                         Invoke("playerFlag", 0.5f);
                     }
-                    yield return new WaitForSeconds(2);
+                    yield return new WaitForSeconds(1.5f);
                     noise.m_AmplitudeGain = 0;
                     noise.m_FrequencyGain = 0;
-                    rigid.gravityScale = 1;
                     _curState = State.Idle;
                     break;
                 case State.Dash:
-                    yield return StartCoroutine(Blink(gameObject));
+                    yield return StartCoroutine(Functions.Blink_Color(gameObject, Color.white));
                     yield return new WaitForSeconds(1f);
                     flag = false;
                     rigid.AddForce(new Vector3(playerPos.position.x - transform.position.x, 0, 0).normalized * 60f, ForceMode2D.Impulse);
@@ -379,7 +385,7 @@ public class Boss : MonoBehaviour
                     yield return StartCoroutine(Functions.Blink_Color(gameObject, Color.blue));
                     for (int i = 0; i < 5; i++)
                     {
-                        GameObject obj = Instantiate(stone, transform.position + new Vector3(0.5f, 2f, 0), Quaternion.identity);
+                        GameObject obj = Instantiate(stone, transform.position + new Vector3(0.5f + Character_Direction(playerPos, transform) * 1.5f, 2f, 0), Quaternion.identity);
                         obj.GetComponent<Rigidbody2D>().AddForce(new Vector3(playerPos.position.x - transform.position.x, 0, 0).normalized * 30, ForceMode2D.Impulse);
                         yield return new WaitForSeconds(0.7f);
                     }
@@ -414,13 +420,14 @@ public class Boss : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Weapon"))
+        if (other.CompareTag("Weapon") || other.CompareTag("Stone"))
         {
             hp--;
             slider.value = hp / monsterInfo.hp;
             if (hp == 10)
             {
                 StopCoroutine(phase_1);
+                phase_1_is_running = false;
                 StartCoroutine(phase_2);
                 PlayerMoveinFixedUpdate.flag = true;
                 playerPos.GetComponent<Rigidbody2D>().AddForce(new Vector3(playerPos.position.x - transform.position.x, 0, 0).normalized * 40f, ForceMode2D.Impulse);
@@ -428,7 +435,15 @@ public class Boss : MonoBehaviour
             }
             else if (hp <= 0)
             {
+                if (noise.m_AmplitudeGain != 0)
+                {
+                    noise.m_AmplitudeGain = 0;
+                    noise.m_FrequencyGain = 0;
+                }
+                walls[0].SetActive(false);
+                walls[1].SetActive(false);
                 sliderObj.SetActive(false);
+                shadow.SetActive(false);
                 Destroy(gameObject);
             }
         }
