@@ -53,6 +53,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/3.unity
     guid: 2c9bcdf32ed31a6438e759c7081e3a33
+  - enabled: 1
+    path: Assets/Scenes/CutScene_Battle.unity
+    guid: 77d396528c3d3f4489e317674548d325
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 2939cfe73102b4c3b82d982717f394eb, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: 8b702f45a72a34c069daa0da55b3bf48, type: 2}
