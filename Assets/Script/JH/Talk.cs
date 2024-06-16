@@ -35,7 +35,7 @@ public class Talk : MonoBehaviour
         if (GameObject.Find("colleague") != null)
             Colleague();
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && GameObject.Find("colleague") != null)
         {
             for (int i = 0; i < 4; i++)
                 colleague[i].gameObject.SetActive(false);
