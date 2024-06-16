@@ -675,7 +675,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &407651415
 RectTransform:
   m_ObjectHideFlags: 0
@@ -883,6 +883,7 @@ MonoBehaviour:
   tem_Text: {fileID: 1762064741}
   text: {fileID: 1167762678}
   colleague: []
+  flag: 0
 --- !u!1 &502177655
 GameObject:
   m_ObjectHideFlags: 0
@@ -2990,7 +2991,7 @@ MonoBehaviour:
   id: 
   pw: 
   playerNumber: 0
-  player1: {fileID: 0}
+  to_Position: {x: 14.99, y: 13.46, z: 0}
 --- !u!4 &1348982058
 Transform:
   m_ObjectHideFlags: 0

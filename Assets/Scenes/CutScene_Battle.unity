@@ -598,7 +598,7 @@ MonoBehaviour:
   m_WorldSpaceUV: 0
   m_CornerAngleThreshold: 30
   m_ColliderDetail: 16
-  m_ColliderOffset: 0
+  m_ColliderOffset: -0.05
   m_UpdateCollider: 1
   m_EnableTangents: 0
   m_GeometryCached: 0
@@ -606,15 +606,13 @@ MonoBehaviour:
   m_Creator: {fileID: 0}
   m_Modifiers: []
   m_ColliderSegment:
-  - {x: -1.9979601, y: -1.9981401}
-  - {x: -1.9979601, y: 2}
-  - {x: 1.2631581, y: 1.998287}
-  - {x: 60.00001, y: 1.9982877}
-  - {x: 89.2264, y: 2.159069}
-  - {x: 88.83907, y: -1.8860339}
-  - {x: 78.688965, y: -1.9244081}
-  - {x: 60.000004, y: -1.9981401}
-  - {x: -1.9979601, y: -1.9981401}
+  - {x: -1.898, y: -1.9070001}
+  - {x: -1.898, y: 1.9143333}
+  - {x: 60.000477, y: 1.9143355}
+  - {x: 89.122086, y: 2.0745404}
+  - {x: 88.75371, y: -1.7935591}
+  - {x: 60.000004, y: -1.9070001}
+  - {x: -1.898, y: -1.9070001}
 --- !u!1971053207 &79961972
 SpriteShapeRenderer:
   m_ObjectHideFlags: 0
@@ -721,15 +719,13 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -1.9979601, y: -1.9981401}
-      - {x: -1.9979601, y: 2}
-      - {x: 1.2631581, y: 1.998287}
-      - {x: 60.00001, y: 1.9982877}
-      - {x: 89.2264, y: 2.159069}
-      - {x: 88.83907, y: -1.8860339}
-      - {x: 78.688965, y: -1.9244081}
-      - {x: 60.000004, y: -1.9981401}
-      - {x: -1.9979601, y: -1.9981401}
+    - - {x: -1.898, y: -1.9070001}
+      - {x: -1.898, y: 1.9143333}
+      - {x: 60.000477, y: 1.9143355}
+      - {x: 89.122086, y: 2.0745404}
+      - {x: 88.75371, y: -1.7935591}
+      - {x: 60.000004, y: -1.9070001}
+      - {x: -1.898, y: -1.9070001}
   m_UseDelaunayMesh: 0
 --- !u!1 &120821768
 GameObject:
@@ -2194,6 +2190,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b73d39fc4ef814ebfa3d5a6f988a29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  to_Position: {x: 0, y: 0, z: 0}
+  player1: {fileID: 0}
+  id: 0
 --- !u!61 &444277948
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2932,7 +2931,7 @@ MonoBehaviour:
   m_WorldSpaceUV: 0
   m_CornerAngleThreshold: 30
   m_ColliderDetail: 16
-  m_ColliderOffset: 0
+  m_ColliderOffset: -0.05
   m_UpdateCollider: 1
   m_EnableTangents: 0
   m_GeometryCached: 0
@@ -2940,17 +2939,17 @@ MonoBehaviour:
   m_Creator: {fileID: 0}
   m_Modifiers: []
   m_ColliderSegment:
-  - {x: -1.9979601, y: -1.9981401}
-  - {x: -1.9979596, y: 2.000001}
-  - {x: 11.469231, y: 1.9982882}
-  - {x: 45.142303, y: 1.9982891}
-  - {x: 45.237476, y: 8.407326}
-  - {x: 50.45142, y: 8.356436}
-  - {x: 50.63171, y: 1.9999485}
-  - {x: 60.000004, y: 1.9982884}
-  - {x: 59.998085, y: -2}
-  - {x: 59.21008, y: -1.9981401}
-  - {x: -1.9979601, y: -1.9981401}
+  - {x: -1.898, y: -1.9070001}
+  - {x: -1.8979995, y: 1.9143343}
+  - {x: 45.142303, y: 1.9143357}
+  - {x: 45.244293, y: 1.9985154}
+  - {x: 45.336193, y: 8.320736}
+  - {x: 50.35816, y: 8.273358}
+  - {x: 50.538, y: 1.997261}
+  - {x: 50.633625, y: 1.9143367}
+  - {x: 59.90434, y: 1.914335}
+  - {x: 59.904335, y: -1.9069998}
+  - {x: -1.898, y: -1.9070001}
 --- !u!1971053207 &671233640
 SpriteShapeRenderer:
   m_ObjectHideFlags: 0
@@ -3057,17 +3056,17 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -1.9979601, y: -1.9981401}
-      - {x: -1.9979596, y: 2.000001}
-      - {x: 11.469231, y: 1.9982882}
-      - {x: 45.142303, y: 1.9982891}
-      - {x: 45.237476, y: 8.407326}
-      - {x: 50.45142, y: 8.356436}
-      - {x: 50.63171, y: 1.9999485}
-      - {x: 60.000004, y: 1.9982884}
-      - {x: 59.998085, y: -2}
-      - {x: 59.21008, y: -1.9981401}
-      - {x: -1.9979601, y: -1.9981401}
+    - - {x: -1.898, y: -1.9070001}
+      - {x: -1.8979995, y: 1.9143343}
+      - {x: 45.142303, y: 1.9143357}
+      - {x: 45.244293, y: 1.9985154}
+      - {x: 45.336193, y: 8.320736}
+      - {x: 50.35816, y: 8.273358}
+      - {x: 50.538, y: 1.997261}
+      - {x: 50.633625, y: 1.9143367}
+      - {x: 59.90434, y: 1.914335}
+      - {x: 59.904335, y: -1.9069998}
+      - {x: -1.898, y: -1.9070001}
   m_UseDelaunayMesh: 0
 --- !u!1 &702389524
 GameObject:
@@ -4618,6 +4617,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b73d39fc4ef814ebfa3d5a6f988a29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  to_Position: {x: 15, y: 13.46, z: 0}
+  player1: {fileID: 0}
+  id: 2
 --- !u!61 &1011053260
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6326,7 +6328,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_TargetDisplay: 0
 --- !u!224 &1489967060
 RectTransform:
@@ -7450,6 +7452,8 @@ MonoBehaviour:
   jumpInputUp: 0
   isGrounded: 0
   isSliding: 0
+  isDamaged: 0
+  isCoroutineRunning: 0
   Attack_Obj: {fileID: 959651560}
 --- !u!4 &1740239046 stripped
 Transform:

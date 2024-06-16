@@ -1,7 +1,7 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.SceneManagement; 
 
 public class CutSceneBattle_Monster : MonoBehaviour
 {
@@ -17,18 +17,15 @@ public class CutSceneBattle_Monster : MonoBehaviour
     Transform playerPos;
     Animator anime;
     float hp = 4;
+    public int id;
+
     void Start()
     {
         anime = GetComponent<Animator>();
         _curstate = State.Idle;
         StartCoroutine(Monster());
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    
     private void OnDrawGizmos()
     {
         if (_curstate == State.Idle)
@@ -103,6 +100,16 @@ public class CutSceneBattle_Monster : MonoBehaviour
                 case State.Dead:
                     if (anime.GetCurrentAnimatorStateInfo(0).IsName("Death") && anime.GetCurrentAnimatorStateInfo(0).normalizedTime > 1f)
                     {
+                        if (id == 2)
+                        {
+                            FadeInOut_Image.instance.FadeInOut();
+                            yield return new WaitForSeconds(1.15f);
+                            AudioManager.instance.ChangeBgm(AudioManager.Bgm.Village);
+                            SceneManager.LoadScene("Village",LoadSceneMode.Additive);
+                            GameManager.instance.Player_teleport();
+                            SceneManager.UnloadSceneAsync("CutScene_Battle");
+                            
+                        }
                         Destroy(gameObject);
                     }
                     break;

@@ -1,8 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
+
+
 public class PlayerData
 { 
     //name, level, money, etc..
@@ -16,11 +14,13 @@ public class PlayerData
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    
     public string id;
     public string pw;
     public int playerNumber;
     public PlayerData[] player = new PlayerData[3];
-    public GameObject player1;
+    private GameObject player1;
+    public Vector3 to_Position;
     private void Awake()
     {
         if (instance == null)
@@ -42,5 +42,12 @@ public class GameManager : MonoBehaviour
         }
         player1 = GameObject.Find("Player");
         player1.SetActive(false);
+    }
+
+    public void Player_teleport()
+    {
+        player1.SetActive(true);
+        player1.transform.position = to_Position;
+        
     }
 }

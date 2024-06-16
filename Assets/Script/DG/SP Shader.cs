@@ -1,12 +1,12 @@
 using System.Collections;
-using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SPShader : MonoBehaviour
 {
     public static SPShader instance;
     private Material cameraMaterial;
-    public float SPScale = 0.0f;
+    private float SPScale = 0f;
     
     public float appliedTimeToShader = 0.01f;
     public float appliedTimeToColor = 1.0f;
@@ -18,6 +18,12 @@ public class SPShader : MonoBehaviour
     }
     private void Start()
     {
+        
+        if (ApplyShader())
+        {
+            SPScale = 1f;
+        }
+        
         if (SPScale <= 1.0f)
         {
             _onShader = true;
@@ -29,15 +35,7 @@ public class SPShader : MonoBehaviour
         
         cameraMaterial = new Material(Shader.Find("Custom/SPscale"));
     }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            gameCameraEffect();
-            
-        }
-    }
+    
 
     private void OnRenderImage(RenderTexture src, RenderTexture dest)
     {
@@ -45,7 +43,7 @@ public class SPShader : MonoBehaviour
         Graphics.Blit(src,dest,cameraMaterial);
     }
 
-    public void gameCameraEffect()
+    public void ShaderChange()
     {
         if (_onShader == false)
         {
@@ -83,5 +81,17 @@ public class SPShader : MonoBehaviour
         }
         _onShader = true;
     }
-    
+
+    private bool ApplyShader()
+    {
+        for (int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            Scene scene = SceneManager.GetSceneAt(i);
+            if (scene.name == "CutScene_1")
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }

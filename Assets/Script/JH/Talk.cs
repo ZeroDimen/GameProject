@@ -1,12 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using Cinemachine;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Localization.Components;
+using UnityEngine.SceneManagement; 
 
 public class Talk : MonoBehaviour
 {
+    public static Talk instance;
+    
     public TypeEffect talk;
     public GameObject tem_TextMeshProObj;
     public GameObject talkBubble;
@@ -17,12 +17,15 @@ public class Talk : MonoBehaviour
     Camera mainCamera;
     public static int talkIndex;
     int cutSceneIndex;
-    bool flag;
+    public bool flag;
+    private bool end;
     private void Awake()
     {
+        instance = this;
         talkIndex = 0;
         cutSceneIndex = 1;
         flag = false;
+        end = false;
     }
     private void Start()
     {
@@ -35,16 +38,7 @@ public class Talk : MonoBehaviour
         if (GameObject.Find("colleague") != null)
             Colleague();
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            for (int i = 0; i < 4; i++)
-                colleague[i].gameObject.SetActive(false);
-            for (int i = 4; i < 6; i++)
-                colleague[i].gameObject.SetActive(true);
-            flag = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && !end)
         {
             if (!talkBubble.activeSelf && !flag)
             {
@@ -89,7 +83,7 @@ public class Talk : MonoBehaviour
                                 else if (talkIndex == 2 || talkIndex == 6 || talkIndex == 7 || talkIndex == 11 || talkIndex == 13 || talkIndex == 18)
                                     rectTransform.position = mainCamera.WorldToScreenPoint(colleague[5].transform.position + Vector3.up * 2);
                                 else if (talkIndex == 4 || talkIndex == 14 || talkIndex == 16 || talkIndex == 20)
-                                    rectTransform.position = mainCamera.WorldToScreenPoint(colleague[4].transform.position + Vector3.up * 2 + Vector3.right);
+                                    rectTransform.position = mainCamera.WorldToScreenPoint(colleague[4].transform.position + Vector3.up * 2 + Vector3.right * 0.6f);
                                 break;
                         }
 
@@ -97,10 +91,26 @@ public class Talk : MonoBehaviour
                     }
                     else
                     {
-                        talkBubble.SetActive(false);
-                        flag = true;
-                        talkIndex = 0;
-                        cutSceneIndex++;
+                        if (cutSceneIndex == 1)
+                        {
+                            Invoke("CamEffact",1f);
+                            talkBubble.SetActive(false);
+                            flag = true;
+                            talkIndex = 0;
+                            cutSceneIndex++;
+                        }
+                        else if (cutSceneIndex == 2)
+                        {
+                            end = true;
+                            FadeInOut_Image.instance.FadeInOut();
+                            talkBubble.SetActive(false);
+                            Invoke("tem",1.25f);
+                        }
+                        else
+                        {
+                            Debug.Log("CutScene1 Error");
+                        }
+                        
                     }
                 }
                 else
@@ -108,11 +118,22 @@ public class Talk : MonoBehaviour
             }
         }
     }
+
+    void tem()
+    {
+        SceneManager.LoadScene("CutScene_Battle",LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync("CutScene_1");
+    }
     void Colleague()
     {
         colleague = new Transform[6];
 
         for (int i = 0; i < 6; i++)
             colleague[i] = GameObject.Find("colleague").transform.GetChild(i);
+    }
+
+    private void CamEffact()
+    {
+        LayerFadeInOut.instance.FadeInOut_CamMove();
     }
 }

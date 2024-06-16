@@ -3,17 +3,22 @@ using UnityEngine;
 
 public class LayerFadeInOut : MonoBehaviour
 {
+    public static LayerFadeInOut instance;
+    
     public GameObject[] gameObjects_FadeIn; // GameObj Array
     public GameObject[] gameObjects_FadeOut; // GameObj Array
-
-    // public CinemachineBlendListCamera InOutCam;
+    
     public GameObject InOutCam;
     
     public float fadeDuration = 1.0f; // Time to change alpha value
 
     private void Awake()
     {
-        InOutCam.SetActive(false);
+        instance = this;
+        if (InOutCam != null)
+        {
+            InOutCam.SetActive(false);
+        }
     }
 
     private void Start()
@@ -30,20 +35,8 @@ public class LayerFadeInOut : MonoBehaviour
             }
         }
     }
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            StartCoroutine(FadeIn());
-            StartCoroutine(FadeOut());
-            InOutCam.SetActive(true);
-            AudioManager.instance.ChangeBgm(AudioManager.Bgm.CutScene_Now);
-            // AudioManager.instance.DelayBgm(1f,AudioManager.Bgm.CutScene_Now);
-            SPShader.instance.gameCameraEffect();
-        }
-    }
     
+
     private IEnumerator FadeIn()
     {
         float elapsedTime = 0.0f;
@@ -102,5 +95,27 @@ public class LayerFadeInOut : MonoBehaviour
             }
             yield return null;
         }
+    }
+
+    public void FadeInOut_CamMove()
+    {
+        FadeInOut_Image.instance.FadeInOut();
+        // InOutCam.SetActive(true);
+        Invoke("MovingCam",2.5f);
+        Invoke("ShaderTime",1.5f);
+    }
+
+    private void MovingCam()
+    {
+        // InOutCam.SetActive(false);
+        Talk.instance.flag = false;
+    }
+
+    private void ShaderTime()
+    {
+        SPShader.instance.ShaderChange();
+        AudioManager.instance.ChangeBgm(AudioManager.Bgm.CutScene_Now);
+        StartCoroutine(FadeIn());
+        StartCoroutine(FadeOut());
     }
 }
