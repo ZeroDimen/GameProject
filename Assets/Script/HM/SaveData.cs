@@ -1,12 +1,10 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
 
 public class SaveData : MonoBehaviour
 {
@@ -108,20 +106,25 @@ public class SaveData : MonoBehaviour
     {
         if (Location == "No Data")
         {
-            //SceneManager.UnloadSceneAsync("StartScene");
-            SceneManager.LoadScene("Village", LoadSceneMode.Additive);
-            Player.SetActive(true);
+            // SceneManager.LoadScene("CutScene_1", LoadSceneMode.Additive);
+            StartCoroutine(LoadSceneCoroutine());
+            SPShader.instance.ApplyShader(true);
+            Talk.instance.end = false;
+            FadeInOut_Image.instance.FadeInOut(0f, 2f,1f);
         }
         else if (Location != null)
         {
-            //SceneManager.UnloadSceneAsync("StartScene");
             SceneManager.LoadScene($"{Location}", LoadSceneMode.Additive);
             Player.transform.position = GameManager.instance.player[GameManager.instance.playerNumber].pos;
-            Player.SetActive(true);
         }
         else
         {
             Debug.Log("Scene_Manager!");
         }
+    }
+    
+    IEnumerator LoadSceneCoroutine()
+    {
+        yield return SceneManager.LoadSceneAsync("Scenes/CutScene_1",LoadSceneMode.Additive);
     }
 }

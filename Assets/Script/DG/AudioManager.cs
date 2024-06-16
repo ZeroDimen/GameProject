@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
@@ -31,6 +31,7 @@ public class AudioManager : MonoBehaviour
     {
         instance = this;
         Init();
+        SceneManager.LoadScene("UI", LoadSceneMode.Additive);
     }
     
     private void Init()
@@ -42,7 +43,7 @@ public class AudioManager : MonoBehaviour
         bgmPlayer.playOnAwake = true;
         bgmPlayer.loop = true;
         bgmPlayer.volume = bgmVolume;
-        bgmPlayer.clip = bgmClip[0];
+        bgmPlayer.clip = bgmClip[3];
         bgmPlayer.Play();
         
         // sfx Player init

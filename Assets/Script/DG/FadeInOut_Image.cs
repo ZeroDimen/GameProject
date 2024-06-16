@@ -8,9 +8,6 @@ public class FadeInOut_Image : MonoBehaviour
     public static FadeInOut_Image instance;
         
     public GameObject img;
-    public float fadeInDuration = 1.0f;
-    public float waitDuration = 1.0f;
-    public float fadeOutDuration = 1.0f;
     
     private Image FadeImage;
 
@@ -18,21 +15,17 @@ public class FadeInOut_Image : MonoBehaviour
     {
         instance = this;
     }
-
-    private void Start()
-    {
-    }
     
-    private IEnumerator FadeIn()
+    private IEnumerator FadeIn(float In, float Stay, float Out)
     {
         float elapsedTime = 0.0f;
         float currentAlpha = 1.0f;
 
-        while (elapsedTime < fadeInDuration)
+        while (elapsedTime < In)
         {
             elapsedTime += Time.deltaTime;
             
-            float t = elapsedTime / fadeInDuration;
+            float t = elapsedTime / In;
             t = Mathf.Clamp01(t);
             
             currentAlpha = 1 - Mathf.Lerp(1.0f, 0.0f, t);
@@ -46,20 +39,20 @@ public class FadeInOut_Image : MonoBehaviour
             yield return null;
         }
 
-        yield return new WaitForSeconds(waitDuration);
-        StartCoroutine(FadeOut());
+        yield return new WaitForSeconds(Stay);
+        StartCoroutine(FadeOut(In, Stay,Out));
     }
     
-    IEnumerator FadeOut()
+    IEnumerator FadeOut(float In, float Stay, float Out)
     {
         float elapsedTime = 0.0f;
         float currentAlpha = 1.0f;
 
-        while (elapsedTime < fadeOutDuration)
+        while (elapsedTime < Out)
         {
             elapsedTime += Time.deltaTime;
             
-            float t = elapsedTime / fadeInDuration;
+            float t = elapsedTime / Out;
             t = Mathf.Clamp01(t);
             
             currentAlpha = Mathf.Lerp(1.0f, 0.0f, t);
@@ -75,8 +68,8 @@ public class FadeInOut_Image : MonoBehaviour
         img.GetComponent<Image>().color = Color.clear;
     }
 
-    public void FadeInOut()
+    public void FadeInOut( float In = 1f, float Stay = 1f, float Out = 0.75f)
     {
-        StartCoroutine(FadeIn());
+        StartCoroutine(FadeIn(In,Stay,Out));
     }
 }

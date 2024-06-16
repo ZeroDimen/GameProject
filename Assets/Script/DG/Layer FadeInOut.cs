@@ -23,6 +23,7 @@ public class LayerFadeInOut : MonoBehaviour
 
     private void Start()
     {
+        AudioManager.instance.ChangeBgm(AudioManager.Bgm.CutScene_Old);
         foreach (GameObject obj in gameObjects_FadeIn)
         {
             obj.SetActive(true);

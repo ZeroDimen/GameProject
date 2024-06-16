@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
-using UnityEditor.Localization.Plugins.XLIFF.V12;
+
+using UnityEngine.Localization;
+//using UnityEditor.Localization.Plugins.XLIFF.V12;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
