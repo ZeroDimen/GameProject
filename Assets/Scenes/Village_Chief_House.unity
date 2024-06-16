@@ -1260,9 +1260,7 @@ MonoBehaviour:
   _scenesToUnload:
   - _sceneAsset: {fileID: 102900000, guid: 29597ff5280288e49a228ff25ea91f2b, type: 3}
     _sceneName: Village_Chief_House
-  from_SceneName: Village_Chief_House
-  to_SceneName: Village
-  to_Position: {x: 3.54, y: 13.91, z: 0}
+  to_Position: {x: 13.49, y: 13.46, z: 0}
 --- !u!1 &2042025098
 GameObject:
   m_ObjectHideFlags: 0
