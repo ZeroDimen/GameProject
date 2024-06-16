@@ -42,7 +42,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 24665645056
-    m_Localized: "\uCD0C\uC7A5\uB2D8\uC774 \uB291\uB300 \uBA87\uB9C8\uB9AC\uB77C
+    m_Localized: "\uCD0C\uC7A5\uB2D8\uC774 \uAC70\uBBF8 \uBA87\uB9C8\uB9AC\uB77C
       \uD588\uB358\uAC70 \uAC19\uC740\uB370"
     m_Metadata:
       m_Items: []
@@ -85,7 +85,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 416430415872
-    m_Localized: "\uC751? '\uC8FC\uC778\uACF5' \uC65C \uB300\uB2F5\uC774\u2026(\uB04A\uACE0)"
+    m_Localized: "\uC751? '\uC8FC\uC778\uACF5' \uC65C \uB300\uB2F5\uC774\u2026"
     m_Metadata:
       m_Items: []
   - m_Id: 417076338688
@@ -93,16 +93,16 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 417764204544
-    m_Localized: "\uBB50\uC57C? \uB291\uB300\uB77C\uBA74\uC11C? \uC800\uAC70 \uB291\uB300
+    m_Localized: "\uBB50\uC57C? \uAC70\uBBF8\uB77C\uBA74\uC11C? \uC800\uAC70 \uAC70\uBBF8
       \uB9DE\uC544?"
     m_Metadata:
       m_Items: []
   - m_Id: 418397544448
-    m_Localized: "\uB291\uB300\uB294 \uB9DE\uB294\uAC70 \uAC19\uC740\uB370\uC694\u2026?"
+    m_Localized: "\uAC70\uBBF8\uB294 \uB9DE\uB294\uAC70 \uAC19\uC740\uB370\uC694\u2026?"
     m_Metadata:
       m_Items: []
   - m_Id: 418938609664
-    m_Localized: "\uB291\uB300\uAC00 \uBB50 \uC800\uB807\uAC8C \uD749\uCE21\uD558\uAC8C
+    m_Localized: "\uAC70\uBBF8\uAC00 \uBB50 \uC800\uB807\uAC8C \uD749\uCE21\uD558\uAC8C
       \uC0DD\uACBC\uC5B4?!!"
     m_Metadata:
       m_Items: []
