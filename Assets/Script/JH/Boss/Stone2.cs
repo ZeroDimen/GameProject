@@ -13,7 +13,7 @@ public class Stone2 : MonoBehaviour
     {
         if (other.CompareTag("Weapon"))
             rigid.velocity = -rigid.velocity;
-        if (!other.CompareTag("Boss"))
+        if (other.CompareTag("Platform") || other.CompareTag("Boss"))
             Destroy(gameObject);
     }
 }

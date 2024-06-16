@@ -111,6 +111,8 @@ public class Boss : MonoBehaviour
                 }
             }
         }
+        if (transform.position.y < 168)
+            transform.position = new Vector3(transform.position.x, 168.6f, transform.position.z);
 
     }
     void CreatePoints(float radius)
@@ -298,27 +300,24 @@ public class Boss : MonoBehaviour
             switch (_curState)
             {
                 case State.Idle:
-                    if (Vector3.Distance(transform.position, playerPos.position) < 15)
-                    {
+                    nextAttackNum = Random.Range(0, 4);
+                    if (nextAttackNum == curAttackNum)
                         nextAttackNum = Random.Range(0, 4);
-                        if (nextAttackNum == curAttackNum)
-                            nextAttackNum = Random.Range(0, 4);
-                        curAttackNum = nextAttackNum;
-                        switch (curAttackNum)
-                        {
-                            case 0:
-                                _curState = State.Earthquake;
-                                break;
-                            case 1:
-                                _curState = State.Path;
-                                break;
-                            case 2:
-                                _curState = State.Dash;
-                                break;
-                            case 3:
-                                _curState = State.Throw;
-                                break;
-                        }
+                    curAttackNum = nextAttackNum;
+                    switch (curAttackNum)
+                    {
+                        case 0:
+                            _curState = State.Earthquake;
+                            break;
+                        case 1:
+                            _curState = State.Path;
+                            break;
+                        case 2:
+                            _curState = State.Dash;
+                            break;
+                        case 3:
+                            _curState = State.Throw;
+                            break;
                     }
                     break;
                 // if (Input.GetKeyDown(KeyCode.E))

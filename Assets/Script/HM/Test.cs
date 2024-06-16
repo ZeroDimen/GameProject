@@ -20,7 +20,7 @@ public class Test : MonoBehaviour
     private void Start()
     {
         //b1.SetEntry("UI_Continue");
-            
+
         b1.SetEntry("CutScene_1-2");
         b1.SetEntry("CutScene_1-3");
         b1.SetEntry("CutScene_1-4");
