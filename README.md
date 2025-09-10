@@ -14,9 +14,9 @@ Unity를 이용한 메트로배니아 게임 개발
 
 > |                    Name                    |  Position   |
 > | :----------------------------------------: | :---------: |
-> | [김동건](https://github.com/ZeroDimen) |  Front |
+> | [김동건](https://github.com/ZeroDimen) |  Back, Front |
 > | [김현민](https://github.com/khm6211)   |  Front |
-> | [신종현](https://github.com/libo-liti) |  Front |
+> | [신종현](https://github.com/libo-liti) |  Back, Front |
 
 ### 3. 역할 분담
 
